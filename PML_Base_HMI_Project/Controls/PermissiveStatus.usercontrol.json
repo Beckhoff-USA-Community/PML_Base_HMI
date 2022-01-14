@@ -1,0 +1,59 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-labels",
+      "displayName": "Labels",
+      "visible": true,
+      "type": "tchmi:project#/definitions/Array(0..7) OF String",
+      "category": "",
+      "description": "",
+      "defaultValue": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "defaultValueInternal": [
+        "Label 0",
+        "Label 1",
+        "Label 2",
+        "Label 3",
+        "Label 4",
+        "Label 5",
+        "Label 6",
+        "Label 7"
+      ],
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Labels",
+      "propertySetterName": "setLabels",
+      "propertyGetterName": "getLabels",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-unit_state",
+      "displayName": "Unit_State",
+      "visible": true,
+      "type": "tchmi:project#/definitions/Array(0..7) OF SINT",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Unit_State",
+      "propertySetterName": "setUnit_State",
+      "propertyGetterName": "getUnit_State",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "../../PackML/Packages/Beckhoff.TwinCAT.HMI.Framework.12.742.5/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

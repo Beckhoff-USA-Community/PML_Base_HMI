@@ -1,0 +1,85 @@
+﻿<div id="CameraView" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-left-unit="%" data-tchmi-top-unit="%" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value">
+
+<div id="ViewContainer" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+<div id="TestImg" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v07.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="ViewToggleButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "ViewToggleButton.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('CameraView','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '7%', left: '7%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%CameraView::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": null
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "ViewToggleButton.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('CameraView','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%CameraView::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '7%', left: '7%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+</div>

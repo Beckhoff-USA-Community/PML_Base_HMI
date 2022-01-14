@@ -1,0 +1,39 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-button_labels",
+      "displayName": "Button_Labels",
+      "visible": true,
+      "type": "tchmi:project#/definitions/Array(0..7) OF String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Button_Labels",
+      "propertySetterName": "setButton_Labels",
+      "propertyGetterName": "getButton_Labels",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-target_contents",
+      "displayName": "Target_Contents",
+      "visible": true,
+      "type": "tchmi:project#/definitions/Array(0..7) OF String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Target_Contents",
+      "propertySetterName": "setTarget_Contents",
+      "propertyGetterName": "getTarget_Contents",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "../../PackML/Packages/Beckhoff.TwinCAT.HMI.Framework.12.742.5/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

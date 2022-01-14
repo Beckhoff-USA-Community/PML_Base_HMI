@@ -1,0 +1,40 @@
+{
+    "USERS": {
+        "Allan Gibson": {
+            "ALGORITHM": 0,
+            "ENABLED": true,
+            "PASSWORD": "58d704c0adfb818f35df2712a701ca94bac512859c933e4396bd327c6dd00afa",
+            "SALT": "616N1iOW3UJ2f8HBd23tyylZ2+KmH+6ucgQErJt83W9/GLyvtXFsxBhymNyaFw3Zrve3UHytBfXM0dowoOhTAA=="
+        },
+        "Ben Schoolcraft": {
+            "ALGORITHM": 0,
+            "ENABLED": true,
+            "PASSWORD": "4e44553833fe26790bf7a5c078088648b483beed52db3dd9853349f38f2ce9a3",
+            "SALT": "gX5AzUQrSf+1bnpBlwANycscWLnJyY0zvT4xOzCKNBI8Ue2Q0GO1WYbp+dfTXnpDM9JYqZYaRzN/e2+8pWIlAA=="
+        },
+        "Gilbert Petersen": {
+            "ALGORITHM": 0,
+            "ENABLED": true,
+            "PASSWORD": "97630155378a09bbdc80a3ed6d07ab4f30331f38bc48b0780162c6bfa6467486",
+            "SALT": "KfnxBU9FtSFomXEf4TJIBQ5c0nECYm5c/Zme+DaLOab1LKkkGKKs+aXyLybaWSFBGkh+GipdtK/MSFaSASMOAA=="
+        },
+        "Jeff": {
+            "ALGORITHM": 0,
+            "ENABLED": true,
+            "PASSWORD": "aea2905d76c3f16ec2c51f5a356f6b74680ef59b96dc3e35431d739b3a11a270",
+            "SALT": "uuP3Zb3YwCvKukkvAbbMD9We8ikSm5gx8ryXk391iRSOnPy/wUBVg9PA3cLGHVGI3TY51/iUkh+aG0Yr5FlgAA=="
+        },
+        "__SystemAdministrator": {
+            "ALGORITHM": 0,
+            "ENABLED": false,
+            "PASSWORD": "",
+            "SALT": ""
+        },
+        "__SystemGuest": {
+            "ALGORITHM": 0,
+            "ENABLED": true,
+            "PASSWORD": "",
+            "SALT": ""
+        }
+    }
+}

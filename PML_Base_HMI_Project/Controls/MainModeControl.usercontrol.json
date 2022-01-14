@@ -1,0 +1,43 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-ecommand",
+      "displayName": "eCommand",
+      "visible": true,
+      "type": "tchmi:server#/definitions/PLC1.E_ModeCommand",
+      "category": "",
+      "description": "",
+      "defaultValue": "0",
+      "defaultValueInternal": "0",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "eCommand",
+      "propertySetterName": "setECommand",
+      "propertyGetterName": "getECommand",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-estate",
+      "displayName": "eState",
+      "visible": true,
+      "type": "tchmi:server#/definitions/PLC1.E_ModeState",
+      "category": "",
+      "description": "",
+      "defaultValue": "0",
+      "defaultValueInternal": "0",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "eState",
+      "propertySetterName": "setEState",
+      "propertyGetterName": "getEState",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "../../PackML/Packages/Beckhoff.TwinCAT.HMI.Framework.12.742.5/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

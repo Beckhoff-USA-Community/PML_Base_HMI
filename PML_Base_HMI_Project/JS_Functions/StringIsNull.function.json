@@ -1,0 +1,30 @@
+﻿{
+  "function": {
+    "name": "StringIsNull",
+    "namespace": "TcHmi.Functions.TcHmiProject1",
+    "displayName": "StringIsNull",
+    "description": "",
+    "waitMode": "Synchronous",
+    "category": "",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/BOOL"
+    },
+    "visible": true,
+    "injectContextObject": false,
+    "arguments": [
+      {
+        "name": "String",
+        "displayName": "String",
+        "type": "tchmi:general#/definitions/String",
+        "description": "String to be checked for null value",
+        "defaultValue": "\"\"",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      }
+    ]
+  },
+  "$schema": "../.hmiframework/Schema/FunctionDescription.Schema.json"
+}

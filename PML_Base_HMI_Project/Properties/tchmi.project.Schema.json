@@ -1,0 +1,199 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "Controls_NavBar": {
+      "properties": {},
+      "type": "object"
+    },
+    "Array(0..7) OF String": {
+      "items": {
+        "$ref": "tchmi:general#/definitions/String"
+      },
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8
+    },
+    "Array(0..7) OF SINT": {
+      "items": {
+        "$ref": "tchmi:general#/definitions/SINT"
+      },
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8
+    },
+    "ViewPos": {
+      "properties": {
+        "Left": {
+          "$ref": "tchmi:general#/definitions/INT"
+        },
+        "Top": {
+          "$ref": "tchmi:general#/definitions/INT"
+        },
+        "Height": {
+          "$ref": "tchmi:general#/definitions/INT"
+        },
+        "Width": {
+          "$ref": "tchmi:general#/definitions/INT"
+        },
+        "ZIndex": {
+          "$ref": "tchmi:general#/definitions/INT"
+        }
+      },
+      "type": "object",
+      "title": "Camera View Position",
+      "description": "Defines the Position, size, and Z Index of a Camera View Control"
+    },
+    "Symbol_Of_TcHmi.Controls.Beckhoff.TcHmiTrendLineChart.ChartStart": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiTrendLineChart.ChartStart"
+          }
+        }
+      ]
+    },
+    "Symbol_Of_STRING(80)": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:general#/definitions/STRING(80)"
+          }
+        }
+      ]
+    },
+    "Symbol_Of_TcHmi.Controls.Beckhoff.TcHmiTextblock": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiTextblock"
+          }
+        }
+      ]
+    },
+    "Symbol_Of_String": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:general#/definitions/String"
+          }
+        }
+      ]
+    },
+    "Controls_CameraView": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\CameraView.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Controls_CameraView"
+    },
+    "Controls_MainCycleControl": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\MainCycleControl.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Controls_MainCycleControl"
+    },
+    "Controls_MainModeControl": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\MainModeControl.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Controls_MainModeControl"
+    },
+    "Controls_Navigation_Frame": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\Navigation_Frame.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Controls_Navigation_Frame"
+    },
+    "Controls_PermissiveStatus": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\PermissiveStatus.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Controls_PermissiveStatus"
+    },
+    "Controls_PML_Commands": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\PML_Commands.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Controls_PML_Commands"
+    },
+    "Controls_ProcessData": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\ProcessData.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Controls_ProcessData"
+    },
+    "Controls_ProductionStatus_LinearGraph": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\ProductionStatus_LinearGraph.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Controls_ProductionStatus_LinearGraph"
+    },
+    "Controls_ProductionStatus_RadialGauge": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\ProductionStatus_RadialGauge.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Controls_ProductionStatus_RadialGauge"
+    },
+    "Controls_TrendLegend_ActivationButton": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\TrendLegend_ActivationButton.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Controls_TrendLegend_ActivationButton"
+    },
+    "Cone": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\Cone.usercontrol.json",
+      "id": "tchmi:project#/definitions/Cone",
+      "type": "object"
+    },
+    "UserControl1_0": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\UserControl1.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/UserControl1_0"
+    },
+    "PML_Flowchart": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\PML_Flowchart.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/PML_Flowchart"
+    }
+  }
+}

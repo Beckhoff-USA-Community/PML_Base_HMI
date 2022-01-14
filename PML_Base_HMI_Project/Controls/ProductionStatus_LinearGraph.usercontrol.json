@@ -1,0 +1,71 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-shifttarget",
+      "displayName": "ShiftTarget",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "ShiftTarget",
+      "propertySetterName": "setShiftTarget",
+      "propertyGetterName": "getShiftTarget",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-currenttarget",
+      "displayName": "CurrentTarget",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "CurrentTarget",
+      "propertySetterName": "setCurrentTarget",
+      "propertyGetterName": "getCurrentTarget",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-currentactual",
+      "displayName": "CurrentActual",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "CurrentActual",
+      "propertySetterName": "setCurrentActual",
+      "propertyGetterName": "getCurrentActual",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-marginpercent",
+      "displayName": "MarginPercent",
+      "visible": true,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "MarginPercent",
+      "propertySetterName": "setMarginPercent",
+      "propertyGetterName": "getMarginPercent",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.742.5/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

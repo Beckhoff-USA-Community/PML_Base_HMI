@@ -1,0 +1,10 @@
+﻿{
+  "controlTypeValues": {},
+  "controlClassValues": {
+    "animate-all-properties": {
+      "attributes": {},
+      "themedResources": {}
+    }
+  },
+  "$schema": "../../../PackML/Packages/Beckhoff.TwinCAT.HMI.Framework.12.742.5/runtimes/native1.12-tchmi/Schema/ThemeDescription.Schema.json"
+}

@@ -1,0 +1,42 @@
+﻿{
+  "function": {
+    "name": "SystemTimeToUTCString",
+    "namespace": "TcHmi.Functions.TcHmiProject1",
+    "displayName": "SystemTimeToUTCString",
+    "description": "",
+    "waitMode": "Synchronous",
+    "category": "",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "visible": true,
+    "injectContextObject": false,
+    "arguments": [
+      {
+        "name": "TimeString",
+        "displayName": "TimeString",
+        "type": "tchmi:general#/definitions/String",
+        "description": "System Time as obtained by FB",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      },
+      {
+        "name": "ResultString",
+        "displayName": "ResultString",
+        "type": "tchmi:project#/definitions/Symbol_Of_String",
+        "description": "",
+        "defaultValue": null,
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": true,
+        "allowControlAttributeBindingOptions": false
+      }
+    ]
+  },
+  "$schema": "../.hmiframework/Schema/FunctionDescription.Schema.json"
+}

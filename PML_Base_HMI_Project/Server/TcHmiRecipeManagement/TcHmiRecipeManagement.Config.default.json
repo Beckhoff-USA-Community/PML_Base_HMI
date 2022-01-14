@@ -1,0 +1,75 @@
+{
+    "recipeList": {
+        "BaseConfig": {
+            "recipeTypeName": "ShiftSimParameters",
+            "values": {
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": 100,
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": 1000
+            }
+        },
+        "FullShift": {
+            "recipeTypeName": "ShiftSimParameters",
+            "values": {
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": 100,
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": 1000
+            }
+        },
+        "LongShift": {
+            "recipeTypeName": "ShiftSimParameters",
+            "values": {
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": 1000,
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": 10000
+            }
+        },
+        "NewRecipe": {
+            "recipeTypeName": "ShiftSimParameters",
+            "values": {
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": 10,
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": 100
+            }
+        },
+        "ShortShift": {
+            "recipeTypeName": "ShiftSimParameters",
+            "values": {
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": 10,
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": 100
+            }
+        }
+    },
+    "recipeTypeList": {
+        "ShiftSimParameters": {
+            "members": {
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": {
+                    "comment": "The time in seconds after which the shift will end",
+                    "defaultValue": 100,
+                    "enabled": true,
+                    "group": "",
+                    "order": 1,
+                    "schema": {
+                        "maximum": 100000,
+                        "minimum": 1
+                    },
+                    "symbol": "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd",
+                    "unit": "Seconds"
+                },
+                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": {
+                    "comment": "The end-of-shift target for production",
+                    "defaultValue": 1000,
+                    "enabled": true,
+                    "group": "",
+                    "order": 0,
+                    "schema": {
+                        "maximum": 100000,
+                        "minimum": 1
+                    },
+                    "symbol": "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget",
+                    "unit": "Products"
+                }
+            },
+            "options": {
+                "enabled": "None"
+            },
+            "recipeTypeNames": []
+        }
+    }
+}

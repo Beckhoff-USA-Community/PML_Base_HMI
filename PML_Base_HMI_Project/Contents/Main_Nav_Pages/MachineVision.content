@@ -1,0 +1,1324 @@
+﻿<div id="MachineVision" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-left-unit="%" data-tchmi-top-unit="%">
+
+<div id="MainVision_ViewContainer_1" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="7" data-tchmi-left-unit="%" data-tchmi-top="7" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+<div id="TestVideo_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiVideo" data-tchmi-controls="False" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-mute="True"  data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-loop="True" data-tchmi-autoplay="True" data-tchmi-zindex="1">
+
+
+<script data-tchmi-target-attribute="data-tchmi-src-list" type="application/json">
+[
+  {
+    "source": "Imports/Videos/BottleFill.mp4",
+    "type": "video/mp4"
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+
+<div id="MainVision_ViewToggleButton_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-zindex="2">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_1.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_1','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '7%', left: '7%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_1::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_1.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_1','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_1::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '7%', left: '7%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+</div>
+
+<div id="MainVision_ViewContainer_2" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="29" data-tchmi-left-unit="%" data-tchmi-top="7" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v06.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_2.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_2','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '7%', left: '29%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_2::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_2.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_2','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_2::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '7%', left: '29%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_3" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="51" data-tchmi-left-unit="%" data-tchmi-top="7" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v05.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_3.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_3','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '7%', left: '51%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_3::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_3.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_3','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_3::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '7%', left: '51%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_4" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="73" data-tchmi-left-unit="%" data-tchmi-top="7" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v07.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_4.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_4','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '7%', left: '73%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_4::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_4.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_4','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_4::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '7%', left: '73%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_5" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="7" data-tchmi-left-unit="%" data-tchmi-top="29" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v04.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_5.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_5','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '29%', left: '7%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_5::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_5.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_5','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_5::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '29%', left: '7%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_6" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="29" data-tchmi-left-unit="%" data-tchmi-top="29" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_6" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v06.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_6" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_6.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_6','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '29%', left: '29%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_6::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_6.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_6','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_6::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '29%', left: '29%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_7" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="51" data-tchmi-left-unit="%" data-tchmi-top="29" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_7" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v02.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_7" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_7.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_7','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '29%', left: '51%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_7::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_7.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_7','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_7::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '29%', left: '51%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_8" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="73" data-tchmi-left-unit="%" data-tchmi-top="29" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_8" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v01.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_8" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_8.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_8','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '29%', left: '73%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_8::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_8.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_8','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_8::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '29%', left: '73%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_9" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="7" data-tchmi-left-unit="%" data-tchmi-top="51" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_9" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v05.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_9" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_9.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_9','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '51%', left: '7%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_9::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_9.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_9','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_9::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '51%', left: '7%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_10" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="29" data-tchmi-left-unit="%" data-tchmi-top="51" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_10" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v03.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_10" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_10.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_10','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '51%', left: '29%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_10::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_10.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_10','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_10::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '51%', left: '29%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_11" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="51" data-tchmi-left-unit="%" data-tchmi-top="51" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_11" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v01.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_11" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_11.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_11','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '51%', left: '51%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_11::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_11.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_11','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_11::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '51%', left: '51%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_12" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="73" data-tchmi-left-unit="%" data-tchmi-top="51" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_12" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v07.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_12" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_12.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_12','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '51%', left: '73%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_12::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_12.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_12','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_12::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '51%', left: '73%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_13" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="7" data-tchmi-left-unit="%" data-tchmi-top="73" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_13" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v01.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_13" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_13.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_13','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '73%', left: '7%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_13::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_13.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_13','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_13::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '73%', left: '7%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_14" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="29" data-tchmi-left-unit="%" data-tchmi-top="73" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_14" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v03.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_14" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_14.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_14','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '73%', left: '29%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_14::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_14.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_14','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_14::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '73%', left: '29%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_15" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="51" data-tchmi-left-unit="%" data-tchmi-top="73" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_15" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v05.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_15" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_15.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_15','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '73%', left: '51%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_15::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_15.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_15','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_15::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '73%', left: '51%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+<div id="MainVision_ViewContainer_16" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="20" data-tchmi-height-unit="%" data-tchmi-left="73" data-tchmi-left-unit="%" data-tchmi-top="73" data-tchmi-top-unit="%" data-tchmi-width="20" data-tchmi-width-unit="%">
+
+<div id="TestImg_16" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-src="Imports/Images/beckhoff-hmi-plain-no_bg-v02.png" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+</div>
+
+<div id="MainVision_ViewToggleButton_16" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Toggle Button" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True">
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "MainVision_ViewToggleButton_16.onStatePressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_16','');\n\nanimation.direction('normal');\n\nanimation.addKeyframe({ top: '73%', left: '73%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainVision_ViewContainer_16::Zindex%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/UDINT",
+          "value": 1
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainVision_ViewToggleButton_16.onStateReleased",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var animation = new TcHmi.Animation('MainVision_ViewContainer_16','');\n\nanimation.direction('reverse');\n\nanimation.registerEventHandler('animationend', (event) => TcHmi.Symbol.writeEx('%ctrl%MainVision_ViewContainer_16::ZIndex%/ctrl%', '0'));\n\nanimation.addKeyframe({ top: '73%', left: '73%', width: '20%', height: '20%' }, 0)\n    .addKeyframe({ top: '5%', left: '0%', width: '100%', height: '95%' }, 1);\n\nanimation.fillMode('both');\nanimation.duration(250);\nanimation.run();"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(224, 224, 224, 1)"
+}
+</script>
+</div>
+
+</div>

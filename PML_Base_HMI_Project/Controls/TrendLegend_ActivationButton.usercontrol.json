@@ -1,0 +1,99 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-data_displayname",
+      "displayName": "Data_DisplayName",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "defaultValue": "Products Produced By Shift",
+      "defaultValueInternal": "Products Produced By Shift",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Data_DisplayName",
+      "propertySetterName": "setData_DisplayName",
+      "propertyGetterName": "getData_DisplayName",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-data_tagname",
+      "displayName": "Data_TagName",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "defaultValue": "%s%PLC1.MAIN.fbHMI_TestCode.nShiftSimProgress%/s%",
+      "defaultValueInternal": "%s%PLC1.MAIN.fbHMI_TestCode.nShiftSimProgress%/s%",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Data_TagName",
+      "propertySetterName": "setData_TagName",
+      "propertyGetterName": "getData_TagName",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-data_yaxisname",
+      "displayName": "Data_YAxisName",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Data_YAxisName",
+      "propertySetterName": "setData_YAxisName",
+      "propertyGetterName": "getData_YAxisName",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-data_color",
+      "displayName": "Data_Color",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Color",
+      "category": "",
+      "description": "",
+      "defaultValue": {
+        "color": "rgba(255, 0, 0, 1)"
+      },
+      "defaultValueInternal": {
+        "color": "rgba(255, 0, 0, 1)"
+      },
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Data_Color",
+      "propertySetterName": "setData_Color",
+      "propertyGetterName": "getData_Color",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-trendchart",
+      "displayName": "TrendChart",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiTrendLineChart",
+      "category": "",
+      "description": "",
+      "defaultValue": "%ctrl%ProcessData_TrendChart%/ctrl%",
+      "defaultValueInternal": "%ctrl%ProcessData_TrendChart%/ctrl%",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "TrendChart",
+      "propertySetterName": "setTrendChart",
+      "propertyGetterName": "getTrendChart",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.742.5/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

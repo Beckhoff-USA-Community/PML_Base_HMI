@@ -1,0 +1,386 @@
+﻿{
+  "$schema": "./../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.752.0/runtimes/native1.12-tchmi/Schema/TchmiConfig.Schema.json",
+  "basePath": "./framework",
+  "scaleMode": "None",
+  "startupView": "Desktop.view",
+  "loginPage": "",
+  "tcHmiServer": {
+    "websocketIntervalTime": 500,
+    "websocketTimeout": 20000,
+    "websocketSystemTimeout": 60000,
+    "websocketSubscriptionMode": "Change"
+  },
+  "activeTheme": "Base",
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Base.theme",
+          "description": "",
+          "type": "ThemedValues"
+        },
+        {
+          "name": "Themes/Base/BaseStyle.css",
+          "description": "",
+          "type": "Stylesheet"
+        },
+        {
+          "name": "Themes/Base/CustomControlClasses.css",
+          "description": "",
+          "type": "Stylesheet"
+        }
+      ],
+      "replacesThemeForControls": []
+    }
+  },
+  "dependencyFiles": [
+    {
+      "name": "Fonts/Fonts.css",
+      "description": "",
+      "type": "Stylesheet"
+    },
+    {
+      "name": "JS_CodeBehind/JS_Events_CodeBehind.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_CodeBehind/PML_StateChange_Monitor.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_CodeBehind/HidePopoutsOnOutsideClick.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/FormatTimeString.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/SystemTimeToUTCString.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/RecipeFunctions/ConvertDatagridToRecipe.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/RecipeFunctions/ConvertRecipeToDatagrid.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/RecipeFunctions/DeleteRecipe.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/RecipeFunctions/DownloadRecipe.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/RecipeFunctions/ListRecipesAsReferenceArray.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/RecipeFunctions/UpdateDatagridFromTarget.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/RecipeFunctions/UploadRecipe.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/StringIsNull.js",
+      "description": "",
+      "type": "JavaScript"
+    }
+  ],
+  "userControls": [
+    {
+      "url": "Controls/CameraView.usercontrol"
+    },
+    {
+      "url": "Controls/MainCycleControl.usercontrol"
+    },
+    {
+      "url": "Controls/MainModeControl.usercontrol"
+    },
+    {
+      "url": "Controls/Navigation_Frame.usercontrol"
+    },
+    {
+      "url": "Controls/PermissiveStatus.usercontrol"
+    },
+    {
+      "url": "Controls/PML_Commands.usercontrol"
+    },
+    {
+      "url": "Controls/PML_Flowchart.usercontrol"
+    },
+    {
+      "url": "Controls/ProcessData.usercontrol"
+    },
+    {
+      "url": "Controls/ProductionStatus_LinearGraph.usercontrol"
+    },
+    {
+      "url": "Controls/ProductionStatus_RadialGauge.usercontrol"
+    },
+    {
+      "url": "Controls/TrendLegend_ActivationButton.usercontrol"
+    }
+  ],
+  "content": [
+    {
+      "url": "Contents/Main_Interfaces/CycleControl_PopoutContent.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Main_Interfaces/MainMenu_PopoutContent.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Main_Interfaces/ProductionStatus_Content.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Main_Interfaces/SettingsMenu_PopoutContent.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Main_Interfaces/UserMenu_PopoutContent.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Main_Nav_Pages/Alarming.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Main_Nav_Pages/Application.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Main_Nav_Pages/Diagnostics.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Main_Nav_Pages/EnergyManagement.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Main_Nav_Pages/MachineVision.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Main_Nav_Pages/ProcessData.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Main_Nav_Pages/RecipeManagement.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Contents/Utilities/Keyboard.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    }
+  ],
+  "views": [
+    {
+      "url": "Desktop.view",
+      "preload": false,
+      "keepAlive": false,
+      "preloadBindings": false
+    }
+  ],
+  "userFunctions": [
+    {
+      "url": "JS_Functions/FormatTimeString.js"
+    },
+    {
+      "url": "JS_Functions/RecipeFunctions/ConvertDatagridToRecipe.js"
+    },
+    {
+      "url": "JS_Functions/RecipeFunctions/ConvertRecipeToDatagrid.js"
+    },
+    {
+      "url": "JS_Functions/RecipeFunctions/DeleteRecipe.js"
+    },
+    {
+      "url": "JS_Functions/RecipeFunctions/DownloadRecipe.js"
+    },
+    {
+      "url": "JS_Functions/RecipeFunctions/ListRecipesAsReferenceArray.js"
+    },
+    {
+      "url": "JS_Functions/RecipeFunctions/UpdateDatagridFromTarget.js"
+    },
+    {
+      "url": "JS_Functions/RecipeFunctions/UploadRecipe.js"
+    },
+    {
+      "url": "JS_Functions/StringIsNull.js"
+    },
+    {
+      "url": "JS_Functions/SystemTimeToUTCString.js"
+    }
+  ],
+  "symbols": {
+    "internal": {
+      "CurrentUserName": {
+        "value": "Operator",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "Keyboard_isActive": {
+        "value": false,
+        "type": "tchmi:general#/definitions/Boolean",
+        "persist": false,
+        "readonly": false
+      },
+      "Main_Nav_Button_Pressed": {
+        "value": "Home Page",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "lineDesc": {
+        "value": [],
+        "type": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiTrendLineChart.ChartLineGraphDescriptionDefinitionList",
+        "persist": false,
+        "readonly": false
+      },
+      "SelectedFeeder": {
+        "value": "FlexFeeder",
+        "type": "tchmi:general#/definitions/String",
+        "persist": true,
+        "readonly": false
+      },
+      "Overview_Tree_Depth": {
+        "value": "0",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "Overview_Tree_Lvl_1": {
+        "value": "Backbone",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "Overview_Tree_Lvl_2": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "FlexFeeder_Backbone_Overview_ContainerWidth": {
+        "value": 800,
+        "type": "tchmi:general#/definitions/INT16",
+        "persist": false,
+        "readonly": false
+      },
+      "FlexFeeder_Backbone_Overview_ContainerHeight": {
+        "value": 600,
+        "type": "tchmi:general#/definitions/INT16",
+        "persist": false,
+        "readonly": false
+      },
+      "AlarmConfiguration_CheckboxChanged": {
+        "value": false,
+        "type": "tchmi:general#/definitions/Boolean",
+        "persist": true,
+        "readonly": false
+      }
+    }
+  },
+  "trigger": [],
+  "actionTemplates": [],
+  "languages": {
+    "de-DE": "Localization/de-DE.localization",
+    "en-US": "Localization/en-US.localization",
+    "es-ES": "Localization/Language1.localization"
+  },
+  "languageFallback": "",
+  "disableLoadingOptimization": false,
+  "creatorSettings": {
+    "viewport": {
+      "defaultWidth": 800,
+      "defaultHeight": 600
+    }
+  },
+  "binding": {
+    "symbolError": "Ignore"
+  },
+  "packages": [
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Controls",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Controls"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Framework",
+      "basePath": "/framework"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Functions",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Functions"
+    }
+  ],
+  "keyboardLayouts": [
+    {
+      "url": "KeyboardLayouts/German - compact.keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/US - compact.keyboard.json"
+    }
+  ]
+}
