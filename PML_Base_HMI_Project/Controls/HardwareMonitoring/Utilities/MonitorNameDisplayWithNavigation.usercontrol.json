@@ -1,0 +1,23 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-name",
+      "displayName": "Name",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Name",
+      "propertySetterName": "setName",
+      "propertyGetterName": "getName",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "./../../../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.752.0/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

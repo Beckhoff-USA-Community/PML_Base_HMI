@@ -1,0 +1,163 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-label",
+      "displayName": "Label",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Label",
+      "propertySetterName": "setLabel",
+      "propertyGetterName": "getLabel",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-enable",
+      "displayName": "Enable",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "defaultValue": false,
+      "defaultValueInternal": true,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Enable",
+      "propertySetterName": "setEnable",
+      "propertyGetterName": "getEnable",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-indicatorcolor",
+      "displayName": "IndicatorColor",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Color",
+      "category": "",
+      "description": "",
+      "defaultValue": {
+        "angle": 0.0,
+        "stopPoints": [
+          {
+            "color": "rgba(50, 255, 0, 0.7843137)",
+            "stop": "0%"
+          },
+          {
+            "color": "rgba(0, 175, 0, 1)",
+            "stop": "100%"
+          }
+        ]
+      },
+      "defaultValueInternal": {
+        "angle": 0.0,
+        "stopPoints": [
+          {
+            "color": "rgba(50, 255, 0, 0.7843137)",
+            "stop": "0%"
+          },
+          {
+            "color": "rgba(0, 175, 0, 1)",
+            "stop": "100%"
+          }
+        ]
+      },
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "IndicatorColor",
+      "propertySetterName": "setIndicatorColor",
+      "propertyGetterName": "getIndicatorColor",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-commandpulse",
+      "displayName": "CommandPulse",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "CommandPulse",
+      "propertySetterName": "setCommandPulse",
+      "propertyGetterName": "getCommandPulse",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-setvaluetrue",
+      "displayName": "SetValueTrue",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "SetValueTrue",
+      "propertySetterName": "setSetValueTrue",
+      "propertyGetterName": "getSetValueTrue",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-setvaluefalse",
+      "displayName": "SetValueFalse",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "SetValueFalse",
+      "propertySetterName": "setSetValueFalse",
+      "propertyGetterName": "getSetValueFalse",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-status",
+      "displayName": "Status",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Status",
+      "propertySetterName": "setStatus",
+      "propertyGetterName": "getStatus",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-confirmation",
+      "displayName": "Confirmation",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Confirmation",
+      "propertySetterName": "setConfirmation",
+      "propertyGetterName": "getConfirmation",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "./../../../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.752.0/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

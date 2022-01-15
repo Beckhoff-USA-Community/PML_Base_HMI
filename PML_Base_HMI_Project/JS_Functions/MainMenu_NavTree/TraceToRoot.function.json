@@ -1,0 +1,57 @@
+﻿{
+  "function": {
+    "name": "TraceToRoot",
+    "namespace": "TcHmi.Functions.TcHmiProject1",
+    "displayName": "TraceToRoot",
+    "description": "",
+    "waitMode": null,
+    "category": "",
+    "returnValue": {
+      "type": "tchmi:project#/definitions/Array(0..15) OF String"
+    },
+    "visible": true,
+    "injectContextObject": false,
+    "arguments": [
+      {
+        "name": "TreeDef",
+        "displayName": "TreeDef",
+        "type": "tchmi:server#/definitions/PLC_PML.REFERENCE TO ARRAY (0..63) OF ST_Tree_IndexBased_Node",
+        "description": "This is an important Parameter which does... This text is used in a tooltip.",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      },
+      {
+        "name": "NodeName",
+        "displayName": "NodeName",
+        "type": "tchmi:general#/definitions/String",
+        "description": "",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      }
+    ]
+  },
+  "$schema": "./../../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.752.0/runtimes/native1.12-tchmi/Schema/FunctionDescription.Schema.json",
+  "apiVersion": 1,
+  "version": {
+    "full": "0.0.0.0",
+    "major": 0,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "dependencyFiles": [
+    {
+      "name": "TraceToRoot.js",
+      "type": "JavaScript",
+      "description": ""
+    }
+  ]
+}

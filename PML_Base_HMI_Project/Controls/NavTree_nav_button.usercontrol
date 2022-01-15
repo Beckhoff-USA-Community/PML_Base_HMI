@@ -1,0 +1,285 @@
+﻿<div id="NavTree_nav_button" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="400" data-tchmi-creator-viewport-height="120" data-tchmi-height-mode="Content">
+
+
+
+<div id="NavButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%pp%ChildName%/pp%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-opacity="1" data-tchmi-text-font-size="15" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-icon="Imports/Images/diagram-3.svg" data-tchmi-icon-horizontal-alignment="Left" data-tchmi-icon-height-unit="%" data-tchmi-icon-height="40" data-tchmi-background-image="Imports/Images/arrow-bar-right.svg" data-tchmi-background-image-horizontal-alignment="Left" data-tchmi-background-image-height-unit="%" data-tchmi-background-image-height="40" data-tchmi-is-enabled="true">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "navtree-nav-button"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%pp%ChildName%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "FunctionExpression",
+                  "functionExpression": "TcHmi.Functions.TcHmiProject1.StringIsNull(%pp%ChildName%/pp%)"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "true"
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavButton::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavButton::Height%/ctrl%",
+                "value": {
+                  "objectType": "FunctionExpression",
+                  "functionExpression": "0"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavButton::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavButton::Height%/ctrl%",
+                "value": {
+                  "objectType": "FunctionExpression",
+                  "functionExpression": "65"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%TargetChildren%/pp%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "TcHmi.Functions.TcHmiProject1.GetChildrenByName(%pp%TreeDef%/pp%, %pp%ChildName%/pp%)"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "FunctionExpression",
+                  "functionExpression": "TcHmi.Functions.TcHmiProject1.GetChildrenCount(%pp%TargetChildren%/pp%)"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "0"
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavButton::Icon%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Imports/Images/x-square.svg"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavButton::BackgroundImage%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": ""
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavButton::IsEnabled%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Boolean",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavButton::Icon%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Imports/Images/diagram-3.svg"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavButton::BackgroundImage%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Imports/Images/arrow-bar-right.svg"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavButton::IsEnabled%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Boolean",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "NavButton.onPressed",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.TcHmiProject1.GenerateNavTreeLevel",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_TreeNode",
+            "symbolExpression": "%pp%TreeDef%/pp%"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:general#/definitions/String",
+            "symbolExpression": "%pp%ChildName%/pp%"
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.TcHmiProject1.PushParents",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_TreeNode",
+            "symbolExpression": "%pp%TreeDef%/pp%"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:general#/definitions/String",
+            "symbolExpression": "%pp%ChildName%/pp%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-icon-padding" type="application/json">
+{
+  "left": 5,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-image-padding" type="application/json">
+{
+  "left": 15,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "%",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
+{
+  "left": 25,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "%",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+
+
+
+
+</div>

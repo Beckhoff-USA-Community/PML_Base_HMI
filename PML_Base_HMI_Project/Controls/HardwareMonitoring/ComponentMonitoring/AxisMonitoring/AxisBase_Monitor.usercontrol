@@ -1,0 +1,313 @@
+﻿<div id="AxisBase_Monitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-width-mode="Value" data-tchmi-height-mode="Content" data-tchmi-zindex="2" data-tchmi-zindex="2" data-tchmi-height="100" data-tchmi-height-unit="%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties",
+  "monitor-background-dark"
+]
+</script>
+<div id="AxisBaseMonitor_PopoutContainer" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-top="0" data-tchmi-height-mode="Value" data-tchmi-height="%f%%ctrl%AxisBaseMonitor_StaticContainer::RenderedHeight%/ctrl%+%ctrl%AxisBaseMonitor_ExpandButton::RenderedHeight%/ctrl%%/f%" data-tchmi-zindex="1">
+<div id="AxisBaseMonitor_ExpandButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-word-wrap="true" data-tchmi-is-enabled="true" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-zindex="6" data-tchmi-bottom="0" data-tchmi-bottom-unit="%" data-tchmi-icon="Imports/Images/arrow-bar-down-white.svg" data-tchmi-icon-height-unit="%" data-tchmi-icon-height="80" data-tchmi-height="35">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties",
+  "hardware-monitor-expand-button"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "AxisBaseMonitor_ExpandButton.onStatePressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%AxisBaseMonitor_PopoutContainer::HeightMode%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+          "value": "Content"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%AxisBaseMonitor_PopoutContainer::Top%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%AxisBaseMonitor_StaticContainer::RenderedHeight%/ctrl%+1"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%AxisBaseMonitor_ExpandButton::Icon%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Path",
+          "value": "Imports/Images/arrow-bar-up-white.svg"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "AxisBaseMonitor_ExpandButton.onStateReleased",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%AxisBaseMonitor_PopoutContainer::Top%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "0"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%AxisBaseMonitor_PopoutContainer::HeightMode%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+          "value": "Value"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%AxisBaseMonitor_PopoutContainer::Height%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%AxisBaseMonitor_StaticContainer::RenderedHeight%/ctrl%+%ctrl%AxisBaseMonitor_ExpandButton::RenderedHeight%/ctrl%"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%AxisBaseMonitor_ExpandButton::Icon%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Path",
+          "value": "Imports/Images/arrow-bar-down-white.svg"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="AxisBaseMonitor_PopoutGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-cell-wrap="true" data-tchmi-bottom="%ctrl%AxisBaseMonitor_ExpandButton::RenderedHeight%/ctrl%">
+<script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 50.0,
+    "heightUnit": "px",
+    "heightMode": "Value",
+    "maxHeight": 100.0,
+    "maxHeightUnit": "%",
+    "minHeight": 50.0,
+    "minHeightUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+<div id="AxisBaseTargetVelocity_NumericInput" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/NumericInputWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-currentsetpoint="%pp%Axis::fTargetVelocity%/pp%" data-tchmi-commandpulse="%pp%Axis::bIncomingHMIRequest%/pp%" data-tchmi-setvalue="%pp%Axis::bSetTargetVelocityValue%/pp%" data-tchmi-label="Target Velocity:" data-tchmi-enable="%pp%Axis::bHMIControlAvailable%/pp%" data-tchmi-commandpulse2="%pp%Axis::bSetTargetVelocityRequest%/pp%" data-tchmi-decimalplaces="2" data-tchmi-grid-column-index="3">
+</div>
+<div id="AxisBaseInGear_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-label="In Gear:" data-tchmi-status="%pp%Axis::bInGear%/pp%" data-tchmi-grid-column-index="2" data-tchmi-enable="false">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+<div id="AxisBasePosition_StringDisplay" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/StringDisplay.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-string1="%f%&quot;Position: &quot;+%pp%Axis::fPosition%/pp%%/f%" data-tchmi-selector="true">
+</div>
+<div id="AxisBaseVelocity_StringDisplay" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/StringDisplay.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="1" data-tchmi-string1="%f%&quot;Velocity: &quot;+%pp%Axis::fCurrentVelocity%/pp%%/f%" data-tchmi-selector="true">
+</div>
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+<div id="AxisBaseMonitor_StaticContainer" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="200" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-zindex="10">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "monitor-background-dark"
+]
+</script>
+<div id="AxisBaseMonitor_StaticGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="%ctrl%AxisBaseMonitor_NameDisplay::RenderedHeight%/ctrl%" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-cell-wrap="true" data-tchmi-height-mode="Content">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 1.0,
+    "heightUnit": "factor",
+    "heightMode": "Value",
+    "maxHeight": 100.0,
+    "maxHeightUnit": "%",
+    "minHeight": 50.0,
+    "minHeightUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+<div id="AxisBaseDriveEnabled_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-enable="%pp%Axis::bHMIControlAvailable%/pp%" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-label="Drive Enabled:" data-tchmi-commandpulse="%pp%Axis::bIncomingHMIRequest%/pp%" data-tchmi-setvaluetrue="%pp%Axis::bDriveDisableHMIRequest%/pp%" data-tchmi-setvaluefalse="%pp%Axis::bDriveEnableHMIRequest%/pp%" data-tchmi-status="%pp%Axis::bDriveEnabled%/pp%" data-tchmi-confirmation="%pp%Axis::bHMICommandConfirmation%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+<div id="AxisBaseInPosition_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-label="In Position:" data-tchmi-status="%pp%Axis::bInPosition%/pp%" data-tchmi-grid-column-index="1" data-tchmi-enable="false">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+</div>
+<div id="AxisBaseMonitor_NameDisplay" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/MonitorNameDisplayWithNavigation.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-name="%pp%Component::sName%/pp%">
+</div>
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%pp%Axis::bHMICommandConfirmation%/pp%",
+    "actions": []
+  },
+  {
+    "event": "%pp%Component::bHMICommandConfirmation%/pp%",
+    "actions": []
+  }
+]
+</script>
+</div>

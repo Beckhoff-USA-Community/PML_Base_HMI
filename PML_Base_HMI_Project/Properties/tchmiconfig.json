@@ -5,7 +5,7 @@
   "startupView": "Desktop.view",
   "loginPage": "",
   "tcHmiServer": {
-    "websocketIntervalTime": 500,
+    "websocketIntervalTime": 250,
     "websocketTimeout": 20000,
     "websocketSystemTimeout": 60000,
     "websocketSubscriptionMode": "Change"
@@ -103,11 +103,144 @@
       "name": "JS_Functions/StringIsNull.js",
       "description": "",
       "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/CollapseLevelsOnOutsideClick.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/CollapseAllDescendants.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/CollapseLevel.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/DragParents.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/GenerateNavTreeLevel.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/GenerateVerticalText.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/GetAllExpandedLevels.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/GetChildrenByName.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/GetChildrenCount.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/GetDepthByName.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/GetParentByName.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/PushParents.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/RemoveSpacesFromString.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/FitTextToSpace.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS_Functions/MainMenu_NavTree/TraceToRoot.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "WebTools/PushMenu/js/classie.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "WebTools/PushMenu/js/mlpushmenu.js",
+      "description": "",
+      "type": "JavaScript"
     }
   ],
   "userControls": [
     {
       "url": "Controls/CameraView.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/ComponentMonitoring/AxisMonitoring/AxisBase_Monitor.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/ComponentMonitoring/ComponentBase_Monitor.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/ComponentMonitoring/CylinderMonitoring/CylinderBase_Monitor.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/ComponentMonitoring/SensorMonitoring/SensorBase_Monitor.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/ExpandableMonitorTemplate.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/ModuleMonitoring/PMLModuleBase_Monitor.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/Utilities/BooleanCommandButton.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/Utilities/BooleanIndicatorWithLabel.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/Utilities/MonitorNameDisplayWithNavigation.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/Utilities/NumericInputWithLabel.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/Utilities/PMLModeDisplay.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/Utilities/PMLStateDisplay.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/Utilities/SensorDebounceInputWithLabel.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/Utilities/StringDisplay.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/Utilities/TimeInputWithLabel.usercontrol"
     },
     {
       "url": "Controls/MainCycleControl.usercontrol"
@@ -117,6 +250,15 @@
     },
     {
       "url": "Controls/Navigation_Frame.usercontrol"
+    },
+    {
+      "url": "Controls/NavTree_goto_button.usercontrol"
+    },
+    {
+      "url": "Controls/NavTree_Level.usercontrol"
+    },
+    {
+      "url": "Controls/NavTree_nav_button.usercontrol"
     },
     {
       "url": "Controls/PermissiveStatus.usercontrol"
@@ -143,13 +285,6 @@
   "content": [
     {
       "url": "Contents/Main_Interfaces/CycleControl_PopoutContent.content",
-      "preload": false,
-      "keepAlive": false,
-      "loadSync": false,
-      "preloadBindings": false
-    },
-    {
-      "url": "Contents/Main_Interfaces/MainMenu_PopoutContent.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,
@@ -226,6 +361,13 @@
       "preloadBindings": false
     },
     {
+      "url": "Contents/Main_Nav_Pages/Simulation.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
       "url": "Contents/Utilities/Keyboard.content",
       "preload": false,
       "keepAlive": false,
@@ -243,7 +385,46 @@
   ],
   "userFunctions": [
     {
+      "url": "JS_Functions/FitTextToSpace.js"
+    },
+    {
       "url": "JS_Functions/FormatTimeString.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/CollapseAllDescendants.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/CollapseLevel.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/DragParents.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/GenerateNavTreeLevel.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/GenerateVerticalText.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/GetAllExpandedLevels.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/GetChildrenByName.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/GetChildrenCount.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/GetDepthByName.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/GetParentByName.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/PushParents.js"
+    },
+    {
+      "url": "JS_Functions/MainMenu_NavTree/TraceToRoot.js"
     },
     {
       "url": "JS_Functions/RecipeFunctions/ConvertDatagridToRecipe.js"
@@ -267,6 +448,9 @@
       "url": "JS_Functions/RecipeFunctions/UploadRecipe.js"
     },
     {
+      "url": "JS_Functions/RemoveSpacesFromString.js"
+    },
+    {
       "url": "JS_Functions/StringIsNull.js"
     },
     {
@@ -278,12 +462,6 @@
       "CurrentUserName": {
         "value": "Operator",
         "type": "tchmi:general#/definitions/String",
-        "persist": false,
-        "readonly": false
-      },
-      "Keyboard_isActive": {
-        "value": false,
-        "type": "tchmi:general#/definitions/Boolean",
         "persist": false,
         "readonly": false
       },
@@ -305,24 +483,6 @@
         "persist": true,
         "readonly": false
       },
-      "Overview_Tree_Depth": {
-        "value": "0",
-        "type": "tchmi:general#/definitions/String",
-        "persist": false,
-        "readonly": false
-      },
-      "Overview_Tree_Lvl_1": {
-        "value": "Backbone",
-        "type": "tchmi:general#/definitions/String",
-        "persist": false,
-        "readonly": false
-      },
-      "Overview_Tree_Lvl_2": {
-        "value": "",
-        "type": "tchmi:general#/definitions/String",
-        "persist": false,
-        "readonly": false
-      },
       "FlexFeeder_Backbone_Overview_ContainerWidth": {
         "value": 800,
         "type": "tchmi:general#/definitions/INT16",
@@ -339,6 +499,59 @@
         "value": false,
         "type": "tchmi:general#/definitions/Boolean",
         "persist": true,
+        "readonly": false
+      },
+      "LastKeydown": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "LastActiveInput": {
+        "value": "",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "MaxTreeLevelHeight": {
+        "value": 0.0,
+        "type": "tchmi:general#/definitions/Number",
+        "persist": false,
+        "readonly": false
+      },
+      "MaxChildCount": {
+        "value": 0.0,
+        "type": "tchmi:general#/definitions/Number",
+        "persist": false,
+        "readonly": false
+      },
+      "NavigationTraceback_Names": {
+        "value": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "type": "tchmi:project#/definitions/Array(0..15) OF String",
+        "persist": false,
+        "readonly": false
+      },
+      "NavTreeDepth": {
+        "value": 0.0,
+        "type": "tchmi:general#/definitions/Number",
+        "persist": false,
         "readonly": false
       }
     }
@@ -378,6 +591,9 @@
   "keyboardLayouts": [
     {
       "url": "KeyboardLayouts/German - compact.keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/NumPadOnly.keyboard.json"
     },
     {
       "url": "KeyboardLayouts/US - compact.keyboard.json"

@@ -1,3 +1,168 @@
 ﻿.tchmi-class-animate-all-properties {
     transition-duration: 0.33s;
 }
+
+.tchmi-class-navtree-nav-button.tchmi-control-disabled.TcHmi_Controls_System_TcHmiControl-disabled::after {
+    background-color: rgba(0, 0, 0, 0);
+    /*gets rid of gray-out overlay on disabled button*/
+}
+
+.tchmi-class-boolean-indicator.tchmi-control-disabled.TcHmi_Controls_System_TcHmiControl-disabled::after {
+    background-color: rgba(0, 0, 0, 0);
+    /*gets rid of gray-out overlay on disabled control*/
+}
+
+.tchmi-class-boolean-indicator-label.tchmi-control-disabled.TcHmi_Controls_System_TcHmiControl-disabled::after {
+    background-color: rgba(0, 0, 0, 0);
+    /*gets rid of gray-out overlay on disabled control*/
+}
+
+.tchmi-class-sensor-debounce-input.tchmi-control-disabled.TcHmi_Controls_System_TcHmiControl-disabled::after {
+    background-color: rgba(0, 0, 0, 0);
+    /*gets rid of gray-out overlay on disabled control*/
+}
+
+.tchmi-class-sensor-debounce-input-label.tchmi-control-disabled.TcHmi_Controls_System_TcHmiControl-disabled::after {
+    background-color: rgba(0, 0, 0, 0);
+    /*gets rid of gray-out overlay on disabled control*/
+}
+
+.tchmi-class-navtree-sidebar {
+    line-height: 17px;
+}
+
+.tchmi-class-navtree-goto-button div:hover {
+    box-shadow: 0 0 6px 4px rgba(200, 200, 200,0.3) inset;
+}
+
+.tchmi-class-navtree-nav-button div:hover {
+    box-shadow: 0 0 6px 4px rgba(200, 200, 200,0.3) inset;
+}
+
+.tchmi-class-navtree-sidebar div:hover {
+    box-shadow: 0 0 6px 4px rgba(200, 200, 200,0.3) inset;
+}
+
+div.tchmi-class-hardware-monitor-name-display * {
+    text-align: center;
+    align-items: center;
+    font-size: 1.25em;
+}
+
+.tchmi-class-boolean-indicator-label * {
+    text-align: right;
+    padding-right: 5px;
+    align-items: center;
+}
+
+.tchmi-class-boolean-command-button.tchmi-control-disabled.TcHmi_Controls_System_TcHmiControl-disabled::after {
+    background-color: rgba(224, 224, 224, .2);
+    /*gets rid of gray-out overlay on disabled button*/
+}
+
+.tchmi-class-string-indicator * {
+    text-align: center;
+    align-items: center;
+}
+
+.tchmi-class-pml-display * {
+    text-align: center;
+    align-items: center;
+}
+
+.tchmi-class-time-input-label * {
+    text-align: center;
+    align-items: center;
+}
+
+.tchmi-class-time-input-display * {
+    text-align: center;
+    align-items: center;
+}
+
+.tchmi-class-time-input {
+    box-shadow: 0 0 6px 4px rgba(0, 0, 0,0.3);
+    border-radius: 8px 8px 8px 8px;
+}
+
+.tchmi-class-sensor-debounce-input-label * {
+    text-align: center;
+    align-items: center;
+}
+
+.tchmi-class-time-input .TcHmi_Controls_Beckhoff_TcHmiTimespanInput-template.tchmi-box.left {
+    display: flex;
+}
+
+.tchmi-class-time-input .TcHmi_Controls_Beckhoff_TcHmiTimespanInput-template-input.tchmi-box {
+    visibility: hidden;
+    width: 0px;
+    padding: 0 0 0 0;
+}
+
+.tchmi-class-time-input .TcHmi_Controls_Beckhoff_TcHmiTimespanInput-template-button.tchmi-box {
+    box-shadow: 0 0 6px 4px rgba(0, 0, 0,0.3) inset;
+    background: none;
+    background-image: url('../../Imports/Images/pencil-fill.svg'), url('../../Imports/Images/clock.svg'), url('../../Imports/Images/square.svg');
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: 73% 30%, 35% 60%, center;
+    background-size: 36%, 50%, 80%;
+}
+
+.tchmi-class-sensor-debounce-input .TcHmi_Controls_Beckhoff_TcHmiCombobox-template-button.tchmi-box {
+    visibility: hidden;
+    width: 0px;
+    padding: 0 0 0 0;
+}
+
+.tchmi-class-sensor-debounce-input .tchmi-combobox-template-select {
+    text-align: center;
+    align-items: center;
+}
+.tchmi-class-sensor-debounce-input-button {
+    box-shadow: 0 0 6px 4px rgba(0, 0, 0,0.3) inset;
+    background-image: url('../../Imports/Images/pencil-square.svg'), url('../../Imports/Images/square.svg'), linear-gradient( 45deg, rgb(48, 96, 124) 0%, rgb(96, 138, 183) 100%);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: center, center, 100%;
+    background-size: 65%, 80%, 100%;
+}
+
+.tchmi-class-sensor-debounce-input-button.down {
+    box-shadow: 0 0 7px 5px rgba(0, 0, 0,0.5) inset;
+    background-image: url('../../Imports/Images/pencil-square.svg'), url('../../Imports/Images/square.svg'), linear-gradient( 45deg, rgb(48, 96, 124) 0%, rgb(96, 138, 183) 100%);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: center, center, 100%;
+    background-size: 65%, 80%, 100%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiCombobox-template-select.tchmi-combobox-template-select.tchmi-box {
+    width: 100%;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.tchmi-class-numeric-input-button {
+    box-shadow: 0 0 6px 4px rgba(0, 0, 0,0.3) inset;
+    background-image: url('../../Imports/Images/pencil-square.svg'), url('../../Imports/Images/square.svg'), linear-gradient( 45deg, rgb(48, 96, 124) 0%, rgb(96, 138, 183) 100%);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: center, center, 100%;
+    background-size: 65%, 80%, 100%;
+}
+
+.tchmi-class-numeric-input-button.down {
+    box-shadow: 0 0 7px 5px rgba(0, 0, 0,0.5) inset;
+    background-image: url('../../Imports/Images/pencil-square.svg'), url('../../Imports/Images/square.svg'), linear-gradient( 45deg, rgb(48, 96, 124) 0%, rgb(96, 138, 183) 100%);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: center, center, 100%;
+    background-size: 65%, 80%, 100%;
+}
+
+.tchmi-class-numeric-input.tchmi-control-disabled.TcHmi_Controls_System_TcHmiControl-disabled::after {
+    background-color: rgba(224, 224, 224, .2);
+    /*gets rid of gray-out overlay on disabled button*/
+}
+
+.tchmi-class-numeric-input * {
+    text-align: center;
+    align-items: center;
+}

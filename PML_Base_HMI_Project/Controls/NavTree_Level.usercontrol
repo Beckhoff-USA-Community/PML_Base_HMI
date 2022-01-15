@@ -1,0 +1,887 @@
+﻿<div id="NavTree_Level" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="500" data-tchmi-width-unit="%" data-tchmi-height-unit="px" data-tchmi-creator-viewport-width="320" data-tchmi-creator-viewport-height="1024" data-tchmi-height-mode="Content" data-tchmi-is-enabled="true" data-tchmi-top-unit="px">
+
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties",
+  "navtree-level"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "NavTree_Level.onAttached",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%Children%/pp%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "TcHmi.Functions.TcHmiProject1.GetChildrenByName(%pp%TreeDef%/pp%, %pp%TopModuleName%/pp%)"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%ChildrenCount%/pp%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "TcHmi.Functions.TcHmiProject1.GetChildrenCount(%pp%Children%/pp%)"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%SideBar::Text%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "TcHmi.Functions.TcHmiProject1.GenerateVerticalText(%pp%TopModuleName%/pp%)"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "Condition",
+        "active": false,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/DINT",
+                  "symbolExpression": "%pp%ChildrenCount%/pp%"
+                },
+                "compare2": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/Number",
+                  "symbolExpression": "%i%MaxChildCount%/i%"
+                },
+                "compareOperator": ">",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%i%MaxChildCount%/i%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%ChildrenCount%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavTree_Level::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%i%MaxTreeLevelHeight%/i%",
+                "value": {
+                  "objectType": "FunctionExpression",
+                  "functionExpression": "%ctrl%Header::Height%/ctrl%+(%i%MaxChildCount%/i%*%ctrl%NavTree_goto_button_1::Height%/ctrl%)"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavTree_Level::Height%/ctrl%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%i%MaxTreeLevelHeight%/i%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NavTree_Level::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+<div id="Header" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%pp%TopModuleName%/pp%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-word-wrap="true" data-tchmi-icon="Imports/Images/caret-right.svg" data-tchmi-icon-height="40" data-tchmi-icon-horizontal-alignment="Right" data-tchmi-text-font-size="30" data-tchmi-text-horizontal-alignment="Center" data-tchmi-is-enabled="true" data-tchmi-right="%f%%ctrl%SideBar::Right%/ctrl%+%ctrl%SideBar::Width%/ctrl%%/f%">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "navtree-header"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-icon-padding" type="application/json">
+{
+  "left": 0,
+  "right": 10,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
+{
+  "left": 0,
+  "right": 50,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Header.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%Main_DisplayRegion::TargetContent%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "'Contents/Machine_Overview_Pages/' +TcHmi.Functions.TcHmiProject1.RemoveSpacesFromString(%pp%TopModuleName%/pp%)+ '.content'"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="ChildGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="%f%%ctrl%Header::Top%/ctrl%+%ctrl%Header::Height%/ctrl%%/f%" data-tchmi-top-unit="px" data-tchmi-height-mode="Value" data-tchmi-right="%f%%ctrl%SideBar::Right%/ctrl%+%ctrl%SideBar::Width%/ctrl%%/f%">
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidthUnit": "px",
+    "minWidthUnit": "px",
+    "overflow": true
+  },
+  {
+    "width": 65.0,
+    "widthUnit": "px",
+    "widthMode": "Value",
+    "maxWidthUnit": "px",
+    "minWidthUnit": "px",
+    "overflow": true
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  },
+  {
+    "height": 65.0,
+    "heightUnit": "px",
+    "heightMode": "Content",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": true
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-cell-options" type="application/json">
+[]
+</script>
+<div id="NavTree_nav_button_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[0]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_2" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[1]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_3" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[2]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_4" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[3]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="3" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_5" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[4]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="4" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_6" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[5]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="5" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_7" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[6]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="6" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_8" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[7]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="7" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_9" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[8]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="8" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_10" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[9]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="9" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_11" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[10]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="10" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_12" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[11]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="11" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_13" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[12]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="12" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_14" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[13]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="13" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_15" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[14]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="14" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_nav_button_16" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_nav_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-treedef="%pp%TreeDef%/pp%" data-tchmi-childname="%pp%Children[15]%/pp%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="15" data-tchmi-height-mode="Content" data-tchmi-parent="%pp%TopModuleName%/pp%" data-tchmi-parentname="%pp%TopModuleName%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-children" type="application/json">
+[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+</script>
+
+
+
+</div>
+<div id="NavTree_goto_button_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[0]%/pp%" data-tchmi-height-mode="Content">
+
+
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%pp%ChildrenCount%/pp%",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%ChildGrid::Height%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%pp%ChildrenCount%/pp%*65+10"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+<div id="NavTree_goto_button_2" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="1" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[1]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_3" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="2" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[2]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_4" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="3" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[3]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_5" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="4" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[4]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_6" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="5" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[5]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_7" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="6" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[6]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_8" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="7" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[7]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_9" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="8" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[8]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_10" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="9" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[9]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_11" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="10" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[10]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_12" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="11" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[11]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_13" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="12" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[12]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_14" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="13" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[13]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_15" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="14" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[14]%/pp%" data-tchmi-height-mode="Content">
+</div>
+<div id="NavTree_goto_button_16" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="15" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/NavTree_goto_button.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-targetname="%pp%Children[15]%/pp%" data-tchmi-height-mode="Content">
+</div>
+</div>
+<div id="SideBar" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Button" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="0" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-right="0" data-tchmi-height-mode="Value" data-tchmi-text-font-size="15" data-tchmi-text-vertical-alignment="Top" data-tchmi-text-horizontal-alignment="Center" data-tchmi-is-enabled="true" data-tchmi-icon="Imports/Images/arrow-bar-left.svg" data-tchmi-icon-vertical-alignment="Top" data-tchmi-icon-width="30">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties",
+  "navtree-sidebar"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
+{
+  "left": 0,
+  "right": 0,
+  "top": 45,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-icon-padding" type="application/json">
+{
+  "left": 0,
+  "right": 0,
+  "top": 5,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "SideBar.onPressed",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.TcHmiProject1.CollapseAllDescendants",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_TreeNode",
+            "symbolExpression": "%pp%TreeDef%/pp%"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:general#/definitions/String",
+            "symbolExpression": "%pp%TopModuleName%/pp%"
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": false,
+        "symbolExpression": "%i%MaxTreeLevelHeight%/i%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%NavTree_Level::Height%/ctrl%"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": false,
+        "symbolExpression": "%i%MaxChildCount%/i%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "(%i%MaxTreeLevelHeight%/i%-%ctrl%Header::Height%/ctrl%)/%ctrl%NavTree_goto_button_1::Height%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+</div>

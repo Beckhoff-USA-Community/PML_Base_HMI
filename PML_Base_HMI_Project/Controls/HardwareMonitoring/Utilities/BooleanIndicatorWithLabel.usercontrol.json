@@ -1,0 +1,61 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-status",
+      "displayName": "Status",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Status",
+      "propertySetterName": "setStatus",
+      "propertyGetterName": "getStatus",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-label",
+      "displayName": "Label",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Label",
+      "propertySetterName": "setLabel",
+      "propertyGetterName": "getLabel",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-indicatorcolor",
+      "displayName": "IndicatorColor",
+      "visible": true,
+      "type": "tchmi:framework#/definitions/Color",
+      "category": "",
+      "description": "",
+      "defaultValue": {
+        "color": "rgba(0, 255, 0, 1)"
+      },
+      "defaultValueInternal": {
+        "color": "rgba(0, 255, 0, 1)"
+      },
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "IndicatorColor",
+      "propertySetterName": "setIndicatorColor",
+      "propertyGetterName": "getIndicatorColor",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "./../../../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.752.0/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

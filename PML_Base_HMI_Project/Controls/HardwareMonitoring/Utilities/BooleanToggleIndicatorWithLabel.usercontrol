@@ -1,0 +1,699 @@
+﻿<div id="BooleanToggleIndicatorWithLabel" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="320" data-tchmi-creator-viewport-height="160" data-tchmi-is-enabled="%pp%Enable%/pp%">[
+  {
+    "objectType": "WriteToSymbol",
+    "active": true,
+    "symbolExpression": "%ctrl%PMLMode_StringDisplay::BoxShadow%/ctrl%",
+    "value": {
+      "objectType": "StaticValue",
+      "valueType": "tchmi:framework#/definitions/BoxShadowList",
+      "value": [
+        {
+          "color": {
+            "color": "rgba(200, 255, 0, 0.7843137)"
+          },
+          "offsetX": 0.0,
+          "offsetXUnit": "px",
+          "offsetY": 0.0,
+          "offsetYUnit": "px",
+          "inset": false,
+          "blur": 7.0,
+          "blurUnit": "px",
+          "spread": 4.0,
+          "spreadUnit": "px"
+        }
+      ]
+    },
+    "asyncWait": true
+  }
+][
+  {
+    "objectType": "WriteToSymbol",
+    "active": true,
+    "symbolExpression": "%ctrl%PMLMode_StringDisplay::BoxShadow%/ctrl%",
+    "value": {
+      "objectType": "StaticValue",
+      "valueType": "tchmi:framework#/definitions/BoxShadowList",
+      "value": [
+        {
+          "color": {
+            "color": "rgba(200, 255, 0, 0.7843137)"
+          },
+          "offsetX": 0.0,
+          "offsetXUnit": "px",
+          "offsetY": 0.0,
+          "offsetYUnit": "px",
+          "inset": false,
+          "blur": 7.0,
+          "blurUnit": "px",
+          "spread": 4.0,
+          "spreadUnit": "px"
+        }
+      ]
+    },
+    "asyncWait": true
+  }
+]
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties",
+  "monitor-background-light"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "BooleanToggle_IndicatorWithLabel.onPressed",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%Enable%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "Condition",
+                "active": true,
+                "parts": [
+                  {
+                    "if": [
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "symbolExpression": "%pp%Status%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "compareOperator": "==",
+                        "logic": null
+                      }
+                    ],
+                    "then": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%CommandPulse%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%SetValueTrue%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%CommandPulse%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%SetValueFalse%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  }
+                ],
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%pp%Enable%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%Enable%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%BooleanToggleIndicatorWithLabel::BoxShadow%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/BoxShadowList",
+                  "value": [
+                    {
+                      "color": {
+                        "color": "rgba(255, 255, 255, 0.3921568)"
+                      },
+                      "offsetX": 0.0,
+                      "offsetXUnit": "px",
+                      "offsetY": 0.0,
+                      "offsetYUnit": "px",
+                      "inset": true,
+                      "blur": 6.0,
+                      "blurUnit": "px",
+                      "spread": 1.0,
+                      "spreadUnit": "px"
+                    }
+                  ]
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%BooleanToggleIndicatorWithLabel::BoxShadow%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/BoxShadowList",
+                  "value": [
+                    {
+                      "color": {
+                        "color": "rgba(0, 0, 0, 0.3921568)"
+                      },
+                      "offsetX": 0.0,
+                      "offsetXUnit": "px",
+                      "offsetY": 0.0,
+                      "offsetYUnit": "px",
+                      "inset": true,
+                      "blur": 6.0,
+                      "blurUnit": "px",
+                      "spread": 1.0,
+                      "spreadUnit": "px"
+                    }
+                  ]
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "BooleanToggleIndicatorWithLabel.onPressed",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%Enable%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "Condition",
+                "active": true,
+                "parts": [
+                  {
+                    "if": [
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "symbolExpression": "%pp%Status%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "compareOperator": "==",
+                        "logic": null
+                      }
+                    ],
+                    "then": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%CommandPulse%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%SetValueTrue%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%CommandPulse%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%SetValueFalse%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  }
+                ],
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%pp%Confirmation%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%Confirmation%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "Condition",
+                "active": true,
+                "parts": [
+                  {
+                    "if": [
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/String",
+                          "symbolExpression": "%pp%SetValueTrue%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "compareOperator": "==",
+                        "logic": null
+                      },
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/String",
+                          "symbolExpression": "%pp%SetValueFalse%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "compareOperator": "==",
+                        "logic": "OR"
+                      }
+                    ],
+                    "then": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%CommandPulse%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%SetValueTrue%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%SetValueFalse%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%Confirmation%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": []
+                  }
+                ],
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+<div id="BooleanToggle_Grid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-cell-wrap="false" data-tchmi-width="100" data-tchmi-width-unit="%">
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidthUnit": "px",
+    "minWidthUnit": "px",
+    "overflow": true
+  },
+  {
+    "width": "%ctrl%BooleanToggle_Grid::RenderedHeight%/ctrl%",
+    "widthUnit": "px",
+    "widthMode": "Value",
+    "maxWidthUnit": "px",
+    "minWidthUnit": "px",
+    "overflow": true
+  }
+]
+</script>
+<div id="BooleanToggle_Label" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-word-wrap="true" data-tchmi-right-unit="px" data-tchmi-text="%pp%Label%/pp%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-text-font-size="%f%TcHmi.Functions.TcHmiProject1.FitTextToSpace(%ctrl%BooleanToggle_Label::Text%/ctrl%, %ctrl%BooleanToggle_Label::RenderedWidth%/ctrl%, %ctrl%BooleanToggle_Label::RenderedHeight%/ctrl%, 18)%/f%">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties",
+  "boolean-indicator-label"
+]
+</script>
+</div>
+<div id="BooleanToggle_Indicator" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-top="10" data-tchmi-top-unit="%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="1" data-tchmi-left="10" data-tchmi-left-unit="%" data-tchmi-width="80" data-tchmi-height="80" data-tchmi-width-unit="%" data-tchmi-height-unit="%">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties",
+  "boolean-indicator"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%pp%Status%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%Status%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%BooleanToggle_Indicator::FillColor%/ctrl%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%IndicatorColor%/pp%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%BooleanToggle_Indicator::BoxShadow%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/BoxShadowList",
+                  "value": [
+                    {
+                      "color": {
+                        "color": "rgba(255, 255, 255, 0.1960784)"
+                      },
+                      "offsetX": 0.0,
+                      "offsetXUnit": "px",
+                      "offsetY": 0.0,
+                      "offsetYUnit": "px",
+                      "inset": false,
+                      "blur": 5.0,
+                      "blurUnit": "px",
+                      "spread": 2.0,
+                      "spreadUnit": "px"
+                    }
+                  ]
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%BooleanToggle_Indicator::FillColor%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Color",
+                  "value": {
+                    "angle": 0.0,
+                    "stopPoints": [
+                      {
+                        "color": "rgba(25, 25, 25, 1)",
+                        "stop": "0%"
+                      },
+                      {
+                        "color": "rgba(75, 75, 75, 1)",
+                        "stop": "100%"
+                      }
+                    ]
+                  }
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%BooleanToggle_Indicator::BoxShadow%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/BoxShadowList",
+                  "value": [
+                    {
+                      "color": {
+                        "color": "rgba(0, 0, 0, 0.1960784)"
+                      },
+                      "offsetX": 0.0,
+                      "offsetXUnit": "px",
+                      "offsetY": 0.0,
+                      "offsetYUnit": "px",
+                      "inset": false,
+                      "blur": 5.0,
+                      "blurUnit": "px",
+                      "spread": 2.0,
+                      "spreadUnit": "px"
+                    }
+                  ]
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 100.0,
+  "topRight": 100.0,
+  "bottomLeft": 100.0,
+  "bottomRight": 100.0,
+  "topLeftUnit": "%",
+  "topRightUnit": "%",
+  "bottomLeftUnit": "%",
+  "bottomRightUnit": "%"
+}
+</script>
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-cell-options" type="application/json">
+[]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 100.0,
+    "heightUnit": "%",
+    "heightMode": "Value",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+</div>
+</div>

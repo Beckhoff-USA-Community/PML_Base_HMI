@@ -1,0 +1,472 @@
+﻿<div id="CylinderBase_Monitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-width-mode="Value" data-tchmi-height-mode="Content" data-tchmi-zindex="2" data-tchmi-zindex="2" data-tchmi-height="100" data-tchmi-height-unit="%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties",
+  "monitor-background-dark"
+]
+</script>
+<div id="CylinderBase_PopoutContainer" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-top="0" data-tchmi-height-mode="Value" data-tchmi-height="%f%%ctrl%CylinderMonitor_StaticContainer::RenderedHeight%/ctrl%+%ctrl%CylinderMonitor_ExpandButton::RenderedHeight%/ctrl%%/f%">
+<div id="CylinderMonitor_ExpandButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-word-wrap="true" data-tchmi-is-enabled="true" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-zindex="6" data-tchmi-bottom="0" data-tchmi-bottom-unit="%" data-tchmi-icon="Imports/Images/arrow-bar-down-white.svg" data-tchmi-icon-height-unit="%" data-tchmi-icon-height="80" data-tchmi-height="35">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties",
+  "hardware-monitor-expand-button"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "CylinderMonitor_ExpandButton.onStatePressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%CylinderBase_PopoutContainer::HeightMode%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+          "value": "Content"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%CylinderBase_PopoutContainer::Top%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%CylinderMonitor_StaticContainer::RenderedHeight%/ctrl%+1"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%CylinderMonitor_ExpandButton::Icon%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Path",
+          "value": "Imports/Images/arrow-bar-up-white.svg"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "CylinderMonitor_ExpandButton.onStateReleased",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%CylinderBase_PopoutContainer::Top%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "0"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%CylinderBase_PopoutContainer::HeightMode%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+          "value": "Value"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%CylinderBase_PopoutContainer::Height%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%CylinderMonitor_StaticContainer::RenderedHeight%/ctrl%+%ctrl%CylinderMonitor_ExpandButton::RenderedHeight%/ctrl%"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%CylinderMonitor_ExpandButton::Icon%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Path",
+          "value": "Imports/Images/arrow-bar-down-white.svg"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="CylinderMonitor_PopoutGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-cell-wrap="true" data-tchmi-bottom="%ctrl%CylinderMonitor_ExpandButton::RenderedHeight%/ctrl%">
+<script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 50.0,
+    "heightUnit": "px",
+    "heightMode": "Value",
+    "maxHeight": 100.0,
+    "maxHeightUnit": "%",
+    "minHeight": 50.0,
+    "minHeightUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+<div id="CylinderEnabled_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-enable="%pp%Component::bHMIControlAvailable%/pp%" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-label="Enabled:" data-tchmi-status="%pp%Component::bEnabled%/pp%" data-tchmi-is-enabled="true" data-tchmi-max-height-unit="px" data-tchmi-commandpulse="%pp%Component::bIncomingHMIRequest%/pp%" data-tchmi-setvaluetrue="%pp%Component::bDisableHMIRequest%/pp%" data-tchmi-setvaluefalse="%pp%Component::bEnableHMIRequest%/pp%" data-tchmi-confirmation="%pp%Component::bHMICommandConfirmation%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" id="CylinderActive_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-label="Active:" data-tchmi-status="%pp%Component::bActive%/pp%" data-tchmi-is-enabled="true" data-tchmi-enable="false" data-tchmi-max-height-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="CylinderExtending_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-label="Extending:" data-tchmi-enable="%pp%Cylinder::bHMIControlAvailable%/pp%" data-tchmi-status="%pp%Cylinder::bExtending%/pp%" data-tchmi-commandpulse="%pp%Cylinder::bIncomingHMIRequest%/pp%" data-tchmi-setvaluefalse="%pp%Cylinder::bExtendHMIRequest%/pp%" data-tchmi-is-enabled="true" data-tchmi-confirmation="%pp%Cylinder::bHMICommandConfirmation%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="CylinderRetracting_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-label="Retracting:" data-tchmi-enable="%pp%Cylinder::bHMIControlAvailable%/pp%" data-tchmi-status="%pp%Cylinder::bRetracting%/pp%" data-tchmi-commandpulse="%pp%Cylinder::bIncomingHMIRequest%/pp%" data-tchmi-setvaluefalse="%pp%Cylinder::bRetractHMIRequest%/pp%" data-tchmi-is-enabled="true" data-tchmi-confirmation="%pp%Cylinder::bHMICommandConfirmation%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+
+
+</div>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="CylinderIdle_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-label="Idle:" data-tchmi-enable="%pp%Cylinder::bHMIControlAvailable%/pp%" data-tchmi-status="%f%(%pp%Cylinder::bExtendCommand%/pp%+%pp%Cylinder::bRetractCommand%/pp%)/(%pp%Cylinder::bExtendCommand%/pp%+%pp%Cylinder::bRetractCommand%/pp%)%/f%" data-tchmi-commandpulse="%pp%Cylinder::bIncomingHMIRequest%/pp%" data-tchmi-setvaluefalse="%pp%Cylinder::bIdleHMIRequest%/pp%" data-tchmi-is-enabled="true" data-tchmi-confirmation="%pp%Cylinder::bHMICommandConfirmation%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="CylinderRetractTime_TimeInput" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/TimeInputWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-currentsetpoint="%pp%Cylinder::tRetractTime%/pp%" data-tchmi-commandpulse="%pp%Cylinder::bExtendTimeHMISetRequest%/pp%" data-tchmi-setvalue="%pp%Cylinder::tRetractTimeHMISetValue%/pp%" data-tchmi-enable="%pp%Cylinder::bHMIControlAvailable%/pp%" data-tchmi-commandpulse2="%pp%Cylinder::bIncomingHMIRequest%/pp%" data-tchmi-label="Retract\nTime:" data-tchmi-is-enabled="true" data-tchmi-confirmation="%pp%Cylinder::bHMICommandConfirmation%/pp%">
+</div>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="CylinderExtendTime_TimeInput" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/TimeInputWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-currentsetpoint="%pp%Cylinder::tExtendTime%/pp%" data-tchmi-commandpulse="%pp%Cylinder::bExtendTimeHMISetRequest%/pp%" data-tchmi-setvalue="%pp%Cylinder::tExtendTimeHMISetValue%/pp%" data-tchmi-enable="%pp%Cylinder::bHMIControlAvailable%/pp%" data-tchmi-commandpulse2="%pp%Cylinder::bIncomingHMIRequest%/pp%" data-tchmi-label="Extend\nTime:" data-tchmi-is-enabled="true" data-tchmi-confirmation="%pp%Cylinder::bHMICommandConfirmation%/pp%">
+</div>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="CylinderTimeoutFactor_NumericInput" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/NumericInputWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-currentsetpoint="%pp%Cylinder::fTimeoutFactor%/pp%" data-tchmi-commandpulse="%pp%Cylinder::bExtendTimeHMISetRequest%/pp%" data-tchmi-setvalue="%pp%Cylinder::fTimeoutFactorHMISetValue%/pp%" data-tchmi-enable="%pp%Cylinder::bHMIControlAvailable%/pp%" data-tchmi-commandpulse2="%pp%Cylinder::bIncomingHMIRequest%/pp%" data-tchmi-is-enabled="true" data-tchmi-label="Timeout Factor:" data-tchmi-decimalplaces="2" data-tchmi-confirmation="%pp%Cylinder::bHMICommandConfirmation%/pp%">
+</div>
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+<div id="CylinderMonitor_StaticContainer" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "monitor-background-dark"
+]
+</script>
+<div id="CylinderMonitor_StaticGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="%ctrl%CylinderMonitor_NameDisplay::RenderedHeight%/ctrl%" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-cell-wrap="true" data-tchmi-height-mode="Content">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 1.0,
+    "heightUnit": "factor",
+    "heightMode": "Value",
+    "maxHeight": 100.0,
+    "maxHeightUnit": "%",
+    "minHeight": 50.0,
+    "minHeightUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" id="CylinderSimulate_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-enable="%pp%Component::bHMIControlAvailable%/pp%" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-label="Simulate:" data-tchmi-status="%pp%Component::bSimulate%/pp%" data-tchmi-is-enabled="true" data-tchmi-max-height-unit="px" data-tchmi-commandpulse="%pp%Component::bIncomingHMIRequest%/pp%" data-tchmi-setvaluetrue="%pp%Component::bStandardOperationHMIRequest%/pp%" data-tchmi-setvaluefalse="%pp%Component::bSimulateOperationHMIRequest%/pp%" data-tchmi-confirmation="%pp%Component::bHMICommandConfirmation%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="2" id="CylinderExtended_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-label="Extended:" data-tchmi-status="%pp%Cylinder::bExtended%/pp%" data-tchmi-is-enabled="true" data-tchmi-enable="false">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="3" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="CylinderRetracted_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-label="Retracted:" data-tchmi-enable="false" data-tchmi-status="%pp%Cylinder::bRetracted%/pp%" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+
+
+</div>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="CylinderError_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-enable="%pp%Component::bError%/pp%" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-label="Error Reset:" data-tchmi-is-enabled="true" data-tchmi-status="%pp%Component::bError%/pp%" data-tchmi-max-height-unit="px" data-tchmi-commandpulse="%pp%Component::bIncomingHMIRequest%/pp%" data-tchmi-setvaluetrue="%pp%Component::bResetHMIRequest%/pp%" data-tchmi-confirmation="%pp%Component::bHMICommandConfirmation%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(255, 50, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(175, 0, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+</div>
+<div id="CylinderMonitor_NameDisplay" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/MonitorNameDisplayWithNavigation.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-name="%pp%Component::sName%/pp%">
+</div>
+</div>
+</div>

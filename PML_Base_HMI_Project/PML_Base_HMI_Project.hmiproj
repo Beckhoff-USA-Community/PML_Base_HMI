@@ -23,7 +23,7 @@
     <EnableTypeScript>true</EnableTypeScript>
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
     <Name>HMI_JBT_PoultrySeparator</Name>
-    <HmiCommunicationRouterPort>10192</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10209</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13002</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.742.5</HmiInitial>
     <HmiRecent>1.12.752.0</HmiRecent>
@@ -120,10 +120,298 @@
   <Target Name="ReBuild" DependsOnTargets="Clean; Build" />
   <Target Name="Clean" DependsOnTargets="BaseClean" />
   <ItemGroup>
+    <Content Include="Controls\HardwareMonitoring\ComponentMonitoring\AxisMonitoring\AxisBase_Monitor.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\ComponentMonitoring\AxisMonitoring\AxisBase_Monitor.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\ComponentMonitoring\AxisMonitoring\AxisBase_Monitor.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\ComponentMonitoring\ComponentBase_Monitor.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\ComponentMonitoring\ComponentBase_Monitor.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\ComponentMonitoring\ComponentBase_Monitor.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\ComponentMonitoring\CylinderMonitoring\CylinderBase_Monitor.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\ComponentMonitoring\CylinderMonitoring\CylinderBase_Monitor.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\ComponentMonitoring\CylinderMonitoring\CylinderBase_Monitor.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\ComponentMonitoring\SensorMonitoring\SensorBase_Monitor.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\ComponentMonitoring\SensorMonitoring\SensorBase_Monitor.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\ComponentMonitoring\SensorMonitoring\SensorBase_Monitor.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\ModuleMonitoring\PMLModuleBase_Monitor.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\ModuleMonitoring\PMLModuleBase_Monitor.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\ModuleMonitoring\PMLModuleBase_Monitor.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\ExpandableMonitorTemplate.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\ExpandableMonitorTemplate.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\ExpandableMonitorTemplate.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\BooleanCommandButton.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\BooleanCommandButton.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\BooleanCommandButton.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\BooleanIndicatorWithLabel.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\BooleanIndicatorWithLabel.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\BooleanIndicatorWithLabel.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\BooleanToggleIndicatorWithLabel.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\BooleanToggleIndicatorWithLabel.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\BooleanToggleIndicatorWithLabel.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\MonitorNameDisplayWithNavigation.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\MonitorNameDisplayWithNavigation.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\MonitorNameDisplayWithNavigation.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\SensorDebounceInputWithLabel.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\SensorDebounceInputWithLabel.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\SensorDebounceInputWithLabel.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\NumericInputWithLabel.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\NumericInputWithLabel.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\NumericInputWithLabel.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\PMLModeDisplay.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\PMLModeDisplay.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\PMLModeDisplay.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\PMLStateDisplay.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\PMLStateDisplay.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\PMLStateDisplay.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\StringDisplay.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\StringDisplay.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\StringDisplay.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\TimeInputWithLabel.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\TimeInputWithLabel.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\TimeInputWithLabel.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Contents\Main_Nav_Pages\Simulation.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\NavTree_goto_button.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\NavTree_goto_button.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\NavTree_goto_button.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\NavTree_Level.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\NavTree_Level.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\NavTree_Level.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\NavTree_nav_button.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\NavTree_nav_button.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\NavTree_nav_button.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Imports\Images\arrow-bar-down.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\arrow-bar-down-white.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\arrow-bar-left.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\arrow-bar-right.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\arrow-bar-up-white.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\arrow-bar-up.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\caret-left-square.svg">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Imports\Images\caret-left.svg">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Imports\Images\caret-right.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\chevron-bar-left.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\clock.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\diagram-3.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\pencil-fill.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\pencil-square.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\pencil.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\square.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\window.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\x-square.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\FitTextToSpace.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\FitTextToSpace.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\FitTextToSpace.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\CollapseAllDescendants.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\CollapseAllDescendants.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\CollapseAllDescendants.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\CollapseLevel.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\CollapseLevel.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\CollapseLevel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\CollapseLevelsOnOutsideClick.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\DragParents.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\DragParents.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\DragParents.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GenerateNavTreeLevel.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\GenerateNavTreeLevel.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GenerateNavTreeLevel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GenerateVerticalText.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\GenerateVerticalText.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GenerateVerticalText.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GetAllExpandedLevels.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\GetAllExpandedLevels.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GetAllExpandedLevels.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GetChildrenByName.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\GetChildrenByName.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GetChildrenByName.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GetChildrenCount.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\GetChildrenCount.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GetChildrenCount.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GetDepthByName.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\GetDepthByName.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GetDepthByName.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GetParentByName.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\GetParentByName.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\GetParentByName.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\PushParents.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\PushParents.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\PushParents.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\TraceToRoot.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\MainMenu_NavTree\TraceToRoot.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\MainMenu_NavTree\TraceToRoot.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS_Functions\RemoveSpacesFromString.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS_Functions\RemoveSpacesFromString.js</DependentUpon>
+    </Content>
+    <Content Include="JS_Functions\RemoveSpacesFromString.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="KeyboardLayouts\NumPadOnly.keyboard.json">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Properties\tchmiconfig.json">
@@ -136,13 +424,10 @@
     <Content Include="WebTools\PushMenu\js\classie.js" />
     <Content Include="WebTools\PushMenu\js\classie.js" />
     <Content Include="WebTools\PushMenu\js\classie.js" />
-    <Content Include="WebTools\PushMenu\js\classie.js" />
     <Content Include="WebTools\PushMenu\js\mlpushmenu.js" />
     <Content Include="WebTools\PushMenu\js\mlpushmenu.js" />
     <Content Include="WebTools\PushMenu\js\mlpushmenu.js" />
     <Content Include="WebTools\PushMenu\js\mlpushmenu.js" />
-    <Content Include="WebTools\PushMenu\js\mlpushmenu.js" />
-    <Content Include="WebTools\PushMenu\js\modernizr.custom.js" />
     <Content Include="WebTools\PushMenu\js\modernizr.custom.js" />
     <Content Include="WebTools\PushMenu\js\modernizr.custom.js" />
     <Content Include="WebTools\PushMenu\js\modernizr.custom.js" />
@@ -151,13 +436,21 @@
     <Folder Include="Contents\Main_Interfaces" />
     <Folder Include="Contents\Machine_Overview_Pages" />
     <Folder Include="Contents\Utilities" />
-    <Folder Include="Controls\Framework_Controls" />
+    <Folder Include="Controls\HardwareMonitoring" />
+    <Folder Include="Controls\HardwareMonitoring\ComponentMonitoring" />
+    <Folder Include="Controls\HardwareMonitoring\ComponentMonitoring\CylinderMonitoring" />
+    <Folder Include="Controls\HardwareMonitoring\ComponentMonitoring\AxisMonitoring" />
+    <Folder Include="Controls\HardwareMonitoring\ComponentMonitoring\SensorMonitoring" />
+    <Folder Include="Controls\HardwareMonitoring\ModuleMonitoring" />
+    <Folder Include="Controls\HardwareMonitoring\ModuleMonitoring\ConveyorMonitoring" />
+    <Folder Include="Controls\HardwareMonitoring\Utilities" />
     <Folder Include="Fonts\" />
     <Folder Include="Images" />
     <Folder Include="Images\Manifest" />
     <Folder Include="Imports" />
     <Folder Include="Imports\Images" />
     <Folder Include="Imports\Videos" />
+    <Folder Include="JS_Functions\MainMenu_NavTree" />
     <Folder Include="JS_Functions\RecipeFunctions" />
     <Folder Include="KeyboardLayouts\" />
     <Folder Include="Localization" />
@@ -178,9 +471,6 @@
       <Visible>false</Visible>
     </Content>
     <Content Include="Contents\Main_Interfaces\CycleControl_PopoutContent.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Main_Interfaces\MainMenu_PopoutContent.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Contents\Main_Interfaces\ProductionStatus_Content.content">
@@ -817,7 +1107,8 @@
       <Visible>True</Visible>
     </Content>
     <Folder Include="Themes\Base\Images\" />
-    <Folder Include="WebTools\PushMenu\js" />
+    <Folder Include="WebTools\" />
+    <Folder Include="WebTools\PushMenu\" />
     <Folder Include="WebTools\PushMenu\js" />
     <Folder Include="WebTools\PushMenu\js" />
   </ItemGroup>

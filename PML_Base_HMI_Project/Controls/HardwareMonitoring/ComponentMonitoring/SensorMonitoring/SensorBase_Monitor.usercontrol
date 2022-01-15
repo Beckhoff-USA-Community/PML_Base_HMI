@@ -1,0 +1,307 @@
+﻿<div id="SensorBase_Monitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-width-mode="Value" data-tchmi-height-mode="Content" data-tchmi-zindex="2" data-tchmi-zindex="2" data-tchmi-height="100" data-tchmi-height-unit="%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties",
+  "monitor-background-dark"
+]
+</script>
+<div id="SensorBaseMonitor_PopoutContainer" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-top="0" data-tchmi-height-mode="Value" data-tchmi-height="%f%%ctrl%SensorBaseMonitor_StaticContainer::RenderedHeight%/ctrl%+%ctrl%SensorBaseMonitor_ExpandButton::RenderedHeight%/ctrl%%/f%">
+<div id="SensorBaseMonitor_ExpandButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-word-wrap="true" data-tchmi-is-enabled="true" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-zindex="6" data-tchmi-bottom="0" data-tchmi-bottom-unit="%" data-tchmi-icon="Imports/Images/arrow-bar-down-white.svg" data-tchmi-icon-height-unit="%" data-tchmi-icon-height="80" data-tchmi-height="35">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties",
+  "hardware-monitor-expand-button"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "SensorBaseMonitor_ExpandButton.onStatePressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%SensorBaseMonitor_PopoutContainer::HeightMode%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+          "value": "Content"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%SensorBaseMonitor_PopoutContainer::Top%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%SensorBaseMonitor_StaticContainer::RenderedHeight%/ctrl%+1"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%SensorBaseMonitor_ExpandButton::Icon%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Path",
+          "value": "Imports/Images/arrow-bar-up-white.svg"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "SensorBaseMonitor_ExpandButton.onStateReleased",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%SensorBaseMonitor_PopoutContainer::Top%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "0"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%SensorBaseMonitor_PopoutContainer::HeightMode%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+          "value": "Value"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%SensorBaseMonitor_PopoutContainer::Height%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%SensorBaseMonitor_StaticContainer::RenderedHeight%/ctrl%+%ctrl%SensorBaseMonitor_ExpandButton::RenderedHeight%/ctrl%"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%SensorBaseMonitor_ExpandButton::Icon%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Path",
+          "value": "Imports/Images/arrow-bar-down-white.svg"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="SensorBaseMonitor_PopoutGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-cell-wrap="true" data-tchmi-bottom="%ctrl%SensorBaseMonitor_ExpandButton::RenderedHeight%/ctrl%">
+<script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 50.0,
+    "heightUnit": "px",
+    "heightMode": "Value",
+    "maxHeight": 100.0,
+    "maxHeightUnit": "%",
+    "minHeight": 50.0,
+    "minHeightUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+<div id="SensorBaseSimulate_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-enable="%pp%Component::bHMIControlAvailable%/pp%" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-label="Simulate: " data-tchmi-commandpulse="%pp%Component::bIncomingHMIRequest%/pp%" data-tchmi-setvaluetrue="%pp%Component::bStandardOperationHMIRequest%/pp%" data-tchmi-setvaluefalse="%pp%Component::bSimulateOperationHMIRequest%/pp%" data-tchmi-status="%pp%Component::bSimulate%/pp%" data-tchmi-confirmation="%pp%Component::bHMICommandConfirmation%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+<div id="SensorBaseInverted_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-enable="%pp%Sensor::bHMIControlAvailable%/pp%" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-label="Inverted: " data-tchmi-status="%pp%Sensor::bInverted%/pp%" data-tchmi-grid-column-index="1" data-tchmi-commandpulse="%pp%Sensor::bIncomingHMIRequest%/pp%" data-tchmi-setvaluetrue="%pp%Sensor::bUninvertedHMIRequest%/pp%" data-tchmi-setvaluefalse="%pp%Sensor::bInvertedHMIRequest%/pp%" data-tchmi-confirmation="%pp%Sensor::bHMICommandConfirmation%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+<div id="SensorBaseDebounceMode_DebounceInput" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/SensorDebounceInputWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-grid-column-index="2" data-tchmi-currentmode="%pp%Sensor::eDebounceMode%/pp%" data-tchmi-commandpulse="%pp%Sensor::bIncomingHMIRequest%/pp%" data-tchmi-setvalue="%pp%Sensor::eSetDebounceModeHMIValue%/pp%" data-tchmi-label="Debounce Mode:" data-tchmi-commandpulse2="%pp%Sensor::bSetDebounceModeHMIRequest%/pp%" data-tchmi-enable="%pp%Sensor::bHMIControlAvailable%/pp%" data-tchmi-confirmation="%pp%Sensor::bHMICommandConfirmation%/pp%">
+</div>
+<div id="SensorDebounceTime_TimeInput" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/TimeInputWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="3" data-tchmi-currentsetpoint="%pp%Sensor::tDebounceTime%/pp%" data-tchmi-commandpulse="%pp%Sensor::bIncomingHMIRequest%/pp%" data-tchmi-setvalue="%pp%Sensor::tSetDebounceTimeHMIValue%/pp%" data-tchmi-label="Debounce Time: " data-tchmi-enable="%pp%Sensor::bHMIControlAvailable%/pp%" data-tchmi-commandpulse2="%pp%Sensor::bSetDebounceTimeHMIRequest%/pp%" data-tchmi-confirmation="%pp%Sensor::bHMICommandConfirmation%/pp%">
+</div>
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+<div id="SensorBaseMonitor_StaticContainer" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="200" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "monitor-background-dark"
+]
+</script>
+<div id="SensorBaseMonitor_StaticGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="%ctrl%SensorBaseMonitor_NameDisplay::RenderedHeight%/ctrl%" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-cell-wrap="true" data-tchmi-height-mode="Content">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  },
+  {
+    "width": 1.0,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidth": 100.0,
+    "maxWidthUnit": "%",
+    "minWidth": 100.0,
+    "minWidthUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 1.0,
+    "heightUnit": "factor",
+    "heightMode": "Value",
+    "maxHeight": 100.0,
+    "maxHeightUnit": "%",
+    "minHeight": 50.0,
+    "minHeightUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+<div id="SensorBaseActive_ToggleIndicator" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-enable="False" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/BooleanToggleIndicatorWithLabel.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-label="Active: " data-tchmi-status="%pp%Component::bActive%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-indicatorcolor" type="application/json">
+{
+  "angle": 0.0,
+  "stopPoints": [
+    {
+      "color": "rgba(50, 255, 0, 0.7843137)",
+      "stop": "0%"
+    },
+    {
+      "color": "rgba(0, 175, 0, 1)",
+      "stop": "100%"
+    }
+  ]
+}
+</script>
+
+</div>
+<div id="SensorBaseTimeActive_StringDisplay" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/StringDisplay.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-grid-column-index="1" data-tchmi-string1="%f%&quot;Time Active: &quot;+%pp%Sensor::tTimeActive%/pp%%/f%" data-tchmi-selector="true">
+</div>
+</div>
+<div id="SensorBaseMonitor_NameDisplay" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/Utilities/MonitorNameDisplayWithNavigation.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-name="%pp%Component::sName%/pp%">
+</div>
+</div>fbInfeedSensor.Name := CONCAT(sModuleName, ' Infeed Sensor');
+fbInfeedSensor.DebounceMode := E_DebounceMode.MovingAverage;
+fbInfeedSensor.DebounceTime := T#100MS; 
+fbInfeedSensor.Enabled := TRUE; 
+fbInfeedSensor.Inverted := FALSE; 
+fbInfeedSensor.Simulate:= TRUE; 		//TODO: Set FALSE at Implementation
+fbInfeedSensor.SimulationInput:= 1000; 
+fbInfeedSensor.SimulationMode:= E_SensorSimulationMode.Periodic;
+</div>

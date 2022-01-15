@@ -1320,11 +1320,11 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%i%Keyboard_isActive%/i%",
+        "symbolExpression": "%ctrl%Keyboard_Button::ToggleState%/ctrl%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/Boolean",
-          "value": true
+          "valueType": "tchmi:framework#/definitions/ToggleState",
+          "value": "Active"
         },
         "asyncWait": true
       }
@@ -1353,11 +1353,11 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%i%Keyboard_isActive%/i%",
+        "symbolExpression": "%ctrl%Keyboard_Button::ToggleState%/ctrl%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/Boolean",
-          "value": true
+          "valueType": "tchmi:framework#/definitions/ToggleState",
+          "value": "Active"
         },
         "asyncWait": true
       }

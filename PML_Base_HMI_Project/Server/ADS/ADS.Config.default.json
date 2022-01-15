@@ -6,7 +6,7 @@
         "UpperBorder"
     ],
     "RUNTIMES": {
-        "PLC1": {
+        "PLC_PML": {
             "ENABLED": true,
             "NETID": "127.0.0.1.1.1",
             "PORT": 851,

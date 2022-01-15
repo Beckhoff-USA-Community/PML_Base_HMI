@@ -1,8 +1,6 @@
-﻿<div id="Main_CycleControl" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="160" data-tchmi-creator-viewport-height="640" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height-unit="%" data-tchmi-right="0">
+﻿<div id="Main_CycleControl" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="640" data-tchmi-creator-viewport-height="160" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height-unit="%" data-tchmi-right="0" data-tchmi-left-unit="px" data-tchmi-top-unit="px">
 
-<div id="PB_Main_CycleStart" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-text="Start" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-background-image="Imports/Images/start_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-height="100" data-tchmi-text-font-weight="Bold" data-tchmi-right-unit="%" data-tchmi-bottom-unit="px" data-tchmi-right="0" data-tchmi-left-unit="px" data-tchmi-width-unit="%" data-tchmi-height-unit="px" data-tchmi-width="100" data-tchmi-height="%f%%ctrl%Main_CycleControl::RenderedWidth%/ctrl% * %ctrl%PB_Main_CycleStart::Width%/ctrl%*.01%/f%" data-tchmi-top-unit="px" data-tchmi-bottom="%f%%ctrl%PB_Main_SafetyReset::RenderedHeight%/ctrl% + %ctrl%PB_Main_FaultReset::RenderedHeight%/ctrl% + %ctrl%PB_Main_CycleStop::RenderedHeight%/ctrl%%/f%">
-
-
+<div id="CycleStart_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Start" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="%" data-tchmi-left="0" data-tchmi-zindex="1" data-tchmi-background-image="Imports/Images/start_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleStart_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ControlBlock::bStartEnabled%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
 {
   "left": 0,
@@ -25,274 +23,39 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "CycleStart_Pushbutton.onStatePressed",
     "actions": [
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%ctrl%PB_Main_CycleStart::IsEnabled%/ctrl%",
+        "symbolExpression": "%pp%ControlBlock::bStartPressed%/pp%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/Boolean",
-          "value": false
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
         },
         "asyncWait": true
       },
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%ctrl%PB_Main_CycleStart::BackgroundImage%/ctrl%",
+        "symbolExpression": "%ctrl%CycleStart_Pushbutton::BackgroundImage%/ctrl%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/Path",
-          "value": "Imports/Images/start_inactive.svg"
+          "value": "Imports/Images/start_pressed.svg"
         },
-        "asyncWait": true
-      },
-      {
-        "objectType": "SwitchCase",
-        "active": true,
-        "compare": {
-          "objectType": "Symbol",
-          "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
-        },
-        "cases": [
-          {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 4
-            },
-            "actions": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStart::IsEnabled%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/Boolean",
-                  "value": true
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStart::BackgroundImage%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/start_normal.svg"
-                },
-                "asyncWait": true
-              }
-            ]
-          },
-          {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 11
-            },
-            "actions": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStart::IsEnabled%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/Boolean",
-                  "value": true
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStart::BackgroundImage%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/start_normal.svg"
-                },
-                "asyncWait": true
-              }
-            ]
-          },
-          {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 5
-            },
-            "actions": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStart::IsEnabled%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/Boolean",
-                  "value": true
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStart::BackgroundImage%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/start_normal.svg"
-                },
-                "asyncWait": true
-              }
-            ]
-          },
-          {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 6
-            },
-            "actions": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStart::BackgroundImage%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/start_active.svg"
-                },
-                "asyncWait": true
-              }
-            ]
-          }
-        ],
         "asyncWait": true
       }
     ]
   },
   {
-    "event": "PB_Main_CycleStart.onStatePressed",
-    "actions": [
-      {
-        "objectType": "SwitchCase",
-        "active": true,
-        "compare": {
-          "objectType": "Symbol",
-          "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
-        },
-        "cases": [
-          {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 4
-            },
-            "actions": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%pp%eCommand%/pp%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
-                  "value": 2
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStart::BackgroundImage%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/start_pressed.svg"
-                },
-                "asyncWait": true
-              }
-            ]
-          },
-          {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 11
-            },
-            "actions": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%pp%eCommand%/pp%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
-                  "value": 5
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStart::BackgroundImage%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/start_pressed.svg"
-                },
-                "asyncWait": true
-              }
-            ]
-          },
-          {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 5
-            },
-            "actions": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%pp%eCommand%/pp%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
-                  "value": 7
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStart::BackgroundImage%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/start_pressed.svg"
-                },
-                "asyncWait": true
-              }
-            ]
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  },
-  {
-    "event": "PB_Main_CycleStart.onStateReleased",
+    "event": "CycleStart_Pushbutton.onStateReleased",
     "actions": [
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%ctrl%PB_Main_CycleStart::BackgroundImage%/ctrl%",
+        "symbolExpression": "%ctrl%CycleStart_Pushbutton::BackgroundImage%/ctrl%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/Path",
@@ -301,14 +64,91 @@
         "asyncWait": true
       }
     ]
+  },
+  {
+    "event": "%pp%ControlBlock::bStartEnabled%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%ControlBlock::bStartEnabled%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%CycleStart_Pushbutton::BackgroundImage%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Imports/Images/start_inactive.svg"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%CycleStart_Pushbutton::BackgroundImage%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Imports/Images/start_normal.svg"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
   }
 ]
 </script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 0,
+  "right": 1,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "None",
+  "right": "Solid",
+  "top": "None",
+  "bottom": "None"
+}
+</script>
 </div>
-
-<div id="PB_Main_CycleStop" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="%ctrl%PB_Main_CycleStop::RenderedWidth%/ctrl%" data-tchmi-height-unit="px" data-tchmi-text="Stop" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-background-image="Imports/Images/stop_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-height="100" data-tchmi-text-font-weight="Bold" data-tchmi-right-unit="%" data-tchmi-bottom-unit="px" data-tchmi-right="0" data-tchmi-left-unit="px" data-tchmi-width-unit="%" data-tchmi-width="100" data-tchmi-top-unit="px" data-tchmi-bottom="%f%%ctrl%PB_Main_SafetyReset::RenderedHeight%/ctrl% + %ctrl%PB_Main_FaultReset::RenderedHeight%/ctrl%%/f%">
-
-
+<div id="CycleStop_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Stop" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleStop_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="px" data-tchmi-left="%ctrl%CycleStart_Pushbutton::RenderedWidth%/ctrl%" data-tchmi-zindex="2" data-tchmi-background-image="Imports/Images/stop_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ControlBlock::bStopEnabled%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
 {
   "left": 0,
@@ -331,92 +171,34 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::bStopEnabled%/pp%",
     "actions": [
       {
-        "objectType": "WriteToSymbol",
+        "objectType": "Condition",
         "active": true,
-        "symbolExpression": "%ctrl%PB_Main_CycleStop::IsEnabled%/ctrl%",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/Boolean",
-          "value": true
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%PB_Main_CycleStop::BackgroundImage%/ctrl%",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Path",
-          "value": "Imports/Images/stop_normal.svg"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "SwitchCase",
-        "active": true,
-        "compare": {
-          "objectType": "Symbol",
-          "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
-        },
-        "cases": [
+        "parts": [
           {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 2
-            },
-            "actions": [
+            "if": [
               {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStop::IsEnabled%/ctrl%",
-                "value": {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%ControlBlock::bStopEnabled%/pp%"
+                },
+                "compare2": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/Boolean",
+                  "valueType": "tchmi:general#/definitions/BOOL",
                   "value": false
                 },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStop::BackgroundImage%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/stop_active.svg"
-                },
-                "asyncWait": true
+                "compareOperator": "==",
+                "logic": null
               }
-            ]
-          },
-          {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 1
-            },
-            "actions": [
+            ],
+            "then": [
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStop::IsEnabled%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/Boolean",
-                  "value": false
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStop::BackgroundImage%/ctrl%",
+                "symbolExpression": "%ctrl%CycleStop_Pushbutton::BackgroundImage%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/Path",
@@ -427,62 +209,15 @@
             ]
           },
           {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 9
-            },
-            "actions": [
+            "else": [
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStop::IsEnabled%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/Boolean",
-                  "value": false
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStop::BackgroundImage%/ctrl%",
+                "symbolExpression": "%ctrl%CycleStop_Pushbutton::BackgroundImage%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/stop_inactive.svg"
-                },
-                "asyncWait": true
-              }
-            ]
-          },
-          {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 8
-            },
-            "actions": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStop::IsEnabled%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/Boolean",
-                  "value": false
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_CycleStop::BackgroundImage%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/stop_inactive.svg"
+                  "value": "Imports/Images/stop_normal.svg"
                 },
                 "asyncWait": true
               }
@@ -494,23 +229,23 @@
     ]
   },
   {
-    "event": "PB_Main_CycleStop.onStatePressed",
+    "event": "CycleStop_Pushbutton.onStatePressed",
     "actions": [
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bStopPressed%/pp%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
-          "value": 3
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
         },
         "asyncWait": true
       },
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%ctrl%PB_Main_CycleStop::BackgroundImage%/ctrl%",
+        "symbolExpression": "%ctrl%CycleStop_Pushbutton::BackgroundImage%/ctrl%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/Path",
@@ -521,12 +256,12 @@
     ]
   },
   {
-    "event": "PB_Main_CycleStop.onStateReleased",
+    "event": "CycleStop_Pushbutton.onStateReleased",
     "actions": [
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%ctrl%PB_Main_CycleStop::BackgroundImage%/ctrl%",
+        "symbolExpression": "%ctrl%CycleStop_Pushbutton::BackgroundImage%/ctrl%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/Path",
@@ -538,11 +273,30 @@
   }
 ]
 </script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 0,
+  "right": 1,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "None",
+  "right": "Solid",
+  "top": "None",
+  "bottom": "None"
+}
+</script>
 </div>
-
-<div id="PB_Main_FaultReset" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height-unit="px" data-tchmi-text="Fault Reset" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-background-image="Imports/Images/reset_achse_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-height="100" data-tchmi-text-font-weight="Bold" data-tchmi-right-unit="%" data-tchmi-bottom-unit="px" data-tchmi-right="0" data-tchmi-left-unit="px" data-tchmi-width-unit="%" data-tchmi-width="100" data-tchmi-height="%ctrl%PB_Main_FaultReset::RenderedWidth%/ctrl%" data-tchmi-top-unit="px" data-tchmi-bottom="%ctrl%PB_Main_SafetyReset::RenderedHeight%/ctrl%">
-
-
+<div id="CycleReset_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Reset" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleReset_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="px" data-tchmi-left="%f%%ctrl%CycleStart_Pushbutton::RenderedWidth%/ctrl% + %ctrl%CycleStop_Pushbutton::RenderedWidth%/ctrl%%/f%" data-tchmi-zindex="3" data-tchmi-background-image="Imports/Images/reset_achse_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ControlBlock::bResetEnabled%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
 {
   "left": 0,
@@ -565,92 +319,49 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::bResetEnabled%/pp%",
     "actions": [
       {
-        "objectType": "WriteToSymbol",
+        "objectType": "Condition",
         "active": true,
-        "symbolExpression": "%ctrl%PB_Main_FaultReset::IsEnabled%/ctrl%",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/Boolean",
-          "value": false
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%PB_Main_FaultReset::BackgroundImage%/ctrl%",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Path",
-          "value": "Imports/Images/reset_achse_inactive.svg"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "SwitchCase",
-        "active": true,
-        "compare": {
-          "objectType": "Symbol",
-          "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
-        },
-        "cases": [
+        "parts": [
           {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 2
-            },
-            "actions": [
+            "if": [
               {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_FaultReset::IsEnabled%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/Boolean",
-                  "value": true
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%ControlBlock::bResetEnabled%/pp%"
                 },
-                "asyncWait": true
-              },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%ctrl%PB_Main_FaultReset::BackgroundImage%/ctrl%",
+                "symbolExpression": "%ctrl%CycleReset_Pushbutton::BackgroundImage%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/reset_achse_normal.svg"
+                  "value": "Imports/Images/reset_achse_inactive.svg"
                 },
                 "asyncWait": true
               }
             ]
           },
           {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 17
-            },
-            "actions": [
+            "else": [
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%ctrl%PB_Main_FaultReset::IsEnabled%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/Boolean",
-                  "value": true
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_FaultReset::BackgroundImage%/ctrl%",
+                "symbolExpression": "%ctrl%CycleReset_Pushbutton::BackgroundImage%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/Path",
@@ -666,23 +377,23 @@
     ]
   },
   {
-    "event": "PB_Main_FaultReset.onStatePressed",
+    "event": "CycleReset_Pushbutton.onStatePressed",
     "actions": [
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bResetPressed%/pp%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
-          "value": 1
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
         },
         "asyncWait": true
       },
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%ctrl%PB_Main_FaultReset::BackgroundImage%/ctrl%",
+        "symbolExpression": "%ctrl%CycleReset_Pushbutton::BackgroundImage%/ctrl%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/Path",
@@ -693,12 +404,12 @@
     ]
   },
   {
-    "event": "PB_Main_FaultReset.onStateReleased",
+    "event": "CycleReset_Pushbutton.onStateReleased",
     "actions": [
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%ctrl%PB_Main_FaultReset::BackgroundImage%/ctrl%",
+        "symbolExpression": "%ctrl%CycleReset_Pushbutton::BackgroundImage%/ctrl%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:framework#/definitions/Path",
@@ -710,11 +421,30 @@
   }
 ]
 </script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 0,
+  "right": 1,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "None",
+  "right": "Solid",
+  "top": "None",
+  "bottom": "None"
+}
+</script>
 </div>
-
-<div id="PB_Main_SafetyReset" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-text="Safety Reset" data-tchmi-word-wrap="True" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-background-image="Imports/Images/reset_achse_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-height="100" data-tchmi-text-font-weight="Bold" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%" data-tchmi-icon="Imports/Images/safety-active.svg" data-tchmi-icon-width="60" data-tchmi-icon-width-unit="%" data-tchmi-icon-height="60" data-tchmi-icon-height-unit="%" data-tchmi-right="0" data-tchmi-left-unit="px" data-tchmi-width-unit="%" data-tchmi-width="100" data-tchmi-height-unit="px" data-tchmi-height="%ctrl%PB_Main_SafetyReset::RenderedWidth%/ctrl%" data-tchmi-top-unit="px" data-tchmi-bottom="0">
-
-
+<div id="CycleClear_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Clear" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleClear_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="px" data-tchmi-left="%f%%ctrl%CycleStart_Pushbutton::RenderedWidth%/ctrl% + %ctrl%CycleStop_Pushbutton::RenderedWidth%/ctrl% + %ctrl%CycleReset_Pushbutton::RenderedWidth%/ctrl%%/f%" data-tchmi-zindex="4" data-tchmi-background-image="Imports/Images/reset_achse_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-icon="Imports/Images/safety-active.svg" data-tchmi-icon-width="50" data-tchmi-icon-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ControlBlock::bClearEnabled%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
 {
   "left": 0,
@@ -734,129 +464,11 @@
 }
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "%pp%eState%/pp%",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%PB_Main_SafetyReset::IsEnabled%/ctrl%",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/Boolean",
-          "value": false
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%PB_Main_SafetyReset::BackgroundImage%/ctrl%",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Path",
-          "value": "Imports/Images/reset_achse_inactive.svg"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "SwitchCase",
-        "active": true,
-        "compare": {
-          "objectType": "Symbol",
-          "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
-        },
-        "cases": [
-          {
-            "caseValue": {
-              "objectType": "StaticValue",
-              "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLState",
-              "value": 9
-            },
-            "actions": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_SafetyReset::IsEnabled%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/Boolean",
-                  "value": true
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%PB_Main_SafetyReset::BackgroundImage%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Imports/Images/reset_achse_normal.svg"
-                },
-                "asyncWait": true
-              }
-            ]
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  },
-  {
-    "event": "PB_Main_SafetyReset.onStatePressed",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%pp%eCommand%/pp%",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
-          "value": 9
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%PB_Main_SafetyReset::BackgroundImage%/ctrl%",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Path",
-          "value": "Imports/Images/reset_achse_pressed.svg"
-        },
-        "asyncWait": true
-      }
-    ]
-  },
-  {
-    "event": "PB_Main_SafetyReset.onStateReleased",
-    "actions": [
-      {
-        "objectType": "WriteToSymbol",
-        "active": true,
-        "symbolExpression": "%ctrl%PB_Main_SafetyReset::BackgroundImage%/ctrl%",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:framework#/definitions/Path",
-          "value": "Imports/Images/reset_achse_normal.svg"
-        },
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
-
 <script data-tchmi-target-attribute="data-tchmi-icon-padding" type="application/json">
 {
   "left": 0,
   "right": 0,
-  "top": 20,
+  "top": 25,
   "bottom": 0,
   "leftUnit": "px",
   "rightUnit": "px",
@@ -864,6 +476,144 @@
   "bottomUnit": "px"
 }
 </script>
-</div>
 
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%pp%ControlBlock::bClearEnabled%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%ControlBlock::bClearEnabled%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%CycleClear_Pushbutton::BackgroundImage%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Imports/Images/reset_achse_inactive.svg"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%CycleClear_Pushbutton::IsEnabled%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Boolean",
+                  "value": true
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%CycleClear_Pushbutton::BackgroundImage%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Imports/Images/reset_achse_normal.svg"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "CycleClear_Pushbutton.onStatePressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%ControlBlock::bClearPressed%/pp%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%CycleClear_Pushbutton::BackgroundImage%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Path",
+          "value": "Imports/Images/reset_achse_pressed.svg"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "CycleClear_Pushbutton.onStateReleased",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%CycleClear_Pushbutton::BackgroundImage%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Path",
+          "value": "Imports/Images/reset_achse_normal.svg"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "None",
+  "right": "Solid",
+  "top": "None",
+  "bottom": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 0,
+  "right": 1,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
 </div>

@@ -1,0 +1,475 @@
+{
+  "useIndirectInput": false,
+  "hasNumPad": true,
+  "displayName": "US",
+  "localeName": "en-US",
+  "layouts": [
+    {
+      "dimensions": {
+        "width": 400,
+        "height": 500
+      },
+      "name": "default",
+      "keys": [
+        {
+          "geometry": {
+              "left": 2,
+              "top": 0.0,
+              "width": 23.25,
+              "height": 19.2
+          },
+          "type": "edit",
+          "code": "Backspace",
+          "key": "Backspace",
+          "longpressAction": "repeat",
+          "labels": [
+            {
+              "type": "svg",
+              "svg": {
+                "dimensions": {
+                  "width": 22.0,
+                  "height": 14.0
+                },
+                "path": "M 0.5 7 L 7 0.5 L 21.5 0.5 L 21.5 13.5 L 7 13.5 Z M 10 3 L 18 11 M 10 11 L 18 3"
+              }
+            }
+          ]
+        },
+        {
+          "shiftKey": "/",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 26.25,
+            "top": 0.0,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "code": "NumpadDivide",
+          "key": "/",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "text": "÷"
+            }
+          ]
+        },
+        {
+          "shiftKey": "*",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 50.5,
+            "top": 0.0,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "code": "NumpadMultiply",
+          "key": "*",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "text": "×"
+            }
+          ]
+        },
+        {
+          "shiftKey": "-",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 74.75,
+            "top": 0.0,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "code": "NumpadSubtract",
+          "key": "-",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "text": "-"
+            }
+          ]
+        },
+        {
+          "numlockType": "character",
+          "numlockKey": "7",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 2,
+            "top": 20.2,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "type": "action",
+          "code": "Numpad7",
+          "key": "Home",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "hidden": [
+                "numlock"
+              ],
+              "text": "Home"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "numlock"
+              ],
+              "text": "7"
+            }
+          ]
+        },
+        {
+          "numlockType": "character",
+          "numlockKey": "8",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 26.25,
+            "top": 20.2,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "type": "action",
+          "code": "Numpad8",
+          "key": "ArrowUp",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "svg",
+              "hidden": [
+                "numlock"
+              ],
+              "svg": {
+                "dimensions": {
+                  "width": 14.0,
+                  "height": 7.0
+                },
+                "path": "M 0.5 6.5 L 7 0.5 L 13.5 6.5"
+              }
+            },
+            {
+              "type": "text",
+              "visible": [
+                "numlock"
+              ],
+              "text": "8"
+            }
+          ]
+        },
+        {
+          "numlockType": "character",
+          "numlockKey": "9",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 50.5,
+            "top": 20.2,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "code": "Numpad9",
+          "key": "",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "numlock"
+              ],
+              "text": "9"
+            }
+          ]
+        },
+        {
+          "shiftKey": "+",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 74.75,
+            "top": 20.2,
+            "width": 23.25,
+            "height": 39.4
+          },
+          "code": "NumpadAdd",
+          "key": "+",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "text": "+"
+            }
+          ]
+        },
+        {
+          "numlockType": "character",
+          "numlockKey": "4",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 2,
+            "top": 40.4,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "type": "action",
+          "code": "Numpad4",
+          "key": "ArrowLeft",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "svg",
+              "hidden": [
+                "numlock"
+              ],
+              "svg": {
+                "dimensions": {
+                  "width": 7.0,
+                  "height": 14.0
+                },
+                "path": "M 6.5 0.5 L 0.5 7 L 6.5 13.5"
+              }
+            },
+            {
+              "type": "text",
+              "visible": [
+                "numlock"
+              ],
+              "text": "4"
+            }
+          ]
+        },
+        {
+          "numlockType": "character",
+          "numlockKey": "5",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 26.25,
+            "top": 40.4,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "code": "Numpad5",
+          "key": "",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "numlock"
+              ],
+              "text": "5"
+            }
+          ]
+        },
+        {
+          "numlockType": "character",
+          "numlockKey": "6",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 50.5,
+            "top": 40.4,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "type": "action",
+          "code": "Numpad6",
+          "key": "ArrowRight",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "svg",
+              "hidden": [
+                "numlock"
+              ],
+              "svg": {
+                "dimensions": {
+                  "width": 7.0,
+                  "height": 14.0
+                },
+                "path": "M 0.5 0.5 L 6.5 7 L 0.5 13.5"
+              }
+            },
+            {
+              "type": "text",
+              "visible": [
+                "numlock"
+              ],
+              "text": "6"
+            }
+          ]
+        },
+        {
+          "numlockType": "character",
+          "numlockKey": "1",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 2,
+            "top": 60.6,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "type": "action",
+          "code": "Numpad1",
+          "key": "End",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "hidden": [
+                "numlock"
+              ],
+              "text": "End"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "numlock"
+              ],
+              "text": "1"
+            }
+          ]
+        },
+        {
+          "numlockType": "character",
+          "numlockKey": "2",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 26.25,
+            "top": 60.6,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "type": "action",
+          "code": "Numpad2",
+          "key": "ArrowDown",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "svg",
+              "hidden": [
+                "numlock"
+              ],
+              "svg": {
+                "dimensions": {
+                  "width": 14.0,
+                  "height": 7.0
+                },
+                "path": "M 0.5 0.5 L 7 6.5 L 13.5 0.5"
+              }
+            },
+            {
+              "type": "text",
+              "visible": [
+                "numlock"
+              ],
+              "text": "2"
+            }
+          ]
+        },
+        {
+          "numlockType": "character",
+          "numlockKey": "3",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 50.5,
+            "top": 60.6,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "code": "Numpad3",
+          "key": "",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "visible": [
+                "numlock"
+              ],
+              "text": "3"
+            }
+          ]
+        },
+        {
+          "geometry": {
+            "left": 74.75,
+            "top": 60.6,
+            "width": 23.25,
+            "height": 39.4
+          },
+          "code": "NumpadEnter",
+          "key": "Enter",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "text": "Enter"
+            }
+          ]
+        },
+        {
+          "numlockType": "character",
+          "numlockKey": "0",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 2,
+            "top": 80.8,
+            "width": 47.5,
+            "height": 19.2
+          },
+          "type": "action",
+          "code": "Numpad0",
+          "key": "Insert",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "hidden": [
+                "numlock"
+              ],
+              "text": "Ins"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "numlock"
+              ],
+              "text": "0"
+            }
+          ]
+        },
+        {
+          "numlockType": "character",
+          "numlockKey": ".",
+          "noCapsLock": true,
+          "geometry": {
+            "left": 50.5,
+            "top": 80.8,
+            "width": 23.25,
+            "height": 19.2
+          },
+          "type": "action",
+          "code": "NumpadDecimal",
+          "key": "Delete",
+          "location": "numpad",
+          "labels": [
+            {
+              "type": "text",
+              "hidden": [
+                "numlock"
+              ],
+              "text": "Del"
+            },
+            {
+              "type": "text",
+              "visible": [
+                "numlock"
+              ],
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

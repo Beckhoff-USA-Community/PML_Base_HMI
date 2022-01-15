@@ -1,0 +1,55 @@
+﻿<div id="MonitorNameDisplayWithNavigation" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="640" data-tchmi-creator-viewport-height="120">
+
+<div id="NameDisplayWithNavigation_Display" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text="%pp%Name%/pp%" data-tchmi-zindex="7" data-tchmi-height-unit="%" data-tchmi-height="100" data-tchmi-is-enabled="true" data-tchmi-text-font-size="%f%TcHmi.Functions.TcHmiProject1.FitTextToSpace(%ctrl%NameDisplayWithNavigation_Display::Text%/ctrl%, %ctrl%NameDisplayWithNavigation_Display::RenderedWidth%/ctrl%, %ctrl%NameDisplayWithNavigation_Display::RenderedHeight%/ctrl%, 25)%/f%">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "hardware-monitor-name-display"
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "CylinderMonitor_Name_Display_1.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%Main_DisplayRegion::TargetContent%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "\"Contents/Machine_Overview_Pages/\"+TcHmi.Functions.TcHmiProject1.RemoveSpacesFromString(%pp%Module::sModuleName%/pp%)+\".content\""
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "NameDisplayWithNavigation_Display.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%i%NavigationTraceback_Names%/i%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "TcHmi.Functions.TcHmiProject1.TraceToRoot(%s%PLC_PML.MAIN.fbMainHMIConnection.stMachineTreeNodes%/s%, %pp%Name%/pp%)"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%Main_DisplayRegion::TargetContent%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "\"Contents/Machine_Overview_Pages/\"+TcHmi.Functions.TcHmiProject1.RemoveSpacesFromString(%pp%Name%/pp%)+\".content\""
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+</div>

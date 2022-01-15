@@ -40,7 +40,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -52,7 +52,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -145,7 +145,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -157,7 +157,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -256,7 +256,7 @@
         "compare": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
+          "symbolExpression": "%pp%ControlBlock::eState%/pp%"
         },
         "cases": [
           {
@@ -303,7 +303,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eStateCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::eStateCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
@@ -314,7 +314,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bStateCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bStateCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -368,7 +368,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -380,7 +380,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -473,7 +473,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -485,7 +485,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -584,7 +584,7 @@
         "compare": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
+          "symbolExpression": "%pp%ControlBlock::eState%/pp%"
         },
         "cases": [
           {
@@ -631,7 +631,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eStateCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::eStateCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
@@ -642,7 +642,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bStateCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bStateCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -696,7 +696,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -708,7 +708,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -801,7 +801,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -813,7 +813,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -912,7 +912,7 @@
         "compare": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
+          "symbolExpression": "%pp%ControlBlock::eState%/pp%"
         },
         "cases": [
           {
@@ -959,7 +959,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eStateCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::eStateCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
@@ -970,7 +970,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bStateCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bStateCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -1024,7 +1024,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -1036,7 +1036,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -1135,7 +1135,7 @@
         "compare": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
+          "symbolExpression": "%pp%ControlBlock::eState%/pp%"
         },
         "cases": [
           {
@@ -1182,7 +1182,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eStateCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::eStateCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
@@ -1193,7 +1193,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bStateCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bStateCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -1247,7 +1247,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -1259,7 +1259,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -1352,7 +1352,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -1364,7 +1364,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -1463,7 +1463,7 @@
         "compare": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
+          "symbolExpression": "%pp%ControlBlock::eState%/pp%"
         },
         "cases": [
           {
@@ -1510,7 +1510,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eStateCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::eStateCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
@@ -1521,7 +1521,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bStateCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bStateCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -1575,7 +1575,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -1587,7 +1587,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -1686,7 +1686,7 @@
         "compare": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
+          "symbolExpression": "%pp%ControlBlock::eState%/pp%"
         },
         "cases": [
           {
@@ -1733,7 +1733,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eStateCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::eStateCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
@@ -1744,7 +1744,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bStateCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bStateCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -1798,7 +1798,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -1810,7 +1810,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -1903,7 +1903,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -1915,7 +1915,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -2014,7 +2014,7 @@
         "compare": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
+          "symbolExpression": "%pp%ControlBlock::eState%/pp%"
         },
         "cases": [
           {
@@ -2094,7 +2094,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eStateCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::eStateCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
@@ -2105,7 +2105,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bStateCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bStateCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -2159,7 +2159,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -2171,7 +2171,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -2264,7 +2264,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -2276,7 +2276,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -2333,7 +2333,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -2445,7 +2445,7 @@
         "compare": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
+          "symbolExpression": "%pp%ControlBlock::eState%/pp%"
         },
         "cases": [
           {
@@ -2591,7 +2591,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eStateCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::eStateCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
@@ -2602,7 +2602,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bStateCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bStateCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -2656,7 +2656,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -2668,7 +2668,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -2767,7 +2767,7 @@
         "compare": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
+          "symbolExpression": "%pp%ControlBlock::eState%/pp%"
         },
         "cases": [
           {
@@ -2814,7 +2814,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eStateCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::eStateCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
@@ -2825,7 +2825,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bStateCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bStateCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -2879,7 +2879,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -2891,7 +2891,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -2984,7 +2984,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -2996,7 +2996,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%eState%/pp%"
+                  "symbolExpression": "%pp%ControlBlock::eState%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -3108,7 +3108,7 @@
         "compare": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
+          "symbolExpression": "%pp%ControlBlock::eState%/pp%"
         },
         "cases": [
           {
@@ -3175,10 +3175,10 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eStateCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::eStateCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
+          "valueType": "tchmi:project#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLCommand",
           "value": 8
         },
         "asyncWait": true
@@ -3186,7 +3186,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bStateCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bStateCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -3446,21 +3446,21 @@
 
 </div>
 
-<div id="L_Main_Status" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="8" data-tchmi-height-unit="%" data-tchmi-left="5.14" data-tchmi-left-unit="%" data-tchmi-top="11.2" data-tchmi-top-unit="%" data-tchmi-width="17" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%ctrl%L_Main_Status::RenderedWidth%/ctrl%" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-weight="Normal" data-tchmi-zindex="5" data-tchmi-text="Undefined">
+<div id="L_Main_Status" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="8" data-tchmi-height-unit="%" data-tchmi-left="5.14" data-tchmi-left-unit="%" data-tchmi-top="11.2" data-tchmi-top-unit="%" data-tchmi-width="17" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%ctrl%L_Main_Status::RenderedWidth%/ctrl%" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-weight="Normal" data-tchmi-zindex="5" data-tchmi-text="Undefined" data-tchmi-is-enabled="true">
 
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eState%/pp%",
+    "event": "%pp%ControlBlock::eState%/pp%",
     "actions": [
       {
         "objectType": "SwitchCase",
         "active": true,
         "compare": {
           "objectType": "Symbol",
-          "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eState%/pp%"
+          "valueType": "tchmi:project#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState",
+          "symbolExpression": "%pp%ControlBlock::eState%/pp%"
         },
         "cases": [
           {
@@ -4275,15 +4275,15 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eMode%/pp%",
+    "event": "%pp%ControlBlock::nMode%/pp%",
     "actions": [
       {
         "objectType": "SwitchCase",
         "active": true,
         "compare": {
           "objectType": "Symbol",
-          "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eMode%/pp%"
+          "valueType": "tchmi:general#/definitions/DINT",
+          "symbolExpression": "%pp%ControlBlock::nMode%/pp%"
         },
         "cases": [
           {
@@ -4363,10 +4363,10 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eModeCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::nModeCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:server#/definitions/PLC1.E_UnitMode",
+          "valueType": "tchmi:general#/definitions/DINT",
           "value": 1
         },
         "asyncWait": true
@@ -4374,7 +4374,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bModeCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bModeCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -4428,15 +4428,15 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eMode%/pp%",
+    "event": "%pp%ControlBlock::nMode%/pp%",
     "actions": [
       {
         "objectType": "SwitchCase",
         "active": true,
         "compare": {
           "objectType": "Symbol",
-          "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eMode%/pp%"
+          "valueType": "tchmi:general#/definitions/DINT",
+          "symbolExpression": "%pp%ControlBlock::nMode%/pp%"
         },
         "cases": [
           {
@@ -4516,10 +4516,10 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eModeCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::nModeCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:server#/definitions/PLC1.E_UnitMode",
+          "valueType": "tchmi:general#/definitions/DINT",
           "value": 2
         },
         "asyncWait": true
@@ -4527,7 +4527,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bModeCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bModeCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -4581,15 +4581,15 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%eMode%/pp%",
+    "event": "%pp%ControlBlock::nMode%/pp%",
     "actions": [
       {
         "objectType": "SwitchCase",
         "active": true,
         "compare": {
           "objectType": "Symbol",
-          "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%pp%eMode%/pp%"
+          "valueType": "tchmi:general#/definitions/DINT",
+          "symbolExpression": "%pp%ControlBlock::nMode%/pp%"
         },
         "cases": [
           {
@@ -4669,7 +4669,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eStateCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::eStateCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:server#/definitions/PLC1.Tc3_PackML_V2.E_PMLCommand",
@@ -4685,10 +4685,10 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%eModeCommand%/pp%",
+        "symbolExpression": "%pp%ControlBlock::nModeCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:server#/definitions/PLC1.E_UnitMode",
+          "valueType": "tchmi:general#/definitions/DINT",
           "value": 3
         },
         "asyncWait": true
@@ -4696,7 +4696,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%bModeCommandPulse%/pp%",
+        "symbolExpression": "%pp%ControlBlock::bModeCommandPulse%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
