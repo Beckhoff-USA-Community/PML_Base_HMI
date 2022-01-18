@@ -18,4 +18,5 @@ The following components must be installed to run sample code:
 
 - [TE1000 TwinCAT 3 Engineering](https://www.beckhoff.com/en-en/products/automation/twincat/te1xxx-twincat-3-engineering/te1000.html) version 3.1.4024.0 or higher
 - [TE2000 TwinCAT 3 Engineering](https://www.beckhoff.com/en-us/products/automation/twincat/te1xxx-twincat-3-engineering/te2000.html) version 1.12.750.1 or higher
+- this is a companion project intended for use with https://github.com/Beckhoff-USA-Community/PML_Base_PLC
 
