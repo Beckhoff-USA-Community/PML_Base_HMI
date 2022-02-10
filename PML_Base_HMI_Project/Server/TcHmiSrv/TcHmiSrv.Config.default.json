@@ -12567,13 +12567,13 @@
             },
             "USEMAPPING": true
         },
-        "PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::stMainProductionData",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::stProductionDataHMI",
             "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.REFERENCE TO ST_ProductionData_HMI"
+                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ProductionData_HMI"
             },
             "USEMAPPING": true
         },
@@ -12884,36 +12884,6 @@
             "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::stPMLModuleBaseHMI",
             "SCHEMA": {
                 "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.nCurrentShiftProductionCount": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbProductionDataHMI::nCurrentShiftProductionCount",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/INT"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.nCurrentShiftTarget": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbProductionDataHMI::nCurrentShiftTarget",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/DINT"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbProductionDataHMI::stProductionDataHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ProductionDataHMI"
             },
             "USEMAPPING": true
         },

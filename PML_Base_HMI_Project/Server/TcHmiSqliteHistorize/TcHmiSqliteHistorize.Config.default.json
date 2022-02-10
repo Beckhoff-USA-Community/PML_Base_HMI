@@ -8,19 +8,7 @@
             "recordingEnabled": true,
             "rowLimit": 10000
         },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.nCurrentShiftProductionCount": {
-            "interval": "PT1S",
-            "maxEntries": 10000,
-            "recordingEnabled": true,
-            "rowLimit": 10000
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.nCurrentShiftTarget": {
-            "interval": "PT1S",
-            "maxEntries": 10000,
-            "recordingEnabled": true,
-            "rowLimit": 10000
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI": {
             "interval": "PT1S",
             "maxEntries": 10000,
             "recordingEnabled": true,

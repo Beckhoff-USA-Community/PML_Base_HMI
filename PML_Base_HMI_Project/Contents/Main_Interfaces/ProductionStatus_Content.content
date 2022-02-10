@@ -32,53 +32,11 @@
 }
 </script>
 
-<div id="Production_Status_TrendLineChart" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-left="30" data-tchmi-left-unit="px" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="45" data-tchmi-width-unit="%" data-tchmi-x-axis-name="x-axis 1" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-x-show-labels="True" data-tchmi-x-label-font-size="10" data-tchmi-interval="1000" data-tchmi-mouse-mode="PanX" data-tchmi-show-menu-bar="False" data-tchmi-menu-bar-position="Bottom" data-tchmi-menu-bar-label-font-size="12" data-tchmi-x-main-tick-steps="2" data-tchmi-y-main-tick-steps="11" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-is-enabled="true" data-tchmi-bottom="30" data-tchmi-end="Latest" data-tchmi-start="First">
+<div id="Production_Status_TrendLineChart" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTrendLineChart" data-tchmi-left="30" data-tchmi-left-unit="px" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="45" data-tchmi-width-unit="%" data-tchmi-x-axis-name="x-axis 1" data-tchmi-x-sub-tick-steps="4" data-tchmi-y-sub-tick-steps="4" data-tchmi-x-show-labels="True" data-tchmi-x-label-font-size="10" data-tchmi-interval="1000" data-tchmi-mouse-mode="PanX" data-tchmi-show-menu-bar="False" data-tchmi-menu-bar-position="Bottom" data-tchmi-menu-bar-label-font-size="12" data-tchmi-x-main-tick-steps="2" data-tchmi-y-main-tick-steps="11" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-is-enabled="true" data-tchmi-bottom="30" data-tchmi-end="Latest" data-tchmi-start="%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::tShiftLength%/s%" data-tchmi-show-legend="true">
 
 
 
-<script data-tchmi-target-attribute="data-tchmi-line-graph-descriptions" type="application/json">
-[
-  {
-    "yAxisId": 1,
-    "legendName": "",
-    "showAxis": true,
-    "lineWidth": 1,
-    "pointDot": false,
-    "pointDotRadius": 3,
-    "pointDotStrokeWidth": 1,
-    "lineColor": {
-      "color": "rgba(224, 22, 0, 1)"
-    },
-    "pointDotFillColor": {
-      "color": "rgba(71, 148, 218, 1)"
-    },
-    "pointDotStrokeColor": {
-      "color": "rgba(71, 148, 218, 1)"
-    },
-    "pointDotInStopMode": false,
-    "symbol": "PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::nCurrentShiftTarget"
-  },
-  {
-    "yAxisId": 1,
-    "legendName": "",
-    "showAxis": true,
-    "lineWidth": 1,
-    "pointDot": false,
-    "pointDotRadius": 3,
-    "pointDotStrokeWidth": 1,
-    "lineColor": {
-      "color": "rgba(71, 148, 218, 1)"
-    },
-    "pointDotFillColor": {
-      "color": "rgba(71, 148, 218, 1)"
-    },
-    "pointDotStrokeColor": {
-      "color": "rgba(71, 148, 218, 1)"
-    },
-    "pointDotInStopMode": false,
-    "symbol": "PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::nCurrentShiftProductionCount"
-  }
-</script>
+
 
 <script data-tchmi-target-attribute="data-tchmi-y-axis" type="application/json">
 [
@@ -157,6 +115,51 @@
         "asyncWait": true
       }
     ]
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-line-graph-descriptions" type="application/json">
+[
+  {
+    "yAxisId": 1,
+    "legendName": "Target",
+    "showAxis": true,
+    "lineWidth": 1,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(218, 71, 71, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "pointDotInStopMode": true,
+    "symbol": "PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::nCurrentShiftTarget"
+  },
+  {
+    "yAxisId": 1,
+    "legendName": "Actual",
+    "showAxis": true,
+    "lineWidth": 1,
+    "pointDot": false,
+    "pointDotRadius": 3,
+    "pointDotStrokeWidth": 1,
+    "lineColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "pointDotFillColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "pointDotStrokeColor": {
+      "color": "rgba(71, 148, 218, 1)"
+    },
+    "pointDotInStopMode": true,
+    "symbol": "PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::nCurrentShiftProductionCount"
   }
 ]
 </script>
@@ -242,7 +245,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::fProductionRateHMISetValue%/s%",
+        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::fProductionRateHMISetValue%/s%",
         "value": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
@@ -253,29 +256,29 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bIncomingHMIRequest%/s%",
+        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::bIncomingHMIRequest%/s%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/String",
-          "value": "True"
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
         },
         "asyncWait": true
       },
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bProductionRateHMISetRequest%/s%",
+        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::bProductionRateHMISetRequest%/s%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/String",
-          "value": "True"
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
         },
         "asyncWait": true
       }
     ]
   },
   {
-    "event": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bHMICommandConfirmation%/s%",
+    "event": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::bHMICommandConfirmation%/s%",
     "actions": [
       {
         "objectType": "Condition",
@@ -287,12 +290,12 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/BOOL",
-                  "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bHMICommandConfirmation%/s%"
+                  "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::bHMICommandConfirmation%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": "True"
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
                 },
                 "compareOperator": "==",
                 "logic": null
@@ -309,12 +312,12 @@
                         "compare1": {
                           "objectType": "Symbol",
                           "valueType": "tchmi:general#/definitions/BOOL",
-                          "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bProductionRateHMISetRequest%/s%"
+                          "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::bProductionRateHMISetRequest%/s%"
                         },
                         "compare2": {
                           "objectType": "StaticValue",
-                          "valueType": "tchmi:general#/definitions/String",
-                          "value": "True"
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
                         },
                         "compareOperator": "==",
                         "logic": null
@@ -324,33 +327,33 @@
                       {
                         "objectType": "WriteToSymbol",
                         "active": true,
-                        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bProductionRateHMISetRequest%/s%",
+                        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::bProductionRateHMISetRequest%/s%",
                         "value": {
                           "objectType": "StaticValue",
-                          "valueType": "tchmi:general#/definitions/String",
-                          "value": "False"
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
                         },
                         "asyncWait": true
                       },
                       {
                         "objectType": "WriteToSymbol",
                         "active": true,
-                        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bIncomingHMIRequest%/s%",
+                        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::bIncomingHMIRequest%/s%",
                         "value": {
                           "objectType": "StaticValue",
-                          "valueType": "tchmi:general#/definitions/String",
-                          "value": "False"
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
                         },
                         "asyncWait": true
                       },
                       {
                         "objectType": "WriteToSymbol",
                         "active": true,
-                        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bHMICommandConfirmation%/s%",
+                        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::bHMICommandConfirmation%/s%",
                         "value": {
                           "objectType": "StaticValue",
-                          "valueType": "tchmi:general#/definitions/String",
-                          "value": "False"
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
                         },
                         "asyncWait": true
                       }
@@ -409,7 +412,7 @@
         "value": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::fProductionRate_Setpoint%/s%"
+          "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::fProductionRate_Setpoint%/s%"
         },
         "asyncWait": true
       }
@@ -460,7 +463,7 @@
 }
 </script>
 </div>
-<div id="MachineRateCurrent_Label" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Current Machine Rate Target:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-text-font-size="%f%TcHmi.Functions.TcHmiProject1.FitTextToSpace(%ctrl%MachineRateCurrent_Label::Text%/ctrl%, %ctrl%MachineRateCurrent_Label::RenderedWidth%/ctrl%, %ctrl%MachineRateCurrent_Label::RenderedHeight%/ctrl%, 20)%/f%">
+<div id="MachineRateCurrent_Label" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Current Machine Rate Setpoint:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-text-font-size="%f%TcHmi.Functions.TcHmiProject1.FitTextToSpace(%ctrl%MachineRateCurrent_Label::Text%/ctrl%, %ctrl%MachineRateCurrent_Label::RenderedWidth%/ctrl%, %ctrl%MachineRateCurrent_Label::RenderedHeight%/ctrl%, 20)%/f%">
 
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
@@ -481,7 +484,7 @@
 </script>
 
 </div>
-<div id="MachineRateCurrent_Display" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="1" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::fProductionRate_Setpoint%/s%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="MachineRateCurrent_Display" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="1" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::fProductionRate_Setpoint%/s%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
 </div>
 <div id="MachineRateActual_Label" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-text-font-size="%f%TcHmi.Functions.TcHmiProject1.FitTextToSpace(%ctrl%MachineRateActual_Label::Text%/ctrl%, %ctrl%MachineRateActual_Label::RenderedWidth%/ctrl%, %ctrl%MachineRateActual_Label::RenderedHeight%/ctrl%, 20)%/f%" data-tchmi-text="Current Machine Rate Actual:">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
@@ -497,7 +500,7 @@
 }
 </script>
 </div>
-<div id="TcHmiTextblock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="2" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::fProductionRate_Actual%/s%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="2" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::fProductionRate_Actual%/s%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
 </div>
 </div>
 <div id="MachineRate_LinearGauge" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLinearGauge" data-tchmi-base-animation-time="1000" data-tchmi-height="85" data-tchmi-height-unit="px" data-tchmi-label-range="25" data-tchmi-show-labels="True" data-tchmi-show-ticks="True" data-tchmi-show-value-text="true" data-tchmi-start-from-zero="True" data-tchmi-min-value="0" data-tchmi-max-value="100" data-tchmi-step="1" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-orientation="Horizontal" data-tchmi-value-space-unit="px" data-tchmi-value-font-size-unit="px" data-tchmi-editable="true" data-tchmi-label-font-size-unit="px" data-tchmi-label-position="Left" data-tchmi-unit="Products per Minute" data-tchmi-unit-font-size-unit="px" data-tchmi-zindex="22" data-tchmi-value="50" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-grid-row-index="0" data-tchmi-is-enabled="true" data-tchmi-click-anywhere-to-edit="false" data-tchmi-right="30" data-tchmi-bottom="30" data-tchmi-left="52" data-tchmi-left-unit="%">
@@ -599,7 +602,7 @@
         "value": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::fProductionRate_Setpoint%/s%"
+          "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI::fProductionRate_Setpoint%/s%"
         },
         "asyncWait": true
       }
