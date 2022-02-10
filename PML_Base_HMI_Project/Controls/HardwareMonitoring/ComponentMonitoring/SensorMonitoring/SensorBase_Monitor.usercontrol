@@ -270,6 +270,14 @@
     "minHeight": 50.0,
     "minHeightUnit": "px",
     "overflow": false
+  },
+  {
+    "height": 2.0,
+    "heightUnit": "px",
+    "heightMode": "Value",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": false
   }
 ]
 </script>

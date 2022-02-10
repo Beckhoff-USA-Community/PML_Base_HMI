@@ -1,0 +1,18 @@
+﻿<div id="LeftTipSeparator" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%">
+<div id="LeftTipSeparator_CutterCylinder_Monitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="50" data-tchmi-height-unit="%" data-tchmi-left="51" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/ComponentMonitoring/CylinderMonitoring/CylinderBase_Monitor.usercontrol" data-tchmi-top="20" data-tchmi-top-unit="%" data-tchmi-width="47" data-tchmi-width-unit="%" data-tchmi-is-enabled="true" data-tchmi-cylinder="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbCutterCylinder.stCylinderBaseHMI%/s%" data-tchmi-component="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbCutterCylinder.stComponentBaseHMI%/s%" data-tchmi-height-mode="Content">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+<div id="LeftTipSeparatorPage_PMLMonitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/ModuleMonitoring/PMLModuleBase_Monitor.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-zindex="10">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+</div>

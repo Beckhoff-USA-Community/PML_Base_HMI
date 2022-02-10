@@ -587,6 +587,14 @@
             "minItems": 18,
             "type": "array"
         },
+        "PLC_PML.ARRAY (0..31) OF STRING(80)": {
+            "items": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
+            },
+            "maxItems": 32,
+            "minItems": 32,
+            "type": "array"
+        },
         "PLC_PML.ARRAY (0..63) OF DINT": {
             "items": {
                 "$ref": "tchmi:general#/definitions/DINT"
@@ -644,6 +652,42 @@
             "startOffset": 1,
             "type": "array"
         },
+        "PLC_PML.ARRAY (1..100) OF ULINT": {
+            "items": {
+                "$ref": "tchmi:general#/definitions/ULINT"
+            },
+            "maxItems": 100,
+            "minItems": 100,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC_PML.ARRAY (1..128) OF ITF_ComponentBase": {
+            "items": {
+                "$ref": "#/definitions/PLC_PML.ITF_ComponentBase"
+            },
+            "maxItems": 128,
+            "minItems": 128,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC_PML.ARRAY (1..128) OF ST_ConveyorLocation": {
+            "items": {
+                "$ref": "#/definitions/PLC_PML.ST_ConveyorLocation"
+            },
+            "maxItems": 128,
+            "minItems": 128,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC_PML.ARRAY (1..128) OF ST_ProductCarrier": {
+            "items": {
+                "$ref": "#/definitions/PLC_PML.ST_ProductCarrier"
+            },
+            "maxItems": 128,
+            "minItems": 128,
+            "startOffset": 1,
+            "type": "array"
+        },
         "PLC_PML.ARRAY (1..16) OF Tc3_EventLogger.FB_TcAlarm": {
             "items": {
                 "$ref": "#/definitions/PLC_PML.Tc3_EventLogger.FB_TcAlarm"
@@ -689,6 +733,15 @@
             "startOffset": 1,
             "type": "array"
         },
+        "PLC_PML.ARRAY (1..31) OF STRING(80)": {
+            "items": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
+            },
+            "maxItems": 31,
+            "minItems": 31,
+            "startOffset": 1,
+            "type": "array"
+        },
         "PLC_PML.ARRAY (1..32) OF Tc3_EventLogger.FB_TcAlarm": {
             "items": {
                 "$ref": "#/definitions/PLC_PML.Tc3_EventLogger.FB_TcAlarm"
@@ -704,6 +757,24 @@
             },
             "maxItems": 48,
             "minItems": 48,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC_PML.ARRAY (1..8) OF Tc2_MC2.MC_ReadParameter": {
+            "items": {
+                "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_ReadParameter"
+            },
+            "maxItems": 8,
+            "minItems": 8,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC_PML.ARRAY (1..8) OF Tc2_MC2.MC_WriteParameter": {
+            "items": {
+                "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_WriteParameter"
+            },
+            "maxItems": 8,
+            "minItems": 8,
             "startOffset": 1,
             "type": "array"
         },
@@ -862,7 +933,9 @@
                         0,
                         1,
                         2,
-                        3
+                        3,
+                        4,
+                        5
                     ],
                     "options": [
                         {
@@ -880,6 +953,14 @@
                         {
                             "label": "ePMLUnitMode_Manual",
                             "value": 3
+                        },
+                        {
+                            "label": "ePMLUnitMode_Cleaning",
+                            "value": 4
+                        },
+                        {
+                            "label": "ePMLUnitMode_Prime",
+                            "value": 5
                         }
                     ]
                 },
@@ -916,7 +997,7 @@
                 }
             ]
         },
-        "PLC_PML.FB_Axis_Continuous_NoHoming": {
+        "PLC_PML.FB_Axis_Continuous_HomeToSensor": {
             "attributes": {
                 "TcImplements": "ITF_ComponentBase;ITF_AxisBase;ITF_Axis_Continuous"
             },
@@ -931,7 +1012,7 @@
                     "$ref": "#/definitions/PLC_PML.Tc2_MC2.AXIS_REF"
                 },
                 "MasterAxis": {
-                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.AXIS_REF"
+                    "$ref": "#/definitions/PLC_PML.REFERENCE TO Tc2_MC2.AXIS_REF"
                 },
                 "SelectedAxis": {
                     "$ref": "#/definitions/PLC_PML.REFERENCE TO Tc2_MC2.AXIS_REF"
@@ -939,16 +1020,43 @@
                 "SimulationAxis": {
                     "$ref": "#/definitions/PLC_PML.Tc2_MC2.AXIS_REF"
                 },
+                "__FB_AXISBASE__SIMULATEOPERATION__FBAXISPARAMREAD": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..8) OF Tc2_MC2.MC_ReadParameter"
+                },
+                "__FB_AXISBASE__SIMULATEOPERATION__FBSETSIMULATIONPOSITION": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_SetPosition"
+                },
+                "__FB_AXISBASE__SIMULATEOPERATION__FBWRITEPARAM": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..8) OF Tc2_MC2.MC_WriteParameter"
+                },
+                "__FB_AXISBASE__SIMULATEOPERATION__FTESTVALUE": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "a_fbComponentBaseAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..16) OF Tc3_EventLogger.FB_TcAlarm"
+                },
                 "bActive": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
+                "bAxisError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
                 "bDriveEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bDriveError": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
                 "bEnabled": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
                 "bError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bHomeSensorStatus": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bHomed": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
                 "bInGear": {
@@ -960,11 +1068,26 @@
                 "bInitialized": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
+                "bParamCopyComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetHappenedLastScan": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetHappenedThisScan": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
                 "bSimulate": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
                 "bStopped": {
                     "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "eHomeDirection": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Direction"
+                },
+                "fHomePositionSetpoint": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
                 },
                 "fJogFastVelocity": {
                     "$ref": "tchmi:general#/definitions/LREAL"
@@ -1011,11 +1134,11 @@
                 "fbAxisStop": {
                     "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Stop"
                 },
-                "fbComponentBaseAlarms": {
-                    "$ref": "#/definitions/PLC_PML.ARRAY (1..16) OF Tc3_EventLogger.FB_TcAlarm"
-                },
                 "fbGearIn": {
                     "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_GearIn"
+                },
+                "fbHomeSensor": {
+                    "$ref": "#/definitions/PLC_PML.FB_Sensor"
                 },
                 "fbMoveAbsolute": {
                     "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_MoveAbsolute"
@@ -1031,6 +1154,385 @@
                 },
                 "fbWriteParameter": {
                     "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_WriteParameter"
+                },
+                "nAxisCopy": {
+                    "$ref": "tchmi:general#/definitions/INT"
+                },
+                "nErrorID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "sName": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sTemp": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "stAxisBaseHMI": {
+                    "$ref": "#/definitions/PLC_PML.ST_AxisBase_HMI"
+                },
+                "stComponentBaseHMI": {
+                    "$ref": "#/definitions/PLC_PML.ST_ComponentBase_HMI"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.FB_Axis_Continuous_NoHoming": {
+            "attributes": {
+                "TcImplements": "ITF_ComponentBase;ITF_AxisBase;ITF_Axis_Continuous"
+            },
+            "properties": {
+                "AXIS_BASE_ALARM_COUNT": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "COMPONENT_BASE_ALARM_COUNT": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "HardwareAxis": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.AXIS_REF"
+                },
+                "MasterAxis": {
+                    "$ref": "#/definitions/PLC_PML.REFERENCE TO Tc2_MC2.AXIS_REF"
+                },
+                "SelectedAxis": {
+                    "$ref": "#/definitions/PLC_PML.REFERENCE TO Tc2_MC2.AXIS_REF"
+                },
+                "SimulationAxis": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.AXIS_REF"
+                },
+                "__FB_AXISBASE__SIMULATEOPERATION__FBAXISPARAMREAD": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..8) OF Tc2_MC2.MC_ReadParameter"
+                },
+                "__FB_AXISBASE__SIMULATEOPERATION__FBSETSIMULATIONPOSITION": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_SetPosition"
+                },
+                "__FB_AXISBASE__SIMULATEOPERATION__FBWRITEPARAM": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..8) OF Tc2_MC2.MC_WriteParameter"
+                },
+                "__FB_AXISBASE__SIMULATEOPERATION__FTESTVALUE": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "a_fbComponentBaseAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..16) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "bActive": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bAxisError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bDriveEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bDriveError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bHomed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInGear": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInPosition": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInitialized": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bParamCopyComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bReady": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetHappenedLastScan": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetHappenedThisScan": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSimulate": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bStopped": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "fHomePositionSetpoint": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fJogFastVelocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fJogSlowVelocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fModuloFactor": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fModuloPosition": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fModuloSetpoint": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fOverride": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fPosition": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fPositionSetpoint": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fTargetVelocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fbAxisBaseAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..16) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "fbAxisHalt": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Halt"
+                },
+                "fbAxisHome": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Home"
+                },
+                "fbAxisJog": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Jog"
+                },
+                "fbAxisPower": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Power"
+                },
+                "fbAxisReset": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Reset"
+                },
+                "fbAxisStop": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Stop"
+                },
+                "fbGearIn": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_GearIn"
+                },
+                "fbGearOut": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_GearOut"
+                },
+                "fbMoveAbsolute": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_MoveAbsolute"
+                },
+                "fbMoveModulo": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_MoveModulo"
+                },
+                "fbMoveRelative": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_MoveRelative"
+                },
+                "fbMoveVelocity": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_MoveVelocity"
+                },
+                "fbResetDrv": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2_Drive.FB_SoEReset"
+                },
+                "fbWriteParameter": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_WriteParameter"
+                },
+                "nAxisCopy": {
+                    "$ref": "tchmi:general#/definitions/INT"
+                },
+                "nErrorID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "sName": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sTemp": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "stAxisBaseHMI": {
+                    "$ref": "#/definitions/PLC_PML.ST_AxisBase_HMI"
+                },
+                "stComponentBaseHMI": {
+                    "$ref": "#/definitions/PLC_PML.ST_ComponentBase_HMI"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.FB_Axis_Discrete_HomeToSensor": {
+            "attributes": {
+                "TcImplements": "ITF_ComponentBase;ITF_AxisBase"
+            },
+            "properties": {
+                "AXIS_BASE_ALARM_COUNT": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "COMPONENT_BASE_ALARM_COUNT": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "HardwareAxis": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.AXIS_REF"
+                },
+                "MasterAxis": {
+                    "$ref": "#/definitions/PLC_PML.REFERENCE TO Tc2_MC2.AXIS_REF"
+                },
+                "SelectedAxis": {
+                    "$ref": "#/definitions/PLC_PML.REFERENCE TO Tc2_MC2.AXIS_REF"
+                },
+                "SimulationAxis": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.AXIS_REF"
+                },
+                "__FB_AXISBASE__SIMULATEOPERATION__FBAXISPARAMREAD": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..8) OF Tc2_MC2.MC_ReadParameter"
+                },
+                "__FB_AXISBASE__SIMULATEOPERATION__FBSETSIMULATIONPOSITION": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_SetPosition"
+                },
+                "__FB_AXISBASE__SIMULATEOPERATION__FBWRITEPARAM": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..8) OF Tc2_MC2.MC_WriteParameter"
+                },
+                "__FB_AXISBASE__SIMULATEOPERATION__FTESTVALUE": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "a_fbComponentBaseAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..16) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "bActive": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bAtVelocity": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bAxisError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bDriveEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bDriveError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bHomeSensorStatus": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bHomed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInGear": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInPosition": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInitialized": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bParamCopyComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetHappenedLastScan": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetHappenedThisScan": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSimulate": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bStopped": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "eHomeDirection": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Direction"
+                },
+                "fHomePositionSetpoint": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fJogFastVelocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fJogSlowVelocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fLowerTravelLimit": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fOverride": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fPosition": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fPositionSetpoint": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fPosition_1": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fPosition_2": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fPosition_3": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fTargetVelocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fUpperTravelLimit": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fVelocitySetpoint": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fbAxisBaseAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..16) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "fbAxisHalt": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Halt"
+                },
+                "fbAxisHome": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Home"
+                },
+                "fbAxisJog": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Jog"
+                },
+                "fbAxisPower": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Power"
+                },
+                "fbAxisReset": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Reset"
+                },
+                "fbAxisStop": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Stop"
+                },
+                "fbGearIn": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_GearIn"
+                },
+                "fbHomeSensor": {
+                    "$ref": "#/definitions/PLC_PML.FB_Sensor"
+                },
+                "fbMoveAbsolute": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_MoveAbsolute"
+                },
+                "fbMoveRelative": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_MoveRelative"
+                },
+                "fbMoveVelocity": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_MoveVelocity"
+                },
+                "fbResetDrv": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2_Drive.FB_SoEReset"
+                },
+                "fbWriteParameter": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_WriteParameter"
+                },
+                "nAxisCopy": {
+                    "$ref": "tchmi:general#/definitions/INT"
                 },
                 "nErrorID": {
                     "$ref": "tchmi:general#/definitions/UDINT"
@@ -1082,6 +1584,376 @@
             },
             "type": "object"
         },
+        "PLC_PML.FB_Discrete_ServoConveyor_wFlag": {
+            "attributes": {
+                "TcImplements": "ITF_PMLModuleBase"
+            },
+            "properties": {
+                "MAX_CONVEYOR_LOCATIONS": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "PMLSubUnitInfoRef": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.ST_PMLSubUnitInfoRef"
+                },
+                "a_ITF_Components": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..128) OF ITF_ComponentBase"
+                },
+                "a_ITF_Components_init": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..128) OF ITF_ComponentBase"
+                },
+                "a_ITF_PackMLBase": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF ITF_PMLModuleBase"
+                },
+                "a_fbBaseAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..32) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "a_fbPMLAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..48) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "a_stPMLSubUnitInfo": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF Tc3_PackML_V2.ST_PMLSubUnitInfo"
+                },
+                "bActiveAlarm": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bAutoCalibrate": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bAutoLoad": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bAutoUnload": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bContinuousOperation": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bGlobalSafetyStatus": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bIndexComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bIndexInProgress": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bIndexRequested": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInitialized": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bLogModeChanges": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bLogStateChanges": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bNoEmptyCarriers": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bNoStateTasksToComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSimulateAllChildren": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bStateTasksComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSubModulesReady": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "eLastMode": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "eLastModeCommand": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eLastState": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
+                },
+                "eLastStateCommand": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLCommand"
+                },
+                "eMode": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eModeCommand": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eState": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
+                },
+                "eStateCommand": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLCommand"
+                },
+                "fCarrierOffset": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fConveyorLength": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fConveyorVelocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fExcessiveStretchErrorThreshold": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fIndexTarget": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fStretchThreshold": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fbCustomModes": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_UnitModeConfig"
+                },
+                "fbExternalControl": {
+                    "$ref": "#/definitions/PLC_PML.FB_ModuleExternalCommandControl"
+                },
+                "fbMainAxis": {
+                    "$ref": "#/definitions/PLC_PML.FB_Axis_Continuous_HomeToSensor"
+                },
+                "fbModeManager": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_UnitModeManager"
+                },
+                "fbPMLModeLogger": {
+                    "$ref": "#/definitions/PLC_PML.FB_PMLModeLogger"
+                },
+                "fbPMLStateLogger": {
+                    "$ref": "#/definitions/PLC_PML.FB_PMLStateLogger"
+                },
+                "fbStateMachine": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_StateMachine"
+                },
+                "iMasterDataStructure_Adder": {
+                    "$ref": "#/definitions/PLC_PML.ITF_Tree_IndexBased"
+                },
+                "nCarrierCount": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nIndex": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nLoadLocation": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nModuleID": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nNumberOfComponents": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nNumberOfSubModules": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nUnloadLocation": {
+                    "$ref": "tchmi:general#/definitions/INT"
+                },
+                "sAncestorIDs": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sID_Name": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sModuleName": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sState": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "stCarriers": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..128) OF ST_ProductCarrier"
+                },
+                "stLocations": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..128) OF ST_ConveyorLocation"
+                },
+                "stPMLModuleBaseHMI": {
+                    "$ref": "#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
+                },
+                "stPMLModuleBaseVISU": {
+                    "$ref": "#/definitions/PLC_PML.ST_PMLModuleBase_VISU"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.FB_FIFO_ULINT_Array": {
+            "properties": {
+                "a_FIFO": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC_PML.POINTER TO ULINT"
+                        },
+                        {
+                            "attributes": {
+                                "Dimensions": "1",
+                                "variable_length_array": ""
+                            }
+                        }
+                    ]
+                },
+                "nEntryCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.FB_MainCarcass": {
+            "attributes": {
+                "TcImplements": "ITF_PMLModuleBase"
+            },
+            "properties": {
+                "PMLSubUnitInfoRef": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.ST_PMLSubUnitInfoRef"
+                },
+                "a_ITF_Components": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..128) OF ITF_ComponentBase"
+                },
+                "a_ITF_Components_init": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..128) OF ITF_ComponentBase"
+                },
+                "a_ITF_PackMLBase": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF ITF_PMLModuleBase"
+                },
+                "a_ITF_PackMLBase_init": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF ITF_PMLModuleBase"
+                },
+                "a_fbBaseAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..32) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "a_fbPMLAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..48) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "a_stPMLSubUnitInfo": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF Tc3_PackML_V2.ST_PMLSubUnitInfo"
+                },
+                "bActiveAlarm": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bGlobalSafetyStatus": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInitialized": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bLogModeChanges": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bLogStateChanges": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bNoStateTasksToComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSequenceStateChange": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSimulateAllChildren": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bStateTasksComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSubModulesReady": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "eLastMode": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "eLastModeCommand": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eLastState": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
+                },
+                "eLastStateCommand": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLCommand"
+                },
+                "eMode": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eModeCommand": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eState": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
+                },
+                "eStateCommand": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLCommand"
+                },
+                "fbConveyor": {
+                    "$ref": "#/definitions/PLC_PML.FB_Discrete_ServoConveyor_wFlag"
+                },
+                "fbCustomModes": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_UnitModeConfig"
+                },
+                "fbExternalControl": {
+                    "$ref": "#/definitions/PLC_PML.FB_ModuleExternalCommandControl"
+                },
+                "fbModeManager": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_UnitModeManager"
+                },
+                "fbPMLModeLogger": {
+                    "$ref": "#/definitions/PLC_PML.FB_PMLModeLogger"
+                },
+                "fbPMLStateLogger": {
+                    "$ref": "#/definitions/PLC_PML.FB_PMLStateLogger"
+                },
+                "fbStateMachine": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_StateMachine"
+                },
+                "fbTendonCutter": {
+                    "$ref": "#/definitions/PLC_PML.FB_TendonCutter"
+                },
+                "fbWidthAdjustment": {
+                    "$ref": "#/definitions/PLC_PML.FB_WidthAdjustment"
+                },
+                "iMasterDataStructure_Adder": {
+                    "$ref": "#/definitions/PLC_PML.ITF_Tree_IndexBased"
+                },
+                "nIndex": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nModuleID": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nNumberOfComponents": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nNumberOfSubModules": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "refMasterAxis": {
+                    "$ref": "#/definitions/PLC_PML.REFERENCE TO Tc2_MC2.AXIS_REF"
+                },
+                "sAncestorIDs": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sID_Name": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sModuleName": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sState": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "stPMLModuleBaseHMI": {
+                    "$ref": "#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
+                },
+                "stPMLModuleBaseVISU": {
+                    "$ref": "#/definitions/PLC_PML.ST_PMLModuleBase_VISU"
+                }
+            },
+            "type": "object"
+        },
         "PLC_PML.FB_MainHMI_Connection": {
             "properties": {
                 "fbModuleTree": {
@@ -1101,6 +1973,9 @@
         },
         "PLC_PML.FB_ModuleExternalCommandControl": {
             "properties": {
+                "a_iExternalControlSources": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..3) OF ITF_PackML_ExternalControl"
+                },
                 "fbHMIControl": {
                     "$ref": "#/definitions/PLC_PML.FB_PackML_ExternalControl"
                 },
@@ -1113,10 +1988,7 @@
                 "i": {
                     "$ref": "tchmi:general#/definitions/DINT"
                 },
-                "iExternalControlSources": {
-                    "$ref": "#/definitions/PLC_PML.ARRAY (1..3) OF ITF_PackML_ExternalControl"
-                },
-                "iModulePackMLBase": {
+                "ipModulePackMLBase": {
                     "$ref": "#/definitions/PLC_PML.ITF_PMLModuleBase"
                 }
             },
@@ -1127,38 +1999,44 @@
                 "Mode": {
                     "$ref": "tchmi:general#/definitions/DINT"
                 },
-                "ModulePrefix": {
-                    "$ref": "tchmi:general#/definitions/STRING(80)"
-                },
-                "fbPMLAlarms": {
+                "a_fbPMLAlarms": {
                     "$ref": "#/definitions/PLC_PML.REFERENCE TO ARRAY (1..48) OF Tc3_EventLogger.FB_TcAlarm"
                 },
                 "lastMode": {
                     "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "sModulePrefix": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
                 }
             },
             "type": "object"
         },
         "PLC_PML.FB_PMLStateLogger": {
             "properties": {
-                "ModulePrefix": {
-                    "$ref": "tchmi:general#/definitions/STRING(80)"
-                },
-                "State": {
-                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
-                },
-                "fbPMLAlarms": {
+                "a_fbPMLAlarms": {
                     "$ref": "#/definitions/PLC_PML.REFERENCE TO ARRAY (1..48) OF Tc3_EventLogger.FB_TcAlarm"
                 },
-                "lastState": {
+                "bLogAllChanges": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "eLastState": {
                     "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
+                },
+                "eState": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
+                },
+                "refTempAlarm": {
+                    "$ref": "#/definitions/PLC_PML.REFERENCE TO Tc3_EventLogger.FB_TcAlarm"
+                },
+                "sModulePrefix": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
                 }
             },
             "type": "object"
         },
         "PLC_PML.FB_PackML_ExternalControl": {
             "attributes": {
-                "TcImplements": "ITF_PackML_ExternalControl;ITF_PackML_ExternalControl_Simplified"
+                "TcImplements": "ITF_PackML_ExternalControl"
             },
             "properties": {
                 "bClearEnabled": {
@@ -1208,7 +2086,7 @@
         },
         "PLC_PML.FB_PackML_PushButtonControl": {
             "attributes": {
-                "TcImplements": "ITF_PackML_ExternalControl;ITF_PackML_ExternalControl_Simplified"
+                "TcImplements": "ITF_PackML_ExternalControl"
             },
             "properties": {
                 "bClearEnabled": {
@@ -1268,24 +2146,244 @@
             },
             "type": "object"
         },
+        "PLC_PML.FB_ProductionData": {
+            "properties": {
+                "a_nLastProductTimestamps": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..100) OF ULINT"
+                },
+                "bProductComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetMaxProductionCount": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetTotalProductionCount": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bShiftComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSimulateProduction": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "fAcceptableMargin": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fActualProductionRate": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fRateRequiredForTarget": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fTargetProductionRate": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fWarningMargin": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fbFIFO": {
+                    "$ref": "#/definitions/PLC_PML.FB_FIFO_ULINT_Array"
+                },
+                "fbProductComplete_RT": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_Standard.R_TRIG"
+                },
+                "fbShiftTimer": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_Standard.TON"
+                },
+                "nCurrentAcceptableProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nCurrentShiftProductionCount": {
+                    "$ref": "tchmi:general#/definitions/INT"
+                },
+                "nCurrentShiftTarget": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nCurrentWarningProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nMaxProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nShiftProductionTarget": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nTotalProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "stProductionDataHMI": {
+                    "$ref": "#/definitions/PLC_PML.ST_ProductionDataHMI"
+                },
+                "tCurrentShiftTime": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tRateAveragingTime": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tRemainingShiftTime": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tShiftLength": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.FB_Sensor": {
+            "attributes": {
+                "TcImplements": "ITF_ComponentBase;ITF_SensorBase"
+            },
+            "properties": {
+                "COMPONENT_BASE_ALARM_COUNT": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "__FB_SENSORBASE__PROCESSINPUT__BLASTDEBOUNCEDINPUT": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "__FB_SENSORBASE__PROCESSINPUT__NMOVINGAVERAGE": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "a_fbComponentBaseAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..16) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "bActive": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInitialized": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInverted": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bProcessedSensorInput": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bRawSensorInput": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetHappenedLastScan": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetHappenedThisScan": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSensor_HardwareInput": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/BOOL"
+                        },
+                        {
+                            "attributes": {
+                                "TcAddressType": "Input"
+                            }
+                        }
+                    ]
+                },
+                "bSimulate": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSimulationInput": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "eDebounceMode": {
+                    "$ref": "#/definitions/PLC_PML.E_DebounceMode"
+                },
+                "eSimulationMode": {
+                    "$ref": "#/definitions/PLC_PML.E_SensorSimulationMode"
+                },
+                "fbActiveTimer_TON": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_Standard.TON"
+                },
+                "fbDebounceTimer_TON": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_Standard.TON"
+                },
+                "fbDebounceTimer_TP": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_Standard.TP"
+                },
+                "fbInactiveTimer_TON": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_Standard.TON"
+                },
+                "fbSimulationPulse1_TP": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_Standard.TP"
+                },
+                "fbSimulationPulse2_TP": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_Standard.TP"
+                },
+                "nErrorID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nSimulationInput": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "sName": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sTemp": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "stComponentBaseHMI": {
+                    "$ref": "#/definitions/PLC_PML.ST_ComponentBase_HMI"
+                },
+                "stSensorBaseHMI": {
+                    "$ref": "#/definitions/PLC_PML.ST_SensorBase_HMI"
+                },
+                "tDebounceTime": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tTimeActive": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tTimeInactive": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                }
+            },
+            "type": "object"
+        },
         "PLC_PML.FB_TendonCutter": {
             "attributes": {
-                "TcImplements": "ITF_PMLModuleBase;Tc3_PackML_V2.ITF_UnitState;ITF_ModuleSequenceControl"
+                "TcImplements": "ITF_PMLModuleBase"
             },
             "properties": {
                 "PMLSubUnitInfoRef": {
                     "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.ST_PMLSubUnitInfoRef"
                 },
-                "PT_SimStateDelay": {
-                    "$ref": "tchmi:general#/definitions/TIME"
+                "a_ITF_Components": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..128) OF ITF_ComponentBase"
                 },
-                "TON_SimStateDelay": {
-                    "$ref": "#/definitions/PLC_PML.Tc2_Standard.TON"
+                "a_ITF_Components_init": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..128) OF ITF_ComponentBase"
+                },
+                "a_ITF_PackMLBase": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF ITF_PMLModuleBase"
+                },
+                "a_ITF_PackMLBase_init": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF ITF_PMLModuleBase"
+                },
+                "a_fbBaseAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..32) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "a_fbPMLAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..48) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "a_sModeNames": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (0..31) OF STRING(80)"
+                },
+                "a_stPMLSubUnitInfo": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF Tc3_PackML_V2.ST_PMLSubUnitInfo"
                 },
                 "bActiveAlarm": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
                 "bEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bGlobalSafetyStatus": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
                 "bInitialized": {
@@ -1297,13 +2395,19 @@
                 "bLogStateChanges": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
+                "bNoStateTasksToComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSequenceStateChange": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSimulateAllChildren": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
                 "bStateTasksComplete": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
                 "bSubModulesReady": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bTransitionStateActive": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
                 "eLastMode": {
@@ -1330,8 +2434,17 @@
                 "eStateCommand": {
                     "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLCommand"
                 },
-                "fbBaseAlarms": {
-                    "$ref": "#/definitions/PLC_PML.ARRAY (1..32) OF Tc3_EventLogger.FB_TcAlarm"
+                "fActualProductionRate": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fCut_1_Velocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fCut_2_Velocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fTargetProductionRate": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
                 },
                 "fbCustomModes": {
                     "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_UnitModeConfig"
@@ -1348,29 +2461,35 @@
                 "fbModeManager": {
                     "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_UnitModeManager"
                 },
-                "fbPMLAlarms": {
-                    "$ref": "#/definitions/PLC_PML.ARRAY (1..48) OF Tc3_EventLogger.FB_TcAlarm"
-                },
                 "fbPMLModeLogger": {
                     "$ref": "#/definitions/PLC_PML.FB_PMLModeLogger"
                 },
                 "fbPMLStateLogger": {
                     "$ref": "#/definitions/PLC_PML.FB_PMLStateLogger"
                 },
+                "fbProductionDataHMI": {
+                    "$ref": "#/definitions/PLC_PML.FB_ProductionData"
+                },
                 "fbStateMachine": {
                     "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_StateMachine"
+                },
+                "i": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
                 },
                 "iMasterDataStructure_Adder": {
                     "$ref": "#/definitions/PLC_PML.ITF_Tree_IndexBased"
                 },
-                "itfPackMLBase": {
-                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF ITF_PMLModuleBase"
-                },
-                "itfPackMLBase_init": {
-                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF ITF_PMLModuleBase"
+                "nIndex": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
                 },
                 "nModuleID": {
-                    "$ref": "tchmi:general#/definitions/DINT"
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nNumberOfComponents": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nNumberOfSubModules": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
                 },
                 "sAncestorIDs": {
                     "$ref": "tchmi:general#/definitions/STRING(80)"
@@ -1387,14 +2506,11 @@
                 "stPMLModuleBaseHMI": {
                     "$ref": "#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
                 },
-                "stPMLSubUnitInfo": {
-                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF Tc3_PackML_V2.ST_PMLSubUnitInfo"
+                "stPMLModuleBaseVISU": {
+                    "$ref": "#/definitions/PLC_PML.ST_PMLModuleBase_VISU"
                 },
-                "stSequenceControl": {
-                    "$ref": "#/definitions/PLC_PML.ST_ModuleSequenceControl"
-                },
-                "udNumberOfSubUnits": {
-                    "$ref": "tchmi:general#/definitions/UDINT"
+                "varInfo": {
+                    "$ref": "#/definitions/PLC_PML.VAR_INFO"
                 }
             },
             "type": "object"
@@ -1431,6 +2547,152 @@
             },
             "type": "object"
         },
+        "PLC_PML.FB_WidthAdjustment": {
+            "attributes": {
+                "TcImplements": "ITF_PMLModuleBase"
+            },
+            "properties": {
+                "PMLSubUnitInfoRef": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.ST_PMLSubUnitInfoRef"
+                },
+                "a_ITF_Components": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..128) OF ITF_ComponentBase"
+                },
+                "a_ITF_Components_init": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..128) OF ITF_ComponentBase"
+                },
+                "a_ITF_PackMLBase": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF ITF_PMLModuleBase"
+                },
+                "a_ITF_PackMLBase_init": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF ITF_PMLModuleBase"
+                },
+                "a_fbBaseAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..32) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "a_fbPMLAlarms": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..48) OF Tc3_EventLogger.FB_TcAlarm"
+                },
+                "a_stPMLSubUnitInfo": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (1..20) OF Tc3_PackML_V2.ST_PMLSubUnitInfo"
+                },
+                "bActiveAlarm": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bGlobalSafetyStatus": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInitialized": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bLogModeChanges": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bLogStateChanges": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bNoStateTasksToComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSequenceStateChange": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSimulateAllChildren": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bStateTasksComplete": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSubModulesReady": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "eLastMode": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "eLastModeCommand": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eLastState": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
+                },
+                "eLastStateCommand": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLCommand"
+                },
+                "eMode": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eModeCommand": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eState": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
+                },
+                "eStateCommand": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLCommand"
+                },
+                "fbCustomModes": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_UnitModeConfig"
+                },
+                "fbExternalControl": {
+                    "$ref": "#/definitions/PLC_PML.FB_ModuleExternalCommandControl"
+                },
+                "fbModeManager": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_UnitModeManager"
+                },
+                "fbPMLModeLogger": {
+                    "$ref": "#/definitions/PLC_PML.FB_PMLModeLogger"
+                },
+                "fbPMLStateLogger": {
+                    "$ref": "#/definitions/PLC_PML.FB_PMLStateLogger"
+                },
+                "fbStateMachine": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.PML_StateMachine"
+                },
+                "fbWidthAdjustMaster": {
+                    "$ref": "#/definitions/PLC_PML.FB_Axis_Discrete_HomeToSensor"
+                },
+                "fbWidthAdjustSlave": {
+                    "$ref": "#/definitions/PLC_PML.FB_Axis_Discrete_HomeToSensor"
+                },
+                "iMasterDataStructure_Adder": {
+                    "$ref": "#/definitions/PLC_PML.ITF_Tree_IndexBased"
+                },
+                "nIndex": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nModuleID": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nNumberOfComponents": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "nNumberOfSubModules": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "sAncestorIDs": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sID_Name": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sModuleName": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sState": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "stPMLModuleBaseHMI": {
+                    "$ref": "#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
+                },
+                "stPMLModuleBaseVISU": {
+                    "$ref": "#/definitions/PLC_PML.ST_PMLModuleBase_VISU"
+                }
+            },
+            "type": "object"
+        },
         "PLC_PML.HRESULT(VOID)": {
             "allOf": [
                 {
@@ -1440,6 +2702,9 @@
                     "function": true
                 }
             ]
+        },
+        "PLC_PML.ITF_ComponentBase": {
+            "type": "object"
         },
         "PLC_PML.ITF_PMLModuleBase": {
             "type": "object"
@@ -1895,6 +3160,59 @@
             },
             "type": "object"
         },
+        "PLC_PML.MEMORY_AREA": {
+            "allOf": [
+                {
+                    "attributes": {
+                        "generate_implicit_init_function": "",
+                        "m4export_hide": "",
+                        "qualified_only": ""
+                    },
+                    "enum": [
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "options": [
+                        {
+                            "label": "MEM_UNKNOWN",
+                            "value": -1
+                        },
+                        {
+                            "label": "MEM_MEMORY",
+                            "value": 0
+                        },
+                        {
+                            "label": "MEM_INPUT",
+                            "value": 1
+                        },
+                        {
+                            "label": "MEM_OUTPUT",
+                            "value": 2
+                        },
+                        {
+                            "label": "MEM_RETAIN",
+                            "value": 3
+                        },
+                        {
+                            "label": "MEM_GLOBAL",
+                            "value": 4
+                        },
+                        {
+                            "label": "MEM_LOCAL",
+                            "value": 5
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/INT16"
+                }
+            ]
+        },
         "PLC_PML.POINTER TO ST_ComponentBase_HMI": {
             "allOf": [
                 {
@@ -1931,6 +3249,19 @@
                 },
                 {
                     "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.ST_PMLSubUnitInfo"
+                }
+            ]
+        },
+        "PLC_PML.POINTER TO ULINT": {
+            "allOf": [
+                {
+                    "function": true,
+                    "writeValue": {
+                        "$ref": "tchmi:general#/definitions/ULINT"
+                    }
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/ULINT"
                 }
             ]
         },
@@ -2054,6 +3385,19 @@
                 }
             ]
         },
+        "PLC_PML.REFERENCE TO Tc3_EventLogger.FB_TcAlarm": {
+            "allOf": [
+                {
+                    "function": true,
+                    "writeValue": {
+                        "$ref": "#/definitions/PLC_PML.Tc3_EventLogger.FB_TcAlarm"
+                    }
+                },
+                {
+                    "$ref": "#/definitions/PLC_PML.Tc3_EventLogger.FB_TcAlarm"
+                }
+            ]
+        },
         "PLC_PML.STRING(255)(STRING(255))": {
             "allOf": [
                 {
@@ -2139,9 +3483,6 @@
                 "bStopped": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
-                "fCurrentVelocity": {
-                    "$ref": "tchmi:general#/definitions/LREAL"
-                },
                 "fJogFastVelocity": {
                     "$ref": "tchmi:general#/definitions/LREAL"
                 },
@@ -2209,6 +3550,17 @@
                 },
                 "sName": {
                     "$ref": "tchmi:general#/definitions/STRING(80)"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.ST_ConveyorLocation": {
+            "properties": {
+                "fPosition": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "nCurrentCarrier": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
                 }
             },
             "type": "object"
@@ -2298,8 +3650,69 @@
             },
             "type": "object"
         },
+        "PLC_PML.ST_PMLControl": {
+            "properties": {
+                "a_sModeNames": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (0..31) OF STRING(80)"
+                },
+                "bConfirmation": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bNewCommand": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "eMode": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eModeCommand": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eState": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
+                },
+                "eStateCommand": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLCommand"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.ST_PMLControl_Simplified": {
+            "properties": {
+                "bClearEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bClearPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bConfirmation": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bStartEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bStartPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bStopEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bStopPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                }
+            },
+            "type": "object"
+        },
         "PLC_PML.ST_PMLModuleBase_HMI": {
             "properties": {
+                "a_sModeNames": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (0..31) OF STRING(80)"
+                },
                 "bActivateModeLogHMIRequest": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
@@ -2339,14 +3752,70 @@
                 "bModeCommandHMIRequest": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
-                "bModeCommandHMIValue": {
-                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
-                },
                 "bStateCommandHMIRequest": {
                     "$ref": "tchmi:general#/definitions/BOOL"
                 },
-                "bStateCommandHMIValue": {
+                "eMode": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eModeCommandHMIValue": {
+                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
+                },
+                "eState": {
+                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
+                },
+                "eStateCommandHMIValue": {
                     "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLCommand"
+                },
+                "nModuleID": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "sModuleName": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.ST_PMLModuleBase_VISU": {
+            "properties": {
+                "bAbortPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bClearPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bHoldPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bMaintenancePressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bManualPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bProductionPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bResetPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bStartPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bStopPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSuspendPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bUnholdPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bUnsuspendPressed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
                 },
                 "eMode": {
                     "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
@@ -2359,6 +3828,156 @@
                 },
                 "sModuleName": {
                     "$ref": "tchmi:general#/definitions/STRING(80)"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.ST_ProductCarrier": {
+            "properties": {
+                "bEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bOccupied": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "fPosition": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "nLocation": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.ST_ProductionDataHMI": {
+            "properties": {
+                "bHMICommandConfirmation": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bHMIControlAvailable": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bIncomingHMIRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bProductionRateHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bShiftLengthHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bShiftProductionTargetHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bWarningMarginHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "fProductionRateHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fProductionRate_Actual": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fProductionRate_Required": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fProductionRate_Setpoint": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fWarningMarginHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "nCurrentAcceptableProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nCurrentShiftProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nCurrentShiftTarget": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nCurrentWarningProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nShiftProductionTarget": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nShiftProductionTargetHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "tCurrentShiftTime": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tRemainingShiftTime": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tShiftLength": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tShiftLengthHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.ST_ProductionStatusMonitor_HMI": {
+            "properties": {
+                "bAcceptableMarginHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bHMICommandConfirmation": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bHMIControlAvailable": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bIncomingHMIRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bShiftLengthHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bShiftProductionTargetHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bWarningMarginHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "fAcceptableMarginHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fWarningMarginHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "nCurrentAcceptableProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nCurrentShiftProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nCurrentShiftTarget": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nCurrentWarningProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nShiftProductionTarget": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nShiftProductionTargetHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "tCurrentShiftTime": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tRemainingShiftTime": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tShiftLength": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tShiftLengthHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/TIME"
                 }
             },
             "type": "object"
@@ -2456,11 +4075,11 @@
         },
         "PLC_PML.ST_Tree_IndexBased_Node": {
             "properties": {
+                "a_nChildren": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (0..15) OF DINT"
+                },
                 "nChildCount": {
                     "$ref": "tchmi:general#/definitions/DINT"
-                },
-                "nChildren": {
-                    "$ref": "#/definitions/PLC_PML.ARRAY (0..15) OF DINT"
                 },
                 "nDepth": {
                     "$ref": "tchmi:general#/definitions/DINT"
@@ -2473,6 +4092,219 @@
                 }
             },
             "type": "object"
+        },
+        "PLC_PML.TYPE_CLASS": {
+            "allOf": [
+                {
+                    "attributes": {
+                        "generate_implicit_init_function": "",
+                        "m4export_hide": "",
+                        "qualified_only": ""
+                    },
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38
+                    ],
+                    "options": [
+                        {
+                            "label": "TYPE_BOOL",
+                            "value": 0
+                        },
+                        {
+                            "label": "TYPE_BIT",
+                            "value": 1
+                        },
+                        {
+                            "label": "TYPE_BYTE",
+                            "value": 2
+                        },
+                        {
+                            "label": "TYPE_WORD",
+                            "value": 3
+                        },
+                        {
+                            "label": "TYPE_DWORD",
+                            "value": 4
+                        },
+                        {
+                            "label": "TYPE_LWORD",
+                            "value": 5
+                        },
+                        {
+                            "label": "TYPE_SINT",
+                            "value": 6
+                        },
+                        {
+                            "label": "TYPE_INT",
+                            "value": 7
+                        },
+                        {
+                            "label": "TYPE_DINT",
+                            "value": 8
+                        },
+                        {
+                            "label": "TYPE_LINT",
+                            "value": 9
+                        },
+                        {
+                            "label": "TYPE_USINT",
+                            "value": 10
+                        },
+                        {
+                            "label": "TYPE_UINT",
+                            "value": 11
+                        },
+                        {
+                            "label": "TYPE_UDINT",
+                            "value": 12
+                        },
+                        {
+                            "label": "TYPE_ULINT",
+                            "value": 13
+                        },
+                        {
+                            "label": "TYPE_REAL",
+                            "value": 14
+                        },
+                        {
+                            "label": "TYPE_LREAL",
+                            "value": 15
+                        },
+                        {
+                            "label": "TYPE_STRING",
+                            "value": 16
+                        },
+                        {
+                            "label": "TYPE_WSTRING",
+                            "value": 17
+                        },
+                        {
+                            "label": "TYPE_TIME",
+                            "value": 18
+                        },
+                        {
+                            "label": "TYPE_DATE",
+                            "value": 19
+                        },
+                        {
+                            "label": "TYPE_DATEANDTIME",
+                            "value": 20
+                        },
+                        {
+                            "label": "TYPE_TIMEOFDAY",
+                            "value": 21
+                        },
+                        {
+                            "label": "TYPE_POINTER",
+                            "value": 22
+                        },
+                        {
+                            "label": "TYPE_REFERENCE",
+                            "value": 23
+                        },
+                        {
+                            "label": "TYPE_SUBRANGE",
+                            "value": 24
+                        },
+                        {
+                            "label": "TYPE_ENUM",
+                            "value": 25
+                        },
+                        {
+                            "label": "TYPE_ARRAY",
+                            "value": 26
+                        },
+                        {
+                            "label": "TYPE_PARAMS",
+                            "value": 27
+                        },
+                        {
+                            "label": "TYPE_USERDEF",
+                            "value": 28
+                        },
+                        {
+                            "label": "TYPE_NONE",
+                            "value": 29
+                        },
+                        {
+                            "label": "TYPE_ANY",
+                            "value": 30
+                        },
+                        {
+                            "label": "TYPE_ANYBIT",
+                            "value": 31
+                        },
+                        {
+                            "label": "TYPE_ANYDATE",
+                            "value": 32
+                        },
+                        {
+                            "label": "TYPE_ANYINT",
+                            "value": 33
+                        },
+                        {
+                            "label": "TYPE_ANYNUM",
+                            "value": 34
+                        },
+                        {
+                            "label": "TYPE_ANYREAL",
+                            "value": 35
+                        },
+                        {
+                            "label": "TYPE_LAZY",
+                            "value": 36
+                        },
+                        {
+                            "label": "TYPE_LTIME",
+                            "value": 37
+                        },
+                        {
+                            "label": "TYPE_BITCONST",
+                            "value": 38
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/UINT32"
+                }
+            ]
         },
         "PLC_PML.Tc2_MC2.AXIS_REF": {
             "attributes": {
@@ -2971,6 +4803,29 @@
                 },
                 {
                     "$ref": "tchmi:general#/definitions/UINT32"
+                }
+            ]
+        },
+        "PLC_PML.Tc2_MC2.E_ReadMode": {
+            "allOf": [
+                {
+                    "enum": [
+                        1,
+                        2
+                    ],
+                    "options": [
+                        {
+                            "label": "READMODE_ONCE",
+                            "value": 1
+                        },
+                        {
+                            "label": "READMODE_CYCLIC",
+                            "value": 2
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/INT16"
                 }
             ]
         },
@@ -3988,6 +5843,77 @@
             },
             "type": "object"
         },
+        "PLC_PML.Tc2_MC2.MC_GearOut": {
+            "properties": {
+                "ADSbusy": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Busy": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Done": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Error": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ErrorID": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/UDINT"
+                        },
+                        {
+                            "attributes": {
+                                "displaymode": "hex"
+                            }
+                        }
+                    ]
+                },
+                "Execute": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "LastExecutionResult": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2._ST_FunctionBlockResults"
+                },
+                "Options": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.ST_GearOutOptions"
+                },
+                "Slave": {
+                    "$ref": "#/definitions/PLC_PML.REFERENCE TO Tc2_MC2.AXIS_REF"
+                },
+                "TimerStateFeedback": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC_PML.Tc2_Standard.TON"
+                        },
+                        {
+                            "attributes": {
+                                "conditionalshow": ""
+                            }
+                        }
+                    ]
+                },
+                "fbAdsWrite": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_System.ADSWRITE"
+                },
+                "fbOnTrigger": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC_PML.Tc2_Standard.R_TRIG"
+                        },
+                        {
+                            "attributes": {
+                                "conditionalshow": ""
+                            }
+                        }
+                    ]
+                },
+                "iState": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2._E_TcMC_STATES"
+                }
+            },
+            "type": "object"
+        },
         "PLC_PML.Tc2_MC2.MC_Halt": {
             "properties": {
                 "ADSbusy": {
@@ -4570,6 +6496,86 @@
             },
             "type": "object"
         },
+        "PLC_PML.Tc2_MC2.MC_MoveModulo": {
+            "properties": {
+                "ADSbusy": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Acceleration": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "Active": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Axis": {
+                    "$ref": "#/definitions/PLC_PML.REFERENCE TO Tc2_MC2.AXIS_REF"
+                },
+                "BufferMode": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_BufferMode"
+                },
+                "Busy": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "CmdNo": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "CommandAborted": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Deceleration": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "Direction": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.MC_Direction"
+                },
+                "Done": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Error": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ErrorID": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/UDINT"
+                        },
+                        {
+                            "attributes": {
+                                "displaymode": "hex"
+                            }
+                        }
+                    ]
+                },
+                "Execute": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Jerk": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "LastExecutionResult": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2._ST_FunctionBlockResults"
+                },
+                "MoveGeneric": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2._FB_MoveUniversalGeneric"
+                },
+                "Options": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.ST_MoveOptions"
+                },
+                "Position": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "StartType": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2._E_TcNC_StartPosType"
+                },
+                "TriggerExecute": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_Standard.R_TRIG"
+                },
+                "Velocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                }
+            },
+            "type": "object"
+        },
         "PLC_PML.Tc2_MC2.MC_MoveRelative": {
             "properties": {
                 "ADSbusy": {
@@ -4790,6 +6796,113 @@
                     "allOf": [
                         {
                             "$ref": "tchmi:general#/definitions/DWORD"
+                        },
+                        {
+                            "attributes": {
+                                "conditionalshow": ""
+                            }
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.Tc2_MC2.MC_ReadParameter": {
+            "properties": {
+                "ADSbusy": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Axis": {
+                    "$ref": "#/definitions/PLC_PML.REFERENCE TO Tc2_MC2.AXIS_REF"
+                },
+                "Busy": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Enable": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Error": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ErrorID": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/UDINT"
+                        },
+                        {
+                            "attributes": {
+                                "displaymode": "hex"
+                            }
+                        }
+                    ]
+                },
+                "ParameterNumber": {
+                    "$ref": "tchmi:general#/definitions/INT"
+                },
+                "ReadMode": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2.E_ReadMode"
+                },
+                "Valid": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Value": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "bStarted": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/BOOL"
+                        },
+                        {
+                            "attributes": {
+                                "conditionalshow": ""
+                            }
+                        }
+                    ]
+                },
+                "bValue": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/BOOL"
+                        },
+                        {
+                            "attributes": {
+                                "conditionalshow": ""
+                            }
+                        }
+                    ]
+                },
+                "dwValue": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/DWORD"
+                        },
+                        {
+                            "attributes": {
+                                "conditionalshow": ""
+                            }
+                        }
+                    ]
+                },
+                "fbReadWriteParameter": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_MC2._FB_ReadWriteParameter"
+                },
+                "fbTrigger": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC_PML.Tc2_Standard.R_TRIG"
+                        },
+                        {
+                            "attributes": {
+                                "conditionalshow": ""
+                            }
+                        }
+                    ]
+                },
+                "nParatype": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC_PML.Tc2_MC2._E_ParameterType"
                         },
                         {
                             "attributes": {
@@ -5447,6 +7560,23 @@
             "properties": {
                 "SlaveType": {
                     "$ref": "#/definitions/PLC_PML.Tc2_MC2._E_TcNC_SlaveTypes"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.Tc2_MC2.ST_GearOutOptions": {
+            "properties": {
+                "reserved": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/BOOL"
+                        },
+                        {
+                            "attributes": {
+                                "conditionalshow": ""
+                            }
+                        }
+                    ]
                 }
             },
             "type": "object"
@@ -8012,6 +10142,74 @@
                     "function": true
                 }
             ]
+        },
+        "PLC_PML.VAR_INFO": {
+            "properties": {
+                "Area": {
+                    "$ref": "tchmi:general#/definitions/INT"
+                },
+                "BaseTypeClass": {
+                    "$ref": "#/definitions/PLC_PML.TYPE_CLASS"
+                },
+                "BitAdress": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "BitNr": {
+                    "$ref": "tchmi:general#/definitions/INT"
+                },
+                "BitSize": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "ByteAddress": {
+                    "$ref": "tchmi:general#/definitions/LWORD"
+                },
+                "ByteOffset": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "Comment": {
+                    "allOf": [
+                        {
+                            "maxLength": 79
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "ElemBitSize": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "MemoryArea": {
+                    "$ref": "#/definitions/PLC_PML.MEMORY_AREA"
+                },
+                "NumElements": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "Symbol": {
+                    "allOf": [
+                        {
+                            "maxLength": 39
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "TypeClass": {
+                    "$ref": "#/definitions/PLC_PML.TYPE_CLASS"
+                },
+                "TypeName": {
+                    "allOf": [
+                        {
+                            "maxLength": 79
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
         }
     },
     "DEFLATECOMPRESSIONLEVEL": 5,
@@ -8020,7 +10218,7 @@
     "ENABLE_SERVER_UPDATE": true,
     "ENDPOINTS": [
         "http://127.0.0.1:13002",
-        "http://127.0.0.1:3011"
+        "http://127.0.0.1:3012"
     ],
     "ETAGENABLED": true,
     "EXTENSIONS": {
@@ -8029,6 +10227,13 @@
             "NAME": "TcHmiAds",
             "PATH": "TcHmiAds\\",
             "PROCESSID": -1,
+            "REQUIRED": false,
+            "STARTUPTYPE": 1
+        },
+        "TcHmiEcDiagnostics": {
+            "ENABLED": true,
+            "NAME": "TcHmiEcDiagnostics",
+            "PATH": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.EcDiagnostics.12.752.2\\runtimes\\win-x64\\native\\",
             "REQUIRED": false,
             "STARTUPTYPE": 1
         },
@@ -8871,6 +11076,26 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.stCarriers.0.fPosition": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::stCarriers[0]::fPosition",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.stCarriers.1.fPosition": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::stCarriers[1]::fPosition",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "ADS.RuntimePorts": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -9447,9 +11672,7 @@
             "ACCESS": 1,
             "CUSTOMERDATA": "",
             "DOMAIN": "TcHmiSrv",
-            "HIDDEN": false,
             "MAPPING": "Diagnostics::SERVERTIME",
-            "OPTIONS": {},
             "SCHEMA": {
                 "format": "date-time",
                 "function": true,
@@ -10195,23 +12418,53 @@
             },
             "USEMAPPING": true
         },
-        "PLC_PML.MAIN.fbMainHMIConnection.fbModuleTree.sHead": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.a_stMachineTreeNodes": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbMainHMIConnection::fbModuleTree::sHead",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::a_stMachineTreeNodes",
             "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/STRING(80)"
+                "$ref": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_Tree_IndexBased_Node"
             },
             "USEMAPPING": true
         },
-        "PLC_PML.MAIN.fbMainHMIConnection.stMachineTreeNodes": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.stMainPMLControl_Simplified": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbMainHMIConnection::stMachineTreeNodes",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::stMainPMLControl_Simplified",
             "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_Tree_IndexBased_Node"
+                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLControl_Simplified"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.stMainPMLControl_Standard": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::stMainPMLControl_Standard",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLControl"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -10245,6 +12498,76 @@
             },
             "USEMAPPING": true
         },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fConveyorLength": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::fConveyorLength",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fConveyorVelocity": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::fConveyorVelocity",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fbMainAxis.fTargetVelocity": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::fbMainAxis::fTargetVelocity",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fbMainAxis.stAxisBaseHMI": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -10265,6 +12588,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.nCarrierCount": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::nCarrierCount",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UDINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stCarriers": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::stCarriers",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC_PML.ARRAY (1..128) OF ST_ProductCarrier"
+            },
+            "USEMAPPING": true
+        },
         "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stPMLModuleBaseHMI": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -10275,13 +12618,83 @@
             },
             "USEMAPPING": true
         },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter": {
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stPMLModuleBaseHMI.bLogModeChanges": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbTendonCutter",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::stPMLModuleBaseHMI::bLogModeChanges",
             "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.FB_TendonCutter"
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stPMLModuleBaseHMI.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::stPMLModuleBaseHMI::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbTendonCutter::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbTendonCutter::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.stPMLModuleBaseHMI.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbTendonCutter::stPMLModuleBaseHMI::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.stPMLModuleBaseHMI.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbTendonCutter::stPMLModuleBaseHMI::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbWidthAdjustment::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbWidthAdjustment::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -10345,6 +12758,96 @@
             },
             "USEMAPPING": true
         },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.nCurrentShiftProductionCount": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbProductionDataHMI::nCurrentShiftProductionCount",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.nCurrentShiftTarget": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbProductionDataHMI::nCurrentShiftTarget",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbProductionDataHMI::stProductionDataHMI",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ProductionDataHMI"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.fConveyorLength": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::fConveyorLength",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.fConveyorVelocity": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::fConveyorVelocity",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.fbMainAxis.stAxisBaseHMI": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -10362,6 +12865,26 @@
             "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::fbMainAxis::stComponentBaseHMI",
             "SCHEMA": {
                 "$ref": "tchmi:server#/definitions/PLC_PML.ST_ComponentBase_HMI"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.nCarrierCount": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::nCarrierCount",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UDINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.stCarriers": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::stCarriers",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC_PML.ARRAY (1..128) OF ST_ProductCarrier"
             },
             "USEMAPPING": true
         },
@@ -10405,6 +12928,66 @@
             },
             "USEMAPPING": true
         },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.fConveyorLength": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::fConveyorLength",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.fConveyorVelocity": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::fConveyorVelocity",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.fbMainAxis.stAxisBaseHMI": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -10425,6 +13008,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.nCarrierCount": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::nCarrierCount",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UDINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.stCarriers": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::stCarriers",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC_PML.ARRAY (1..128) OF ST_ProductCarrier"
+            },
+            "USEMAPPING": true
+        },
         "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.stPMLModuleBaseHMI": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -10435,6 +13038,36 @@
             },
             "USEMAPPING": true
         },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.fbClampCylinder.bExtendOutput": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::fbClampCylinder::bExtendOutput",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.fbClampCylinder.stCylinderBaseHMI": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -10442,6 +13075,16 @@
             "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::fbClampCylinder::stCylinderBaseHMI",
             "SCHEMA": {
                 "$ref": "tchmi:server#/definitions/PLC_PML.ST_CylinderBase_HMI"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.fbCutterCylinder.bExtendOutput": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::fbCutterCylinder::bExtendOutput",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -10465,6 +13108,46 @@
             },
             "USEMAPPING": true
         },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Right::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Right::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.fbClampCylinder.bExtendOutput": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Right::fbClampCylinder::bExtendOutput",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.fbCutterCylinder.bExtendOutput": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Right::fbCutterCylinder::bExtendOutput",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.stPMLModuleBaseHMI": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -10472,6 +13155,66 @@
             "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Right::stPMLModuleBaseHMI",
             "SCHEMA": {
                 "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.fbAxis_Extension.bActive": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::fbAxis_Extension::bActive",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.fbAxis_Extension.fPosition": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::fbAxis_Extension::fPosition",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.fbAxis_Extension.fTargetVelocity": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::fbAxis_Extension::fTargetVelocity",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.fbAxis_Rotation.bActive": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::fbAxis_Rotation::bActive",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -10485,6 +13228,56 @@
             },
             "USEMAPPING": true
         },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.fbAxis_Extension.bActive": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::fbAxis_Extension::bActive",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.fbAxis_Extension.fPosition": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::fbAxis_Extension::fPosition",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.fbAxis_Rotation.bActive": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::fbAxis_Rotation::bActive",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.stPMLModuleBaseHMI": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -10492,6 +13285,36 @@
             "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::stPMLModuleBaseHMI",
             "SCHEMA": {
                 "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbClampCylinder.bExtendOutput": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::fbClampCylinder::bExtendOutput",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -10512,6 +13335,16 @@
             "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::fbClampCylinder::stCylinderBaseHMI",
             "SCHEMA": {
                 "$ref": "tchmi:server#/definitions/PLC_PML.ST_CylinderBase_HMI"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbCutterCylinder.bExtendOutput": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::fbCutterCylinder::bExtendOutput",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -10545,6 +13378,46 @@
             },
             "USEMAPPING": true
         },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.bLogModeChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Right::bLogModeChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.bLogStateChanges": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Right::bLogStateChanges",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.fbClampCylinder.bExtendOutput": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Right::fbClampCylinder::bExtendOutput",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.fbCutterCylinder.bExtendOutput": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Right::fbCutterCylinder::bExtendOutput",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.stPMLModuleBaseHMI": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
@@ -10560,6 +13433,16 @@
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
             "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::stPMLModuleBaseHMI",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbPoultrySeparator.stPMLModuleBaseHMI": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::stPMLModuleBaseHMI",
             "SCHEMA": {
                 "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
             },
@@ -10846,6 +13729,904 @@
                 "writeValue": {
                     "description": "The requestId of a subscription.",
                     "type": "integer"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.Config": {
+            "ACCESS": 0,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "Config",
+            "OPTIONS": {},
+            "SCHEMA": {},
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.Diagnostics": {
+            "ACCESS": 1,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "Diagnostics",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "devices": {
+                        "additionalProperties": {
+                            "properties": {
+                                "enabled": {
+                                    "propertyOrder": 1,
+                                    "readOnly": true,
+                                    "type": "boolean"
+                                },
+                                "master": {
+                                    "propertyOrder": 5,
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "masterState": {
+                                    "propertyOrder": 6,
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "target": {
+                                    "propertyOrder": 2,
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "targetAdsState": {
+                                    "propertyOrder": 4,
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "targetAvailable": {
+                                    "propertyOrder": 3,
+                                    "readOnly": true,
+                                    "type": "boolean"
+                                }
+                            },
+                            "readOnly": true,
+                            "required": [
+                                "enabled",
+                                "target",
+                                "master"
+                            ],
+                            "type": "object"
+                        },
+                        "readOnly": true,
+                        "type": "object"
+                    }
+                },
+                "readOnly": true,
+                "transient": true,
+                "type": "object"
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.GetMaster": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "GetMaster",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "netId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "netId"
+                ],
+                "type": "object",
+                "writeValue": {
+                    "required": true,
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.GetMasterOnlineInfo": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "GetMasterOnlineInfo",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "frames": {
+                        "properties": {
+                            "damaged": {
+                                "properties": {
+                                    "received": {
+                                        "type": "integer"
+                                    },
+                                    "sent": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "received",
+                                    "sent"
+                                ],
+                                "type": "object"
+                            },
+                            "missed": {
+                                "properties": {
+                                    "acyclic": {
+                                        "type": "integer"
+                                    },
+                                    "cyclic": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "acyclic",
+                                    "cyclic"
+                                ],
+                                "type": "object"
+                            },
+                            "perSec": {
+                                "properties": {
+                                    "acyclic": {
+                                        "type": "integer"
+                                    },
+                                    "cyclic": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "acyclic",
+                                    "cyclic"
+                                ],
+                                "type": "object"
+                            },
+                            "total": {
+                                "properties": {
+                                    "acyclic": {
+                                        "type": "integer"
+                                    },
+                                    "cyclic": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "acyclic",
+                                    "cyclic"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "damaged",
+                            "missed",
+                            "perSec",
+                            "total"
+                        ],
+                        "type": "object"
+                    },
+                    "stateMachine": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "frames",
+                    "stateMachine"
+                ],
+                "type": "object",
+                "writeValue": {
+                    "required": true,
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.GetProcessDataValues": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "GetProcessDataValues",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "in": {
+                        "items": [
+                            {
+                                "properties": {
+                                    "entries": {
+                                        "items": [
+                                            {
+                                                "properties": {
+                                                    "index": {
+                                                        "type": "string"
+                                                    },
+                                                    "subIndex": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {}
+                                                },
+                                                "required": [
+                                                    "index",
+                                                    "subIndex",
+                                                    "value"
+                                                ],
+                                                "type": "object"
+                                            }
+                                        ],
+                                        "type": "array"
+                                    },
+                                    "index": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "entries",
+                                    "index"
+                                ],
+                                "type": "object"
+                            }
+                        ],
+                        "type": "array"
+                    },
+                    "out": {
+                        "items": [
+                            {
+                                "properties": {
+                                    "entries": {
+                                        "items": [
+                                            {
+                                                "properties": {
+                                                    "index": {
+                                                        "type": "string"
+                                                    },
+                                                    "subIndex": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {}
+                                                },
+                                                "required": [
+                                                    "index",
+                                                    "subIndex",
+                                                    "value"
+                                                ],
+                                                "type": "object"
+                                            }
+                                        ],
+                                        "type": "array"
+                                    },
+                                    "index": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "entries",
+                                    "index"
+                                ],
+                                "type": "object"
+                            }
+                        ],
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "in",
+                    "out"
+                ],
+                "type": "object",
+                "writeValue": {
+                    "properties": {
+                        "device": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "slaveAddr": {
+                            "required": true,
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.GetSlaves": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "GetSlaves",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "disabledSlaves": {
+                        "items": {
+                            "$ref": "#/definitions/slave"
+                        },
+                        "type": "array"
+                    },
+                    "hotConnectGroups": {
+                        "items": {
+                            "$ref": "#/definitions/slave"
+                        },
+                        "type": "array"
+                    },
+                    "master": {
+                        "properties": {
+                            "configuredSlave": {
+                                "$ref": "#/definitions/slave"
+                            },
+                            "portPhysic": {
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "disabledSlaves",
+                    "hotConnectGroups",
+                    "master"
+                ],
+                "type": "object",
+                "writeValue": {
+                    "required": true,
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.GetSlavesOnlineInfo": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "GetSlavesOnlineInfo",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "additionalProperties": {
+                    "slaves": {
+                        "properties": {
+                            "1001": {
+                                "properties": {
+                                    "counter": {
+                                        "properties": {
+                                            "abnormalChanges": {
+                                                "type": "integer"
+                                            },
+                                            "connectionLosses": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "required": [
+                                            "abnormalChanges",
+                                            "connectionLosses"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "current": {
+                                        "properties": {
+                                            "disabled": {
+                                                "type": "boolean"
+                                            },
+                                            "identity": {
+                                                "properties": {
+                                                    "isInvalid": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "isInvalidOnPrevSlaves": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "isInvalid",
+                                                    "isInvalidOnPrevSlaves"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            "initError": {
+                                                "type": "boolean"
+                                            },
+                                            "presence": {
+                                                "properties": {
+                                                    "notPresent": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "notPresentOnPrevSlaves": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "notPresent",
+                                                    "notPresentOnPrevSlaves"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            "signalsError": {
+                                                "type": "boolean"
+                                            },
+                                            "stateMachine": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "required": [
+                                            "disabled",
+                                            "identity",
+                                            "initError",
+                                            "presence",
+                                            "signalsError",
+                                            "stateMachine"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "ports": {
+                                        "items": [
+                                            {
+                                                "properties": {
+                                                    "counter": {
+                                                        "properties": {
+                                                            "crc": {
+                                                                "properties": {
+                                                                    "errorOnPrevPort": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "total": {
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "errorOnPrevPort",
+                                                                    "total"
+                                                                ],
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "crc"
+                                                        ],
+                                                        "type": "object"
+                                                    },
+                                                    "current": {
+                                                        "properties": {
+                                                            "linkError": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "missingLink": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "unexpectedLink": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "linkError",
+                                                            "missingLink",
+                                                            "unexpectedLink"
+                                                        ],
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "counter",
+                                                    "current"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            {
+                                                "properties": {
+                                                    "counter": {
+                                                        "properties": {
+                                                            "crc": {
+                                                                "properties": {
+                                                                    "errorOnPrevPort": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "total": {
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "errorOnPrevPort",
+                                                                    "total"
+                                                                ],
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "crc"
+                                                        ],
+                                                        "type": "object"
+                                                    },
+                                                    "current": {
+                                                        "properties": {
+                                                            "linkError": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "missingLink": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "unexpectedLink": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "linkError",
+                                                            "missingLink",
+                                                            "unexpectedLink"
+                                                        ],
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "counter",
+                                                    "current"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            {
+                                                "properties": {
+                                                    "counter": {
+                                                        "properties": {
+                                                            "crc": {
+                                                                "properties": {
+                                                                    "errorOnPrevPort": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "total": {
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "errorOnPrevPort",
+                                                                    "total"
+                                                                ],
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "crc"
+                                                        ],
+                                                        "type": "object"
+                                                    },
+                                                    "current": {
+                                                        "properties": {
+                                                            "linkError": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "missingLink": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "unexpectedLink": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "linkError",
+                                                            "missingLink",
+                                                            "unexpectedLink"
+                                                        ],
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "counter",
+                                                    "current"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            {
+                                                "properties": {
+                                                    "counter": {
+                                                        "properties": {
+                                                            "crc": {
+                                                                "properties": {
+                                                                    "errorOnPrevPort": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "total": {
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "errorOnPrevPort",
+                                                                    "total"
+                                                                ],
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "crc"
+                                                        ],
+                                                        "type": "object"
+                                                    },
+                                                    "current": {
+                                                        "properties": {
+                                                            "linkError": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "missingLink": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "unexpectedLink": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "linkError",
+                                                            "missingLink",
+                                                            "unexpectedLink"
+                                                        ],
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "counter",
+                                                    "current"
+                                                ],
+                                                "type": "object"
+                                            }
+                                        ],
+                                        "type": "array"
+                                    },
+                                    "requested": {
+                                        "properties": {
+                                            "stateMachine": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "required": [
+                                            "stateMachine"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "syncUnits": {
+                                        "properties": {
+                                            "0": {
+                                                "properties": {
+                                                    "error": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "frameMissedCounter": {
+                                                        "type": "integer"
+                                                    },
+                                                    "wcFaultCounter": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "error",
+                                                    "frameMissedCounter",
+                                                    "wcFaultCounter"
+                                                ],
+                                                "type": "object"
+                                            }
+                                        },
+                                        "required": [
+                                            "0"
+                                        ],
+                                        "type": "object"
+                                    }
+                                },
+                                "required": [
+                                    "counter",
+                                    "current",
+                                    "ports",
+                                    "requested",
+                                    "syncUnits"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "function": true,
+                "required": [
+                    "slaves"
+                ],
+                "type": "object",
+                "writeValue": {
+                    "required": true,
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.GetSlavesScanned": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "GetSlavesScanned",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "readValue": {
+                    "properties": {
+                        "slaves": {
+                            "items": [
+                                {
+                                    "properties": {
+                                        "addr": {
+                                            "type": "integer"
+                                        },
+                                        "productCode": {
+                                            "type": "integer"
+                                        },
+                                        "revisionNumber": {
+                                            "type": "integer"
+                                        },
+                                        "serialNumber": {
+                                            "type": "integer"
+                                        },
+                                        "vendorId": {
+                                            "type": "integer"
+                                        },
+                                        "vendorLabelName": {
+                                            "type": "string"
+                                        },
+                                        "vendorMemberName": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "addr",
+                                        "productCode",
+                                        "revisionNumber",
+                                        "serialNumber",
+                                        "vendorId",
+                                        "vendorLabelName",
+                                        "vendorMemberName"
+                                    ],
+                                    "type": "object"
+                                }
+                            ],
+                            "type": "array"
+                        },
+                        "updated": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "slaves",
+                        "updated"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.GetTarget": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "GetTarget",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "available": {
+                        "type": "boolean"
+                    },
+                    "config": {
+                        "properties": {
+                            "masterNetId": {
+                                "format": "amsnetid",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "masterNetId"
+                        ],
+                        "type": "object"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "netId": {
+                        "type": "string"
+                    },
+                    "sysServiceAdsState": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "available",
+                    "config",
+                    "name",
+                    "netId",
+                    "sysServiceAdsState"
+                ],
+                "type": "object",
+                "writeValue": {
+                    "required": true,
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.ListConfiguredDevices": {
+            "ACCESS": 1,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "ListConfiguredDevices",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "additionalProperties": {
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "masterNetId": {
+                            "format": "amsnetid",
+                            "type": "string"
+                        },
+                        "targetNetId": {
+                            "format": "amsnetid",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "enabled",
+                        "targetNetId",
+                        "masterNetId"
+                    ],
+                    "type": "object"
+                },
+                "function": true,
+                "readOnly": true,
+                "type": "object"
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.ListMastersOfRoute": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "ListMastersOfRoute",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "items": [
+                    {
+                        "properties": {
+                            "label": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "format": "amsnetid",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "label",
+                            "value"
+                        ],
+                        "type": "object"
+                    }
+                ],
+                "type": "array",
+                "writeValue": {
+                    "required": true,
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEcDiagnostics.SendSlavesScanCmd": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiEcDiagnostics",
+            "HIDDEN": true,
+            "MAPPING": "SendSlavesScanCmd",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "writeValue": {
+                    "required": true,
+                    "type": "string"
                 }
             },
             "USEMAPPING": true
@@ -11917,6 +15698,16 @@
                 "Logout": 3,
                 "SetLocale": 3,
                 "SubscribeEvents": 3,
+                "TcHmiEcDiagnostics.Diagnostics": 1,
+                "TcHmiEcDiagnostics.GetMaster": 3,
+                "TcHmiEcDiagnostics.GetMasterOnlineInfo": 3,
+                "TcHmiEcDiagnostics.GetProcessDataValues": 3,
+                "TcHmiEcDiagnostics.GetSlaves": 3,
+                "TcHmiEcDiagnostics.GetSlavesOnlineInfo": 3,
+                "TcHmiEcDiagnostics.GetSlavesScanned": 3,
+                "TcHmiEcDiagnostics.GetTarget": 3,
+                "TcHmiEcDiagnostics.ListConfiguredDevices": 1,
+                "TcHmiEcDiagnostics.ListMastersOfRoute": 3,
                 "TcHmiSqliteHistorize.GetTrendLineData": 3,
                 "TcHmiSqliteHistorize.GetTrendLineWindow": 3,
                 "TcHmiSqliteHistorize.HistorizeData": 3,
@@ -11995,9 +15786,12 @@
     "VIRTUALDIRECTORIES": {
         "/": "..\\..\\PML_Base_HMI_Project\\",
         "/Beckhoff.TwinCAT.HMI.Controls": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.Controls.12.752.0\\runtimes\\native1.12-tchmi",
+        "/Beckhoff.TwinCAT.HMI.EcDiagnosticsControl": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.EcDiagnosticsControl.12.752.0\\runtimes\\native1.12-tchmi",
         "/Beckhoff.TwinCAT.HMI.EventLogger": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.EventLogger.12.752.0",
         "/Beckhoff.TwinCAT.HMI.Functions": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.Functions.12.752.0\\runtimes\\native1.12-tchmi",
+        "/Beckhoff.TwinCAT.HMI.PDFViewer": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.PDFViewer.12.752.0\\runtimes\\native1.12-tchmi",
         "/Beckhoff.TwinCAT.HMI.RecipeManagement": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.RecipeManagement.12.752.0",
+        "/Beckhoff.TwinCAT.HMI.ResponsiveNavigation": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.ResponsiveNavigation.12.752.0\\runtimes\\native1.12-tchmi",
         "/Beckhoff.TwinCAT.HMI.SqliteHistorize": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.SqliteHistorize.12.752.0",
         "/bin": "..\\..\\PML_Base_HMI_Project\\bin\\",
         "/bin/framework": "..\\..\\PML_Base_HMI_Project\\bin\\framework",

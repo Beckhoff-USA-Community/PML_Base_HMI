@@ -1,0 +1,13 @@
+﻿<div id="MainCarcassConveyor" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%">
+
+<div id="MainCarcassConveyorPage_MainCarcassConveyor_PMLMonitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/ModuleMonitoring/PMLModuleBase_Monitor.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-module="%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stPMLModuleBaseHMI%/s%" data-tchmi-zindex="10">
+</div>
+<div id="MainCarcassConveyorPage_MainAxis_ComponentMonitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/ComponentMonitoring/ComponentBase_Monitor.usercontrol" data-tchmi-top="20" data-tchmi-top-unit="%" data-tchmi-width="30" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-zindex="9" data-tchmi-component="%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fbMainAxis.stComponentBaseHMI%/s%">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+</div>

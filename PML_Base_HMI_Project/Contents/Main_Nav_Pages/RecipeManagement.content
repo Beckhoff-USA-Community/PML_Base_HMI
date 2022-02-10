@@ -34,7 +34,7 @@
 </script>
 </div>
 
-<div id="TcHmiCombobox_RecipeList" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCombobox" data-tchmi-height="8" data-tchmi-height-unit="%" data-tchmi-left="22" data-tchmi-left-unit="%" data-tchmi-top="13.5" data-tchmi-top-unit="%" data-tchmi-width="35" data-tchmi-width-unit="%" data-tchmi-combobox-text="Select recipe" data-tchmi-src-data="%f%ListRecipesAsReferenceArray(%s%TcHmiRecipeManagement.Config::recipeList%/s%,%ctrl%TcHmiTextbox_Filter::Text%/ctrl%)%/f%" data-tchmi-tooltip="Select a recipe from the list of recipes." data-tchmi-right-unit="px" data-tchmi-bottom-unit="px">
+<div id="TcHmiCombobox_RecipeList" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCombobox" data-tchmi-height="8" data-tchmi-height-unit="%" data-tchmi-left="22" data-tchmi-left-unit="%" data-tchmi-top="13.5" data-tchmi-top-unit="%" data-tchmi-width="35" data-tchmi-width-unit="%" data-tchmi-combobox-text="Select recipe" data-tchmi-src-data="%f%ListRecipesAsReferenceArray(%s%TcHmiRecipeManagement.Config::recipeList%/s%,%ctrl%TcHmiTextbox_Filter::Text%/ctrl%)%/f%" data-tchmi-tooltip="Select a recipe from the list of recipes." data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-drop-down-style="Classic" data-tchmi-data-height="50">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,

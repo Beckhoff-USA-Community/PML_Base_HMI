@@ -1,0 +1,61 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-linearactuatoractive",
+      "displayName": "LinearActuatorActive",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "Bool Indicating non-zero velocity on the Linear Actuator",
+      "defaultValue": false,
+      "defaultValueInternal": false,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "LinearActuatorActive",
+      "propertySetterName": "setLinearActuatorActive",
+      "propertyGetterName": "getLinearActuatorActive",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-bladeactive",
+      "displayName": "BladeActive",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "Bool Indicating non-zero velocity on blade motor",
+      "defaultValue": false,
+      "defaultValueInternal": false,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "BladeActive",
+      "propertySetterName": "setBladeActive",
+      "propertyGetterName": "getBladeActive",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-homesensor",
+      "displayName": "HomeSensor",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "Bool representing the home sensor state for the linear actuator",
+      "defaultValue": false,
+      "defaultValueInternal": false,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "HomeSensor",
+      "propertySetterName": "setHomeSensor",
+      "propertyGetterName": "getHomeSensor",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.746.3/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

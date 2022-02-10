@@ -1,0 +1,26 @@
+﻿<div id="TendonCutter" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%">
+
+<div id="TendonCutterPage_TendonCutter_PMLMonitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/ModuleMonitoring/PMLModuleBase_Monitor.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-module="%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter|SubscriptionMode=Poll%/s%" data-tchmi-zindex="10">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+<div id="TendonCutterPage_Cutter_1_AxisMonitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="2" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/ComponentMonitoring/AxisMonitoring/AxisBase_Monitor.usercontrol" data-tchmi-top="20" data-tchmi-top-unit="%" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-axis="%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter::fbCutter_1::stAxisBaseHMI|SubscriptionMode=Poll%/s%" data-tchmi-component="%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter::fbCutter_1::stComponentBaseHMI|SubscriptionMode=Poll%/s%">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+<div id="TendonCutterPage_Cutter_2_AxisMonitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="30" data-tchmi-left-unit="%" data-tchmi-target-user-control="Controls/HardwareMonitoring/ComponentMonitoring/AxisMonitoring/AxisBase_Monitor.usercontrol" data-tchmi-top="20" data-tchmi-top-unit="%" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-axis="%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter::fbCutter_2::stAxisBaseHMI|SubscriptionMode=Poll%/s%" data-tchmi-component="%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter::fbCutter_2::stComponentBaseHMI|SubscriptionMode=Poll%/s%">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+</div>
