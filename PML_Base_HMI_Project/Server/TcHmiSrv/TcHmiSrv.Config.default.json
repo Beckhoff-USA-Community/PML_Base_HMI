@@ -3359,6 +3359,19 @@
                 }
             ]
         },
+        "PLC_PML.REFERENCE TO ST_ProductionData_HMI": {
+            "allOf": [
+                {
+                    "function": true,
+                    "writeValue": {
+                        "$ref": "#/definitions/PLC_PML.ST_ProductionData_HMI"
+                    }
+                },
+                {
+                    "$ref": "#/definitions/PLC_PML.ST_ProductionData_HMI"
+                }
+            ]
+        },
         "PLC_PML.REFERENCE TO Tc2_MC2.AXIS_REF": {
             "allOf": [
                 {
@@ -3850,6 +3863,77 @@
             "type": "object"
         },
         "PLC_PML.ST_ProductionDataHMI": {
+            "properties": {
+                "bHMICommandConfirmation": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bHMIControlAvailable": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bIncomingHMIRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bProductionRateHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bShiftLengthHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bShiftProductionTargetHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bWarningMarginHMISetRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "fProductionRateHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fProductionRate_Actual": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fProductionRate_Required": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fProductionRate_Setpoint": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fWarningMarginHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "nCurrentAcceptableProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nCurrentShiftProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nCurrentShiftTarget": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nCurrentWarningProductionCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nShiftProductionTarget": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nShiftProductionTargetHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "tCurrentShiftTime": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tRemainingShiftTime": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tShiftLength": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tShiftLengthHMISetValue": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                }
+            },
+            "type": "object"
+        },
+        "PLC_PML.ST_ProductionData_HMI": {
             "properties": {
                 "bHMICommandConfirmation": {
                     "$ref": "tchmi:general#/definitions/BOOL"
@@ -12445,6 +12529,16 @@
             "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::stMainPMLControl_Standard",
             "SCHEMA": {
                 "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLControl"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::stMainProductionData",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC_PML.REFERENCE TO ST_ProductionData_HMI"
             },
             "USEMAPPING": true
         },
