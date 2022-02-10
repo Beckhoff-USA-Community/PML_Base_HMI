@@ -1,4 +1,4 @@
-<div id="Desktop" data-tchmi-type="TcHmi.Controls.System.TcHmiView" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-mode="Content" data-tchmi-min-width="100" data-tchmi-min-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-min-height="100" data-tchmi-min-height-unit="%" data-tchmi-zindex="17" data-tchmi-creator-viewport-width="540" data-tchmi-creator-viewport-height="720" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px">
+﻿<div id="Desktop" data-tchmi-type="TcHmi.Controls.System.TcHmiView" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-mode="Content" data-tchmi-min-width="100" data-tchmi-min-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-min-height="100" data-tchmi-min-height-unit="%" data-tchmi-zindex="17" data-tchmi-creator-viewport-width="540" data-tchmi-creator-viewport-height="720" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px">
    
     <div id="System_InfoBar" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-top="0.0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-left-unit="%" data-tchmi-left="0" data-tchmi-zindex="35" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-is-enabled="true" data-tchmi-height="55" data-tchmi-height-unit="px">
 
@@ -32,7 +32,7 @@
             "bottom": "Solid"
             }
         </script>
-<div id="DateTime_Display" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%DateTime_Display::RenderedHeight%/ctrl% * .2%/f%" data-tchmi-zindex="13" data-tchmi-text="%f%TcHmi.Functions.TcHmiProject1.FormatTimeString(%s%PLC1.GVL.sTimeString%/s%)%/f%" data-tchmi-left-unit="px" data-tchmi-left="%ctrl%MainMenu_ToggleButton::RenderedWidth%/ctrl%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-width="%f%%ctrl%DateTime_Display::RenderedWidth%/ctrl%*4%/f%">
+<div id="DateTime_Display" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%DateTime_Display::RenderedHeight%/ctrl% * .2%/f%" data-tchmi-zindex="13" data-tchmi-text="%f%TcHmi.Functions.TcHmiProject1.FormatTimeString(%s%PLC1.GVL.sTimeString%/s%)%/f%" data-tchmi-left-unit="px" data-tchmi-left="%ctrl%MainMenu_ToggleButton::RenderedWidth%/ctrl%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-width="%f%%ctrl%DateTime_Display::RenderedHeight%/ctrl%*4%/f%">
 <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
                 {
                 "color": "rgba(224, 224, 224, 1)"
@@ -249,19 +249,6 @@
 ]
 </script>
         </div>
-<div id="PMLState_Display" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Current Recipe:\nCONC02OZ" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%DateTime_Display::RenderedHeight%/ctrl% * .3%/f%" data-tchmi-left-unit="px" data-tchmi-left="%f%%ctrl%DateTime_Display::RenderedLeft%/ctrl%+%ctrl%DateTime_Display::RenderedWidth%/ctrl%%/f%" data-tchmi-zindex="13" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="2" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-width="%f%%ctrl%PMLState_Display::RenderedHeight%/ctrl%*3%/f%">
-<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
-                {
-                "color": "rgba(224, 224, 224, 1)"
-                }
-            </script>
-
-            <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
-                {
-                "color": "None"
-                }
-            </script>
-        </div>
 <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="7" id="SettingsMenu_ToggleButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-top="0.0" data-tchmi-top-unit="px" data-tchmi-word-wrap="True" data-tchmi-icon="Imports/Images/cog.png" data-tchmi-icon-width="55" data-tchmi-icon-width-unit="%" data-tchmi-icon-height="55" data-tchmi-icon-height-unit="%" data-tchmi-right="%ctrl%UserMenu_ToggleButton::RenderedWidth%/ctrl%" data-tchmi-left-unit="px" data-tchmi-zindex="13" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="px" data-tchmi-opacity="1" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-width="%ctrl%SettingsMenu_ToggleButton::RenderedHeight%/ctrl%" data-tchmi-width-unit="px" data-tchmi-is-enabled="true">
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
                 {
@@ -400,6 +387,10 @@
 </script>
             <script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
 [
+  {
+    "name": "severity",
+    "order": "Descending"
+  },
   {
     "name": "timeRaised",
     "order": "Ascending"
