@@ -202,7 +202,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::fProductionRateHMISetValue%/s%",
+        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::fProductionRateHMISetValue%/s%",
         "value": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
@@ -213,29 +213,29 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::bIncomingHMIRequest%/s%",
+        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bIncomingHMIRequest%/s%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/BOOL",
-          "value": true
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "True"
         },
         "asyncWait": true
       },
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::bProductionRateHMISetRequest%/s%",
+        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bProductionRateHMISetRequest%/s%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/BOOL",
-          "value": true
+          "valueType": "tchmi:general#/definitions/String",
+          "value": "True"
         },
         "asyncWait": true
       }
     ]
   },
   {
-    "event": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::bHMICommandConfirmation%/s%",
+    "event": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bHMICommandConfirmation%/s%",
     "actions": [
       {
         "objectType": "Condition",
@@ -246,13 +246,13 @@
               {
                 "compare1": {
                   "objectType": "Symbol",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::bHMICommandConfirmation%/s%"
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bHMICommandConfirmation%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": true
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "True"
                 },
                 "compareOperator": "==",
                 "logic": null
@@ -268,13 +268,13 @@
                       {
                         "compare1": {
                           "objectType": "Symbol",
-                          "valueType": "tchmi:general#/definitions/String",
-                          "symbolExpression": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::bProductionRateHMISetRequest%/s%"
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bProductionRateHMISetRequest%/s%"
                         },
                         "compare2": {
                           "objectType": "StaticValue",
-                          "valueType": "tchmi:general#/definitions/BOOL",
-                          "value": true
+                          "valueType": "tchmi:general#/definitions/String",
+                          "value": "True"
                         },
                         "compareOperator": "==",
                         "logic": null
@@ -284,33 +284,33 @@
                       {
                         "objectType": "WriteToSymbol",
                         "active": true,
-                        "symbolExpression": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::bProductionRateHMISetRequest%/s%",
+                        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bProductionRateHMISetRequest%/s%",
                         "value": {
                           "objectType": "StaticValue",
-                          "valueType": "tchmi:general#/definitions/BOOL",
-                          "value": false
+                          "valueType": "tchmi:general#/definitions/String",
+                          "value": "False"
                         },
                         "asyncWait": true
                       },
                       {
                         "objectType": "WriteToSymbol",
                         "active": true,
-                        "symbolExpression": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::bIncomingHMIRequest%/s%",
+                        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bIncomingHMIRequest%/s%",
                         "value": {
                           "objectType": "StaticValue",
-                          "valueType": "tchmi:general#/definitions/BOOL",
-                          "value": false
+                          "valueType": "tchmi:general#/definitions/String",
+                          "value": "False"
                         },
                         "asyncWait": true
                       },
                       {
                         "objectType": "WriteToSymbol",
                         "active": true,
-                        "symbolExpression": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::bHMICommandConfirmation%/s%",
+                        "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::bHMICommandConfirmation%/s%",
                         "value": {
                           "objectType": "StaticValue",
-                          "valueType": "tchmi:general#/definitions/BOOL",
-                          "value": false
+                          "valueType": "tchmi:general#/definitions/String",
+                          "value": "False"
                         },
                         "asyncWait": true
                       }
@@ -369,7 +369,7 @@
         "value": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::fTargetProductionRate%/s%"
+          "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::fProductionRate_Setpoint%/s%"
         },
         "asyncWait": true
       }
@@ -441,7 +441,7 @@
 </script>
 
 </div>
-<div id="MachineRateCurrent_Display" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="1" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::fTargetProductionRate%/s%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="MachineRateCurrent_Display" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="1" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::fProductionRate_Setpoint%/s%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
 </div>
 <div id="MachineRateActual_Label" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Current Machine Rate Actual:" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="px" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-text-font-size="%f%TcHmi.Functions.TcHmiProject1.FitTextToSpace(%ctrl%MachineRateActual_Label::Text%/ctrl%, %ctrl%MachineRateActual_Label::RenderedWidth%/ctrl%, %ctrl%MachineRateActual_Label::RenderedHeight%/ctrl%, 20)%/f%">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
@@ -457,7 +457,7 @@
 }
 </script>
 </div>
-<div id="TcHmiTextblock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="2" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::fActualProductionRate%/s%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="2" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::fProductionRate_Actual%/s%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
 </div>
 </div>
 <div id="MachineRate_LinearGauge" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLinearGauge" data-tchmi-base-animation-time="1000" data-tchmi-height="85" data-tchmi-height-unit="px" data-tchmi-label-range="25" data-tchmi-show-labels="True" data-tchmi-show-ticks="True" data-tchmi-show-value-text="true" data-tchmi-start-from-zero="True" data-tchmi-min-value="0" data-tchmi-max-value="100" data-tchmi-step="1" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-orientation="Horizontal" data-tchmi-value-space-unit="px" data-tchmi-value-font-size-unit="px" data-tchmi-editable="true" data-tchmi-label-font-size-unit="px" data-tchmi-label-position="Left" data-tchmi-unit="Products per Minute" data-tchmi-unit-font-size-unit="px" data-tchmi-zindex="22" data-tchmi-value="50" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-grid-row-index="0" data-tchmi-is-enabled="true" data-tchmi-click-anywhere-to-edit="false" data-tchmi-right="30" data-tchmi-bottom="30" data-tchmi-left="52" data-tchmi-left-unit="%">
@@ -559,7 +559,7 @@
         "value": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.stProductionDataHMI::fTargetProductionRate%/s%"
+          "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::fProductionRate_Setpoint%/s%"
         },
         "asyncWait": true
       }
