@@ -638,7 +638,7 @@
 }
 </script>
 </div>
-<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="3" id="CurrentRateTarget_Display" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-bottom="1" data-tchmi-bottom-unit="px" data-tchmi-top-unit="px" data-tchmi-text-font-size="%f%TcHmi.Functions.TcHmiProject1.FitTextToSpace(%ctrl%CurrentCountDelta_Display::Text%/ctrl%, %ctrl%CurrentCountDelta_Display::RenderedWidth%/ctrl%, %ctrl%CurrentCountDelta_Display::RenderedHeight%/ctrl%, 15)%/f%" data-tchmi-text="%f%&quot;Required: &quot; + %pp%ProductionStatus::fProductionRate_Required%/pp%%/f%" data-tchmi-top="-1" data-tchmi-right="0" data-tchmi-left="0">
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="3" id="CurrentRateTarget_Display" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-bottom="0" data-tchmi-bottom-unit="px" data-tchmi-top-unit="px" data-tchmi-text-font-size="%f%.9 * TcHmi.Functions.TcHmiProject1.FitTextToSpace(%ctrl%CurrentCountDelta_Display::Text%/ctrl%, %ctrl%CurrentCountDelta_Display::RenderedWidth%/ctrl%, %ctrl%CurrentCountDelta_Display::RenderedHeight%/ctrl%, 15)%/f%" data-tchmi-text="%f%&quot;Required: &quot; + %pp%ProductionStatus::fProductionRate_Required%/pp%%/f%" data-tchmi-top="0" data-tchmi-right="0" data-tchmi-left="0">
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
 {
   "color": "rgba(224, 224, 224, 1)"

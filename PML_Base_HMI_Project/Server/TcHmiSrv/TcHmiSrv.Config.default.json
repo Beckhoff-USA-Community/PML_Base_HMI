@@ -4000,6 +4000,12 @@
                 },
                 "tShiftLengthHMISetValue": {
                     "$ref": "tchmi:general#/definitions/TIME"
+                },
+                "tShiftStartTimeStamp": {
+                    "$ref": "#/definitions/PLC_PML.Tc2_Utilities.TIMESTRUCT"
+                },
+                "tShiftStartTimeStamp_UTC": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
                 }
             },
             "type": "object"
@@ -9418,6 +9424,35 @@
         },
         "PLC_PML.Tc2_System.T_AmsNetIdArr": {
             "$ref": "#/definitions/PLC_PML.AMSNETID"
+        },
+        "PLC_PML.Tc2_Utilities.TIMESTRUCT": {
+            "properties": {
+                "wDay": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wDayOfWeek": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wHour": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wMilliseconds": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wMinute": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wMonth": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wSecond": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                },
+                "wYear": {
+                    "$ref": "tchmi:general#/definitions/WORD"
+                }
+            },
+            "type": "object"
         },
         "PLC_PML.Tc3_EventLogger.FB_AsyncStrResult": {
             "attributes": {

@@ -5221,4 +5221,6 @@
 ]
 </script>
 </div>
+<div id="TcHmiTextblock_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="-3" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData::tShiftLength%/s%" data-tchmi-top="384" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+</div>
 </div>

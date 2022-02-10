@@ -2,6 +2,12 @@
     "commitInterval": "PT10S",
     "enableBackup": false,
     "historizedSymbolList": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData": {
+            "interval": "PT1S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 10000
+        },
         "PLC_PML.MAIN.fbPoultrySeparator.fbProductionDataHMI.nCurrentShiftProductionCount": {
             "interval": "PT1S",
             "maxEntries": 10000,
