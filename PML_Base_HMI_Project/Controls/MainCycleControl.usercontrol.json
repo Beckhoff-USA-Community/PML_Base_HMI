@@ -1,19 +1,19 @@
 ﻿{
   "parameters": [
     {
-      "name": "data-tchmi-controlblock",
-      "displayName": "ControlBlock",
+      "name": "data-tchmi-modulepmlcontrol",
+      "displayName": "ModulePMLControl",
       "visible": true,
-      "type": "tchmi:server#/definitions/PLC_PML.FB_PackML_ExternalControl",
+      "type": "tchmi:server#/definitions/PLC_PML.ST_PMLControl_Simplified",
       "category": "",
       "description": "",
       "requiredOnCompile": false,
       "readOnly": false,
       "bindable": true,
       "heritable": true,
-      "propertyName": "ControlBlock",
-      "propertySetterName": "setControlBlock",
-      "propertyGetterName": "getControlBlock",
+      "propertyName": "ModulePMLControl",
+      "propertySetterName": "setModulePMLControl",
+      "propertyGetterName": "getModulePMLControl",
       "refTo": ""
     }
   ],

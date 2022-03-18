@@ -10,6 +10,6 @@
 
 
 
-<div id="Main_CycleControl_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-ecommand="0" data-tchmi-estate="0" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/MainCycleControl.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-controlblock="%s%PLC_PML.MAIN.fbPoultrySeparator.fbExternalControl.fbHMIControl%/s%" data-tchmi-is-enabled="true">
+<div id="Main_CycleControl_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-ecommand="0" data-tchmi-estate="0" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/MainCycleControl.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-controlblock="%s%PLC_PML.MAIN.fbPoultrySeparator.fbExternalControl.fbHMIControl%/s%" data-tchmi-is-enabled="true" data-tchmi-modulepmlcontrol="%s%PLC_PML.MAIN.fbMainModuleHMIConnection.stMainPMLControl_Simplified%/s%">
 </div>
 </div>

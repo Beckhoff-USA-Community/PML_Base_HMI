@@ -12,28 +12,13 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%s%PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbMainCarcassConveyor.stLocations[0]::position|Interval=100%/s%",
-    "actions": [
-      {
-        "objectType": "JavaScript",
-        "active": true,
-        "sourceLines": [
-          "//Reads in the cone coneCount, conveyor coneLength, distance between cones, and the conePosition of cone 0 and saves them to internal values\nTcHmi.Server.readSymbol(['PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbMainCarcassConveyor.nLocationCount',\n                         'PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbMainCarcassConveyor.fConveyorLength',\n                         'PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbMainCarcassConveyor.stLocations'], function (data) {\n\tif (data.error === TcHmi.Errors.NONE) {\n    \tconeCount = data.results[0].value;\n\t\tconeLength = data.results[1].value;\n\t\tconeLocations = data.results[2].value;\n\t}\n});\n//iterates over the total number of cones (cone coneCount)\nfor (i = 0; i < coneCount; i++) {\n\t\n\t//reproduces the unique coneName of each cone control created by the control factory\n\tif (i < 10) {\n\t\tconeName = 'Cone_0' + i.toString();\n\t} else {\n\t\tconeName = 'Cone_' + i.toString();\n\t}\n\t\n\tconePosition = coneLocations[i].position;\n\t\n\t//writes the calculated conePosition to the current cone control (divided by 2 to only view the top of the chain, scaled to percent (100/coneLength)\n    TcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Left%/ctrl%', (conePosition/(coneLength/2)) * 100);\n\t\n    if (conePosition < (coneLength/2)) {\n    \tTcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Visibility%/ctrl%', 'Visible');\n\t} else {\n    \tTcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Visibility%/ctrl%', 'Hidden');\n    }\n    \n\tTcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Occupied%/ctrl%', coneLocations[i].occupied);\n}                      \t\n\t\t  "
-        ],
-        "injectContextObject": false,
-        "asyncWait": true,
-        "waitMode": "Synchronous"
-      }
-    ]
-  },
-  {
     "event": "Simulation.onAttached",
     "actions": [
       {
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "\nTcHmi.Server.readSymbol('PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbMainCarcassConveyor.nLocationCount', function (data) {\n\tif (data.error === TcHmi.Errors.NONE) {\n    \tvar count = data.results[0].value;    \n\t\tconsole.log(count);\n    \tvar i;\n    \tvar name;\n\t\tfor (i = 0; i < count; i++) {\n\t\t\tif (i < 10) {\n    \t\t\tname = 'Cone_0' + i.toString();\n    \t\t} else {\n    \t\t\tname = 'Cone_' + i.toString();\n    \t\t}\n    \t\t\n    \t\tvar Cone_Auto = TcHmi.ControlFactory.createEx(\n\t\t        'tchmi-user-control-host',\n\t\t        name,\n\t\t        {\n\t\t            'data-tchmi-target-user-control' : 'Controls/Cone.usercontrol',\n\t\t        \t'data-tchmi-top': 35,\n\t\t            'data-tchmi-left': i * 2, \n\t\t            'data-tchmi-width': 4, \n\t\t            'data-tchmi-height': 15, \n\t\t            'data-tchmi-top-unit' : '%',\n\t\t            'data-tchmi-left-unit' : '%',\n\t\t            'data-tchmi-height-unit' : '%',\n\t\t            'data-tchmi-width-unit' : '%',\n\t\t            'data-tchmi-LabelText' : i.toString()\n\t\t        }\n\t    \t); \n\t    \n\t\t\tvar parent = TcHmi.Controls.get('MainCarcassContainer'); \n\t\t\tif (parent && Cone_Auto) {\n\t\t\t    parent.addChild(Cone_Auto); \n\t\t\t}\n    \t\t\n\t\t}\n   }\n});"
+          "TcHmi.Server.readSymbol('PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.nCarrierCount', function (data) {\n   \tif (data.error === TcHmi.Errors.NONE) {\n    \tvar count = data.results[0].value;\n    \tvar i;\n    \tvar name;\n\t\tfor (i = 0; i < count; i++) {\n\t\t\tif (i < 10) {\n    \t\t\tname = 'Cone_0' + i.toString();\n    \t\t} else {\n    \t\t\tname = 'Cone_' + i.toString();\n    \t\t}\n    \t\t\n    \t\tvar Cone_Auto = TcHmi.ControlFactory.createEx(\n\t\t        'tchmi-user-control-host',\n\t\t        name,\n\t\t        {\n\t\t            'data-tchmi-target-user-control' : 'Controls/PoultrySeparatorSimulation/Cone.usercontrol',\n\t\t        \t'data-tchmi-top': 35,\n\t\t            'data-tchmi-left': i * 2, \n\t\t            'data-tchmi-width': 4, \n\t\t            'data-tchmi-height': 15, \n\t\t            'data-tchmi-top-unit' : '%',\n\t\t            'data-tchmi-left-unit' : '%',\n\t\t            'data-tchmi-height-unit' : '%',\n\t\t            'data-tchmi-width-unit' : '%',\n\t\t            'data-tchmi-LabelText' : i.toString()\n\t\t        }\n\t    \t); \n\t    \n\t\t\tvar parent = TcHmi.Controls.get('MainCarcassContainer'); \n\t\t\tif (parent && Cone_Auto) {\n\t\t\t    parent.addChild(Cone_Auto); \n\t\t\t}\n    \t\t\n\t\t}\n   }\n});"
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -43,7 +28,7 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "\nTcHmi.Server.readSymbol('PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingLiftConveyor.nLocationCount', function (data) {\n\tif (data.error === TcHmi.Errors.NONE) {\n    \tvar count = data.results[0].value;    \n    \tconsole.log(count);\n    \tvar i;\n    \tvar name;\n\t\tfor (i = 0; i < count; i++) {\n\t\t\tif (i < 10) {\n    \t\t\tname = 'Lug_0' + i.toString();\n    \t\t} else {\n    \t\t\tname = 'Lug_' + i.toString();\n    \t\t}\n    \t\t\n    \t\tvar Lug_Auto = TcHmi.ControlFactory.createEx(\n\t\t        'tchmi-user-control-host',\n\t\t        name,\n\t\t        {\n\t\t            'data-tchmi-target-user-control' : 'Controls/WingLiftLug.usercontrol',\n\t\t        \t'data-tchmi-bottom': 0,\n\t\t            'data-tchmi-left': i * 2, \n\t\t            'data-tchmi-width': 10, \n\t\t            'data-tchmi-height': 10, \n\t\t            'data-tchmi-bottom-unit' : '%',\n\t\t            'data-tchmi-left-unit' : '%',\n\t\t            'data-tchmi-height-unit' : '%',\n\t\t            'data-tchmi-width-unit' : '%',\n\t\t            'data-tchmi-LabelText' : i.toString()\n\t\t        }\n\t    \t); \n\t    \n\t\t\tvar parent = TcHmi.Controls.get('WingLiftContainer'); \n\t\t\tif (parent && Lug_Auto) {\n\t\t\t    parent.addChild(Lug_Auto); \n\t\t\t}\n    \t\t\n\t\t}\n   }\n});"
+          "TcHmi.Server.readSymbol('PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.nCarrierCount', function (data) {\n\tif (data.error === TcHmi.Errors.NONE) {\n    \tvar count = data.results[0].value;\n    \tvar i;\n    \tvar name;\n\t\tfor (i = 0; i < count; i++) {\n\t\t\tif (i < 10) {\n    \t\t\tname = 'Lug_0' + i.toString();\n    \t\t} else {\n    \t\t\tname = 'Lug_' + i.toString();\n    \t\t}\n    \t\t\n    \t\tvar Lug_Auto = TcHmi.ControlFactory.createEx(\n\t\t        'tchmi-user-control-host',\n\t\t        name,\n\t\t        {\n\t\t            'data-tchmi-target-user-control' : 'Controls/PoultrySeparatorSimulation/WingLiftLug.usercontrol',\n\t\t        \t'data-tchmi-bottom': 0,\n\t\t            'data-tchmi-left': i * 2, \n\t\t            'data-tchmi-width': 10, \n\t\t            'data-tchmi-height': 10, \n\t\t            'data-tchmi-bottom-unit' : '%',\n\t\t            'data-tchmi-left-unit' : '%',\n\t\t            'data-tchmi-height-unit' : '%',\n\t\t            'data-tchmi-width-unit' : '%',\n\t\t            'data-tchmi-LabelText' : i.toString()\n\t\t        }\n\t    \t); \n\t    \n\t\t\tvar parent = TcHmi.Controls.get('WingLiftContainer'); \n\t\t\tif (parent && Lug_Auto) {\n\t\t\t    parent.addChild(Lug_Auto); \n\t\t\t}\n    \t\t\n\t\t}\n   }\n});"
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -53,7 +38,135 @@
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "TcHmi.Server.readSymbol('PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingSeparatorConveyor.nLocationCount', function (data) {\n\tif (data.error === TcHmi.Errors.NONE) {\n    \tvar count = data.results[0].value;    \n    \tvar i;\n    \tvar name;\n\t\tfor (i = 0; i < count; i++) {\n\t\t\tif (i < 10) {\n    \t\t\tname = 'Socket_0' + i.toString();\n    \t\t} else {\n    \t\t\tname = 'Socket_' + i.toString();\n    \t\t}\n    \t\tvar Socket_Auto = TcHmi.ControlFactory.createEx(\n\t\t        'tchmi-user-control-host',\n\t\t        name,\n\t\t        {\n\t\t            'data-tchmi-target-user-control' : 'Controls/WingSeparatorSocket.usercontrol',\n\t\t        \t'data-tchmi-bottom': 50,\n\t\t            'data-tchmi-left': i * 2, \n\t\t            'data-tchmi-width': 8, \n\t\t            'data-tchmi-height': 8, \n\t\t            'data-tchmi-bottom-unit' : '%',\n\t\t            'data-tchmi-left-unit' : '%',\n\t\t            'data-tchmi-height-unit' : '%',\n\t\t            'data-tchmi-width-unit' : '%',\n\t\t            'data-tchmi-LabelText' : i.toString()\n\t\t        }\n\t    \t); \n\t    \n\t\t\tvar parent = TcHmi.Controls.get('WingSeparatorContainer'); \n\t\t\tif (parent && Socket_Auto) {\n\t\t\t    parent.addChild(Socket_Auto); \n\t\t\t}\n    \t\t\n\t\t}\n   }\n});"
+          "TcHmi.Server.readSymbol('PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.nCarrierCount', function (data) {\n\tif (data.error === TcHmi.Errors.NONE) {\n    \tvar count = data.results[0].value;    \n    \tvar i;\n    \tvar name;\n\t\tfor (i = 0; i < count; i++) {\n\t\t\tif (i < 10) {\n    \t\t\tname = 'Socket_0' + i.toString();\n    \t\t} else {\n    \t\t\tname = 'Socket_' + i.toString();\n    \t\t}\n    \t\tvar Socket_Auto = TcHmi.ControlFactory.createEx(\n\t\t        'tchmi-user-control-host',\n\t\t        name,\n\t\t        {\n\t\t            'data-tchmi-target-user-control' : 'Controls/PoultrySeparatorSimulation/WingSeparatorSocket.usercontrol',\n\t\t        \t'data-tchmi-bottom': 50,\n\t\t            'data-tchmi-left': i * 2, \n\t\t            'data-tchmi-width': 8, \n\t\t            'data-tchmi-height': 8, \n\t\t            'data-tchmi-bottom-unit' : '%',\n\t\t            'data-tchmi-left-unit' : '%',\n\t\t            'data-tchmi-height-unit' : '%',\n\t\t            'data-tchmi-width-unit' : '%',\n\t\t            'data-tchmi-LabelText' : i.toString()\n\t\t        }\n\t    \t); \n\t    \n\t\t\tvar parent = TcHmi.Controls.get('WingSeparatorContainer'); \n\t\t\tif (parent && Socket_Auto) {\n\t\t\t    parent.addChild(Socket_Auto); \n\t\t\t}\n    \t\t\n\t\t}\n   }\n});"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "//Reads in the socket socketCount, conveyor socketLength, distance between sockets, and the socketPosition of socket 0 and saves them to internal values",
+          "TcHmi.Server.readSymbol(['PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.nCarrierCount',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.fConveyorLength',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.stCarriers'], function (data) {",
+          "\tif (data.error === TcHmi.Errors.NONE) {",
+          "    \tsocketCount = data.results[0].value;",
+          "\t\tsocketLength = data.results[1].value;",
+          "\t\tsocketLocations = data.results[2].value;",
+          "\t}",
+          "});",
+          "//iterates over the total number of sockets (socket socketCount)",
+          "for (i = 0; i < socketCount; i++) {",
+          "\t",
+          "\t//reproduces the unique socketName of each socket control created by the control factory",
+          "\tif (i < 10) {",
+          "\t\tsocketName = 'Socket_0' + i.toString();",
+          "\t} else {",
+          "\t\tsocketName = 'Socket_' + i.toString();",
+          "\t}",
+          "\t",
+          "\tsocketPosition = socketLocations[i].fPosition;",
+          "",
+          "\t//writes the calculated socketPosition to the current socket control (divided by 2 to only view the top of the chain, scaled to percent (100/socketLength)",
+          "    TcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Left%/ctrl%', (socketPosition/(socketLength/2)) * 100);",
+          "    ",
+          "    if (socketPosition < (socketLength/2)) {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Visibility%/ctrl%', 'Visible');",
+          "\t} else {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Visibility%/ctrl%', 'Hidden');",
+          "    }",
+          "    ",
+          "\tTcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Occupied%/ctrl%', socketLocations[i].bOccupied);",
+          "}"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "//Reads in the lug lugCount, conveyor lugLength, distance between lugs, and the position of lug 0 and saves them to internal values",
+          "TcHmi.Server.readSymbol(['PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.nCarrierCount',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.fConveyorLength',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.stCarriers'], function (data) {",
+          "\tif (data.error === TcHmi.Errors.NONE) {",
+          "    \tlugCount = data.results[0].value;",
+          "\t\tlugLength = data.results[1].value;",
+          "\t\tlugLocations = data.results[2].value;",
+          "\t}",
+          "});",
+          "",
+          "//iterates over the total number of lugs (lug count)",
+          "for (i = 0; i < lugCount; i++) {",
+          "\t",
+          "\t//reproduces the unique name of each cone control created by the control factory",
+          "\tif (i < 10) {",
+          "\t\tlugName = 'Lug_0' + i.toString();",
+          "\t} else {",
+          "\t\tlugName = 'Lug_' + i.toString();",
+          "\t}",
+          "\t",
+          "\tlugPosition = lugLocations[i].fPosition;",
+          "\t",
+          "\t//writes the calculated position to the current lug control (divided by 2 to only view the top of the chain, scaled to percent (100/lugLength) (Divided by root 2 to get 45 degree angle)",
+          "    TcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Left%/ctrl%', (lugPosition/(lugLength/2)) * 100)/1.414213;",
+          "    TcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Bottom%/ctrl%', (lugPosition/(lugLength/2)) * 100)/1.414213;",
+          "    ",
+          "    if (lugPosition < lugLength/2) {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Visibility%/ctrl%', 'Visible');",
+          " \t} else {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Visibility%/ctrl%', 'Hidden');",
+          "\t}",
+          "    ",
+          "\tTcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Occupied%/ctrl%', lugLocations[i].bOccupied);",
+          "}"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "//Reads in the cone coneCount, conveyor coneLength, distance between cones, and the conePosition of cone 0 and saves them to internal values",
+          "TcHmi.Server.readSymbol(['PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.nCarrierCount',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fConveyorLength',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stCarriers'], function (data) {",
+          "\tif (data.error === TcHmi.Errors.NONE) {",
+          "    \tconeCount = data.results[0].value;",
+          "\t\tconeLength = data.results[1].value;",
+          "\t\tconeLocations = data.results[2].value;",
+          "\t}",
+          "});",
+          "//iterates over the total number of cones (cone coneCount)",
+          "for (i = 0; i < coneCount; i++) {",
+          "\t",
+          "\t//reproduces the unique coneName of each cone control created by the control factory",
+          "\tif (i < 10) {",
+          "\t\tconeName = 'Cone_0' + i.toString();",
+          "\t} else {",
+          "\t\tconeName = 'Cone_' + i.toString();",
+          "\t}",
+          "\t",
+          "\tconePosition = coneLocations[i].fPosition;",
+          "\t",
+          "\t//writes the calculated conePosition to the current cone control (divided by 2 to only view the top of the chain, scaled to percent (100/coneLength)",
+          "    TcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Left%/ctrl%', (conePosition/(coneLength/2)) * 100);",
+          "\t",
+          "    if (conePosition < (coneLength/2)) {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Visibility%/ctrl%', 'Visible');",
+          "\t} else {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Visibility%/ctrl%', 'Hidden');",
+          "    }",
+          "    ",
+          "\tTcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Occupied%/ctrl%', coneLocations[i].bOccupied);",
+          "}"
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -62,13 +175,45 @@
     ]
   },
   {
-    "event": "%s%PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingLiftConveyor.stLocations[0]::position|Interval=100%/s%",
+    "event": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stCarriers[1]::fPosition%/s%",
     "actions": [
       {
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "//Reads in the lug lugCount, conveyor lugLength, distance between lugs, and the position of lug 0 and saves them to internal values\nTcHmi.Server.readSymbol(['PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingLiftConveyor.nLocationCount',\n                         'PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingLiftConveyor.fConveyorLength',\n                         'PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingLiftConveyor.stLocations'], function (data) {\n\tif (data.error === TcHmi.Errors.NONE) {\n    \tlugCount = data.results[0].value;\n\t\tlugLength = data.results[1].value;\n\t\tlugLocations = data.results[2].value;\n\t}\n});\n\n//iterates over the total number of lugs (lug count)\nfor (i = 0; i < lugCount; i++) {\n\t\n\t//reproduces the unique name of each cone control created by the control factory\n\tif (i < 10) {\n\t\tlugName = 'Lug_0' + i.toString();\n\t} else {\n\t\tlugName = 'Lug_' + i.toString();\n\t}\n\t\n\tlugPosition = lugLocations[i].position;\n\t\n\t//writes the calculated position to the current lug control (divided by 2 to only view the top of the chain, scaled to percent (100/lugLength) (Divided by root 2 to get 45 degree angle)\n    TcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Left%/ctrl%', (lugPosition/(lugLength/2)) * 100)/1.414213;\n    TcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Bottom%/ctrl%', (lugPosition/(lugLength/2)) * 100)/1.414213;\n    \n    if (lugPosition < lugLength/2) {\n    \tTcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Visibility%/ctrl%', 'Visible');\n \t} else {\n    \tTcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Visibility%/ctrl%', 'Hidden');\n\t}\n    \n\tTcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Occupied%/ctrl%', lugLocations[i].occupied);\n}                      \t\n\t\t  "
+          "//Reads in the cone coneCount, conveyor coneLength, distance between cones, and the conePosition of cone 0 and saves them to internal values",
+          "TcHmi.Server.readSymbol(['PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.nCarrierCount',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fConveyorLength',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stCarriers'], function (data) {",
+          "\tif (data.error === TcHmi.Errors.NONE) {",
+          "    \tconeCount = data.results[0].value;",
+          "\t\tconeLength = data.results[1].value;",
+          "\t\tconeLocations = data.results[2].value;",
+          "\t}",
+          "});",
+          "//iterates over the total number of cones (cone coneCount)",
+          "for (i = 0; i < coneCount; i++) {",
+          "\t",
+          "\t//reproduces the unique coneName of each cone control created by the control factory",
+          "\tif (i < 10) {",
+          "\t\tconeName = 'Cone_0' + i.toString();",
+          "\t} else {",
+          "\t\tconeName = 'Cone_' + i.toString();",
+          "\t}",
+          "\t",
+          "\tconePosition = coneLocations[i].fPosition;",
+          "\t",
+          "\t//writes the calculated conePosition to the current cone control (divided by 2 to only view the top of the chain, scaled to percent (100/coneLength)",
+          "    TcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Left%/ctrl%', (conePosition/(coneLength/2)) * 100);",
+          "\t",
+          "    if (conePosition < (coneLength/2)) {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Visibility%/ctrl%', 'Visible');",
+          "\t} else {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Visibility%/ctrl%', 'Hidden');",
+          "    }",
+          "    ",
+          "\tTcHmi.Symbol.writeEx('%ctrl%' + coneName + '::Occupied%/ctrl%', coneLocations[i].bOccupied);",
+          "}"
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -77,13 +222,94 @@
     ]
   },
   {
-    "event": "%s%PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingSeparatorConveyor.stLocations[0]::position|Interval=100%/s%",
+    "event": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.stCarriers[1]::fPosition%/s%",
     "actions": [
       {
         "objectType": "JavaScript",
         "active": true,
         "sourceLines": [
-          "//Reads in the socket socketCount, conveyor socketLength, distance between sockets, and the socketPosition of socket 0 and saves them to internal values\nTcHmi.Server.readSymbol(['PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingSeparatorConveyor.nLocationCount',\n                         'PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingSeparatorConveyor.fConveyorLength',\n                         'PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingSeparatorConveyor.stLocations'], function (data) {\n\tif (data.error === TcHmi.Errors.NONE) {\n    \tsocketCount = data.results[0].value;\n\t\tsocketLength = data.results[1].value;\n\t\tsocketLocations = data.results[2].value;\n\t}\n});\n//iterates over the total number of sockets (socket socketCount)\nfor (i = 0; i < socketCount; i++) {\n\t\n\t//reproduces the unique socketName of each socket control created by the control factory\n\tif (i < 10) {\n\t\tsocketName = 'Socket_0' + i.toString();\n\t} else {\n\t\tsocketName = 'Socket_' + i.toString();\n\t}\n\t\n\tsocketPosition = socketLocations[i].position;\n\n\t//writes the calculated socketPosition to the current socket control (divided by 2 to only view the top of the chain, scaled to percent (100/socketLength)\n    TcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Left%/ctrl%', (socketPosition/(socketLength/2)) * 100);\n    \n    if (socketPosition < (socketLength/2)) {\n    \tTcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Visibility%/ctrl%', 'Visible');\n\t} else {\n    \tTcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Visibility%/ctrl%', 'Hidden');\n    }\n    \n\tTcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Occupied%/ctrl%', socketLocations[i].occupied);\n}                      \t"
+          "//Reads in the lug lugCount, conveyor lugLength, distance between lugs, and the position of lug 0 and saves them to internal values",
+          "TcHmi.Server.readSymbol(['PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.nCarrierCount',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.fConveyorLength',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.stCarriers'], function (data) {",
+          "\tif (data.error === TcHmi.Errors.NONE) {",
+          "    \tlugCount = data.results[0].value;",
+          "\t\tlugLength = data.results[1].value;",
+          "\t\tlugLocations = data.results[2].value;",
+          "\t}",
+          "});",
+          "",
+          "//iterates over the total number of lugs (lug count)",
+          "for (i = 0; i < lugCount; i++) {",
+          "\t",
+          "\t//reproduces the unique name of each cone control created by the control factory",
+          "\tif (i < 10) {",
+          "\t\tlugName = 'Lug_0' + i.toString();",
+          "\t} else {",
+          "\t\tlugName = 'Lug_' + i.toString();",
+          "\t}",
+          "\t",
+          "\tlugPosition = lugLocations[i].fPosition;",
+          "\t",
+          "\t//writes the calculated position to the current lug control (divided by 2 to only view the top of the chain, scaled to percent (100/lugLength) (Divided by root 2 to get 45 degree angle)",
+          "    TcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Left%/ctrl%', (lugPosition/(lugLength/2)) * 100)/1.414213;",
+          "    TcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Bottom%/ctrl%', (lugPosition/(lugLength/2)) * 100)/1.414213;",
+          "    ",
+          "    if (lugPosition < lugLength/2) {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Visibility%/ctrl%', 'Visible');",
+          " \t} else {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Visibility%/ctrl%', 'Hidden');",
+          "\t}",
+          "    ",
+          "\tTcHmi.Symbol.writeEx('%ctrl%' + lugName + '::Occupied%/ctrl%', lugLocations[i].bOccupied);",
+          "}"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.stCarriers[1]::fPosition%/s%",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "//Reads in the socket socketCount, conveyor socketLength, distance between sockets, and the socketPosition of socket 0 and saves them to internal values",
+          "TcHmi.Server.readSymbol(['PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.nCarrierCount',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.fConveyorLength',",
+          "                         'PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.stCarriers'], function (data) {",
+          "\tif (data.error === TcHmi.Errors.NONE) {",
+          "    \tsocketCount = data.results[0].value;",
+          "\t\tsocketLength = data.results[1].value;",
+          "\t\tsocketLocations = data.results[2].value;",
+          "\t}",
+          "});",
+          "//iterates over the total number of sockets (socket socketCount)",
+          "for (i = 0; i < socketCount; i++) {",
+          "\t",
+          "\t//reproduces the unique socketName of each socket control created by the control factory",
+          "\tif (i < 10) {",
+          "\t\tsocketName = 'Socket_0' + i.toString();",
+          "\t} else {",
+          "\t\tsocketName = 'Socket_' + i.toString();",
+          "\t}",
+          "\t",
+          "\tsocketPosition = socketLocations[i].fPosition;",
+          "",
+          "\t//writes the calculated socketPosition to the current socket control (divided by 2 to only view the top of the chain, scaled to percent (100/socketLength)",
+          "    TcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Left%/ctrl%', (socketPosition/(socketLength/2)) * 100);",
+          "    ",
+          "    if (socketPosition < (socketLength/2)) {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Visibility%/ctrl%', 'Visible');",
+          "\t} else {",
+          "    \tTcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Visibility%/ctrl%', 'Hidden');",
+          "    }",
+          "    ",
+          "\tTcHmi.Symbol.writeEx('%ctrl%' + socketName + '::Occupied%/ctrl%', socketLocations[i].bOccupied);",
+          "}"
         ],
         "injectContextObject": false,
         "asyncWait": true,
@@ -108,7 +334,7 @@
 
 </div>
 
-<div id="ShoulderWingSeparator_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-bladeactive="%s%PLC1.MAIN.fbPoultrySeparator.fbShoulderWingSeparator_Left.fbShoulderBladeRotation.Axis1.Status.Moving%/s%" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-homesensor="false" data-tchmi-left="30" data-tchmi-left-unit="%" data-tchmi-linearactuatoractive="%s%PLC1.MAIN.fbPoultrySeparator.fbShoulderWingSeparator_Left.fbShoulderBladeExtension.Axis1.Status.Moving%/s%" data-tchmi-orientation="False" data-tchmi-target-user-control="Controls/ShoulderWingSeparator.usercontrol" data-tchmi-top="23" data-tchmi-top-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-width="%ctrl%ShoulderWingSeparator_1::RenderedHeight%/ctrl%" data-tchmi-width-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-linearactuatorpositionpercent="%f%%s%PLC1.MAIN.fbPoultrySeparator.fbShoulderWingSeparator_Left.fbShoulderBladeExtension.Axis1.NcToPlc.ActPos%/s%/ %s%PLC1.MAIN.fbPoultrySeparator.fbShoulderWingSeparator_Left.fExtendPosition%/s%%/f%">
+<div id="ShoulderWingSeparator_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-bladeactive="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.fbAxis_Rotation.bActive%/s%" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-homesensor="false" data-tchmi-left="30" data-tchmi-left-unit="%" data-tchmi-linearactuatoractive="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.fbAxis_Extension.bActive%/s%" data-tchmi-orientation="False" data-tchmi-target-user-control="Controls/PoultrySeparatorSimulation/ShoulderWingSeparator.usercontrol" data-tchmi-top="23" data-tchmi-top-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-width="%ctrl%ShoulderWingSeparator_1::RenderedHeight%/ctrl%" data-tchmi-width-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-linearactuatorpositionpercent="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.fbAxis_Extension.fPosition%/s%">
 
 
 
@@ -126,109 +352,20 @@
   }
 ]
 
-<div id="ShoulderWingSeparator_2" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-bladeactive="%s%PLC1.MAIN.fbPoultrySeparator.fbShoulderWingSeparator_Right.fbShoulderBladeRotation.Axis1.Status.Moving%/s%" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-homesensor="false" data-tchmi-left="17.5" data-tchmi-left-unit="%" data-tchmi-linearactuatoractive="%s%PLC1.MAIN.fbPoultrySeparator.fbShoulderWingSeparator_Right.fbShoulderBladeExtension.Axis1.Status.Moving%/s%" data-tchmi-linearactuatorpositionpercent="%f%%s%PLC1.MAIN.fbPoultrySeparator.fbShoulderWingSeparator_Right.fbShoulderBladeExtension.Axis1.NcToPlc.ActPos%/s%/%s%PLC1.MAIN.fbPoultrySeparator.fbShoulderWingSeparator_Right.fExtendPosition%/s%%/f%" data-tchmi-orientation="true" data-tchmi-target-user-control="Controls/ShoulderWingSeparator.usercontrol" data-tchmi-top="23" data-tchmi-top-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-width="%ctrl%ShoulderWingSeparator_1::RenderedHeight%/ctrl%" data-tchmi-width-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px">
+<div id="ShoulderWingSeparator_2" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-bladeactive="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.fbAxis_Rotation.bActive%/s%" data-tchmi-height="30" data-tchmi-height-unit="%" data-tchmi-homesensor="false" data-tchmi-left="17.5" data-tchmi-left-unit="%" data-tchmi-linearactuatoractive="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.fbAxis_Extension.bActive%/s%" data-tchmi-orientation="true" data-tchmi-target-user-control="Controls/PoultrySeparatorSimulation/ShoulderWingSeparator.usercontrol" data-tchmi-top="23" data-tchmi-top-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-width="%ctrl%ShoulderWingSeparator_1::RenderedHeight%/ctrl%" data-tchmi-width-unit="px" data-tchmi-background-image-width-unit="px" data-tchmi-background-image-height-unit="px" data-tchmi-linearactuatorpositionpercent="0">
 
 
 
 </div>
 
-<div id="MidWingSeparator_LeftAndRight" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="45" data-tchmi-height-unit="%" data-tchmi-left="68" data-tchmi-leftclampextend="%s%PLC1.MAIN.fbPoultrySeparator.fbMidWingSeparator_Left.fbWingClamp.bExtend|Interval=50%/s%" data-tchmi-leftcutterextend="%s%PLC1.MAIN.fbPoultrySeparator.fbMidWingSeparator_Left.fbWingCutter.bExtend|Interval=50%/s%" data-tchmi-left-unit="%" data-tchmi-rightclampextend="%s%PLC1.MAIN.fbPoultrySeparator.fbMidWingSeparator_Right.fbWingClamp.bExtend|Interval=50%/s%" data-tchmi-rightcutterextend="%s%PLC1.MAIN.fbPoultrySeparator.fbMidWingSeparator_Right.fbWingCutter.bExtend|Interval=50%/s%" data-tchmi-target-user-control="Controls/WingSeparator.usercontrol" data-tchmi-top="15" data-tchmi-top-unit="%" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px">
+<div id="MidWingSeparator_LeftAndRight" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="45" data-tchmi-height-unit="%" data-tchmi-left="68" data-tchmi-leftclampextend="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.fbClampCylinder.bExtendOutput|Interval=50%/s%" data-tchmi-leftcutterextend="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.fbCutterCylinder.bExtendOutput|Interval=50%/s%" data-tchmi-left-unit="%" data-tchmi-rightclampextend="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.fbClampCylinder.bExtendOutput|Interval=50%/s%" data-tchmi-rightcutterextend="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.fbCutterCylinder.bExtendOutput|Interval=50%/s%" data-tchmi-target-user-control="Controls/PoultrySeparatorSimulation/WingSeparator.usercontrol" data-tchmi-top="15" data-tchmi-top-unit="%" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px">
 
 </div>
 
-<div id="TipWingSeparator_LeftAndRight" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="45" data-tchmi-height-unit="%" data-tchmi-left="55" data-tchmi-leftclampextend="%s%PLC1.MAIN.fbPoultrySeparator.fbTipWingSeparator_Left.fbWingClamp.bExtend|Interval=50%/s%" data-tchmi-leftcutterextend="%s%PLC1.MAIN.fbPoultrySeparator.fbTipWingSeparator_Left.fbWingCutter.bExtend|Interval=50%/s%" data-tchmi-left-unit="%" data-tchmi-rightclampextend="%s%PLC1.MAIN.fbPoultrySeparator.fbTipWingSeparator_Right.fbWingClamp.bExtend|Interval=50%/s%" data-tchmi-rightcutterextend="%s%PLC1.MAIN.fbPoultrySeparator.fbTipWingSeparator_Right.fbWingCutter.bExtend|Interval=50%/s%" data-tchmi-target-user-control="Controls/WingSeparator.usercontrol" data-tchmi-top="15" data-tchmi-top-unit="%" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px">
+<div id="TipWingSeparator_LeftAndRight" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="45" data-tchmi-height-unit="%" data-tchmi-left="55" data-tchmi-leftclampextend="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbClampCylinder.bExtendOutput|Interval=50%/s%" data-tchmi-leftcutterextend="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbCutterCylinder.bExtendOutput|Interval=50%/s%" data-tchmi-left-unit="%" data-tchmi-rightclampextend="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.fbClampCylinder.bExtendOutput|Interval=50%/s%" data-tchmi-rightcutterextend="%s%PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.fbCutterCylinder.bExtendOutput|Interval=50%/s%" data-tchmi-target-user-control="Controls/PoultrySeparatorSimulation/WingSeparator.usercontrol" data-tchmi-top="15" data-tchmi-top-unit="%" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-opacity="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-max-width-unit="px" data-tchmi-max-height-unit="px" data-tchmi-min-width-unit="px" data-tchmi-min-height-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px">
 
 </div>
 
-</div>
-
-<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="TcHmiButton_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="10.8" data-tchmi-left-unit="%" data-tchmi-text="AutoLoad" data-tchmi-top="24.7" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px">
-
-
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "TcHmiButton_4.onPressed",
-    "actions": [
-      {
-        "objectType": "Condition",
-        "active": true,
-        "parts": [
-          {
-            "if": [
-              {
-                "compare1": {
-                  "objectType": "Symbol",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%s%PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingLiftConveyor.bAutoLoad%/s%"
-                },
-                "compare2": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": true
-                },
-                "compareOperator": "==",
-                "logic": null
-              }
-            ],
-            "then": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%s%PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingLiftConveyor.bAutoLoad%/s%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": false
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%s%PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbMainCarcassConveyor.bAutoLoad%/s%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": false
-                },
-                "asyncWait": true
-              }
-            ]
-          },
-          {
-            "else": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%s%PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbWingLiftConveyor.bAutoLoad%/s%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": true
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%s%PLC1.MAIN.fbPoultrySeparator.fbConveyorSystem.fbMainCarcassConveyor.bAutoLoad%/s%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": true
-                },
-                "asyncWait": true
-              }
-            ]
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
 </div>
 
 </div>

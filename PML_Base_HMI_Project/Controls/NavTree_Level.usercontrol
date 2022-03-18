@@ -132,7 +132,7 @@
   }
 ]
 </script>
-<div id="Header" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%pp%TopModuleName%/pp%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-word-wrap="true" data-tchmi-icon="Imports/Images/caret-right.svg" data-tchmi-icon-height="40" data-tchmi-icon-horizontal-alignment="Right" data-tchmi-text-font-size="30" data-tchmi-text-horizontal-alignment="Center" data-tchmi-is-enabled="true" data-tchmi-right="%f%%ctrl%SideBar::Right%/ctrl%+%ctrl%SideBar::Width%/ctrl%%/f%">
+<div id="Header" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="%pp%TopModuleName%/pp%" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-word-wrap="true" data-tchmi-icon="Imports/Images/caret-right.svg" data-tchmi-icon-height="40" data-tchmi-icon-horizontal-alignment="Right" data-tchmi-text-font-size="%f%TcHmi.Functions.TcHmiProject1.FitTextToSpace(%ctrl%Header::Text%/ctrl%, %ctrl%Header::RenderedWidth%/ctrl%, %ctrl%Header::RenderedHeight%/ctrl%, 25)%/f%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-is-enabled="true" data-tchmi-right="%f%%ctrl%SideBar::Right%/ctrl%+%ctrl%SideBar::Width%/ctrl%%/f%">
 
 <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
 [
@@ -836,52 +836,52 @@
 </script>
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
+    [
+    {
     "event": "SideBar.onPressed",
     "actions": [
-      {
-        "objectType": "Function",
-        "active": true,
-        "fn": "TcHmi.Functions.TcHmiProject1.CollapseAllDescendants",
-        "fnParams": [
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_TreeNode",
-            "symbolExpression": "%pp%TreeDef%/pp%"
-          },
-          {
-            "objectType": "Symbol",
-            "valueType": "tchmi:general#/definitions/String",
-            "symbolExpression": "%pp%TopModuleName%/pp%"
-          }
-        ],
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": false,
-        "symbolExpression": "%i%MaxTreeLevelHeight%/i%",
-        "value": {
-          "objectType": "Symbol",
-          "valueType": "tchmi:general#/definitions/String",
-          "symbolExpression": "%ctrl%NavTree_Level::Height%/ctrl%"
-        },
-        "asyncWait": true
-      },
-      {
-        "objectType": "WriteToSymbol",
-        "active": false,
-        "symbolExpression": "%i%MaxChildCount%/i%",
-        "value": {
-          "objectType": "FunctionExpression",
-          "functionExpression": "(%i%MaxTreeLevelHeight%/i%-%ctrl%Header::Height%/ctrl%)/%ctrl%NavTree_goto_button_1::Height%/ctrl%"
-        },
-        "asyncWait": true
-      }
+    {
+    "objectType": "Function",
+    "active": true,
+    "fn": "TcHmi.Functions.TcHmiProject1.CollapseAllDescendants",
+    "fnParams": [
+    {
+    "objectType": "Symbol",
+    "valueType": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_Tree_IndexBased_Node",
+    "symbolExpression": "%pp%TreeDef%/pp%"
+    },
+    {
+    "objectType": "Symbol",
+    "valueType": "tchmi:general#/definitions/String",
+    "symbolExpression": "%pp%TopModuleName%/pp%"
+    }
+    ],
+    "asyncWait": true
+    },
+    {
+    "objectType": "WriteToSymbol",
+    "active": false,
+    "symbolExpression": "%i%MaxTreeLevelHeight%/i%",
+    "value": {
+    "objectType": "Symbol",
+    "valueType": "tchmi:general#/definitions/String",
+    "symbolExpression": "%ctrl%NavTree_Level::Height%/ctrl%"
+    },
+    "asyncWait": true
+    },
+    {
+    "objectType": "WriteToSymbol",
+    "active": false,
+    "symbolExpression": "%i%MaxChildCount%/i%",
+    "value": {
+    "objectType": "FunctionExpression",
+    "functionExpression": "(%i%MaxTreeLevelHeight%/i%-%ctrl%Header::Height%/ctrl%)/%ctrl%NavTree_goto_button_1::Height%/ctrl%"
+    },
+    "asyncWait": true
+    }
     ]
-  }
-]
+    }
+    ]
 </script>
 </div>
 </div>

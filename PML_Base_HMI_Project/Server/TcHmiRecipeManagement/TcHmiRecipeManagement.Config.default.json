@@ -1,71 +1,324 @@
 {
     "recipeList": {
-        "BaseConfig": {
-            "recipeTypeName": "ShiftSimParameters",
-            "values": {
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": 100,
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": 1000
-            }
-        },
-        "FullShift": {
-            "recipeTypeName": "ShiftSimParameters",
-            "values": {
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": 100,
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": 1000
-            }
-        },
-        "LongShift": {
-            "recipeTypeName": "ShiftSimParameters",
-            "values": {
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": 1000,
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": 10000
-            }
-        },
-        "NewRecipe": {
-            "recipeTypeName": "ShiftSimParameters",
-            "values": {
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": 10,
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": 100
-            }
-        },
-        "ShortShift": {
-            "recipeTypeName": "ShiftSimParameters",
-            "values": {
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": 10,
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": 100
+        "EventSuppression": {
+            "Default": {
+                "recipeTypeName": "EventSuppressionSettings",
+                "values": {
+                    "PLC_PML.MAIN.fbPoultrySeparator.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.bLogStateChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.bLogModeChanges": true,
+                    "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.bLogStateChanges": true
+                }
             }
         }
     },
     "recipeTypeList": {
-        "ShiftSimParameters": {
+        "EventSuppressionSettings": {
             "members": {
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd": {
-                    "comment": "The time in seconds after which the shift will end",
-                    "defaultValue": 100,
+                "PLC_PML.MAIN.fbPoultrySeparator.bLogModeChanges": {
+                    "defaultValue": true,
                     "enabled": true,
-                    "group": "",
-                    "order": 1,
-                    "schema": {
-                        "maximum": 100000,
-                        "minimum": 1
-                    },
-                    "symbol": "PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd",
-                    "unit": "Seconds"
-                },
-                "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget": {
-                    "comment": "The end-of-shift target for production",
-                    "defaultValue": 1000,
-                    "enabled": true,
-                    "group": "",
+                    "group": "PMLEvents",
                     "order": 0,
-                    "schema": {
-                        "maximum": 100000,
-                        "minimum": 1
-                    },
-                    "symbol": "PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget",
-                    "unit": "Products"
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 1,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 2,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 3,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 4,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 5,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 6,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 7,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 8,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 9,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 10,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 11,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 12,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 13,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 14,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 15,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 16,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 17,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 18,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 19,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 20,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 21,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 22,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 23,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 24,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 25,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 26,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 27,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.bLogStateChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.bLogModeChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 28,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.bLogModeChanges",
+                    "unit": ""
+                },
+                "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.bLogStateChanges": {
+                    "defaultValue": true,
+                    "enabled": true,
+                    "group": "PMLEvents",
+                    "order": 29,
+                    "schema": {},
+                    "symbol": "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.bLogStateChanges",
+                    "unit": ""
                 }
             },
+            "options": {
+                "enabled": "None"
+            },
+            "recipeTypeNames": []
+        },
+        "ProductionRateFactors": {
+            "members": {},
             "options": {
                 "enabled": "None"
             },

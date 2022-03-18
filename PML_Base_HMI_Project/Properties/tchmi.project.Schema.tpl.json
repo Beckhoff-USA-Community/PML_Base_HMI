@@ -535,6 +535,38 @@
       "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\SensorDebounceInputWithLabel.usercontrol.json",
       "id": "tchmi:project#/definitions/SensorDebounceInputWithLabel",
       "type": "object"
+    },
+    "PMLStateCommand": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\PMLStateCommand.usercontrol.json",
+      "id": "tchmi:project#/definitions/PMLStateCommand",
+      "type": "object"
+    },
+    "PMLModeCommand": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\PMLModeCommand.usercontrol.json",
+      "id": "tchmi:project#/definitions/PMLModeCommand",
+      "type": "object"
+    },
+    "ProductionStatus_LinearGraph": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\ProductionStatus_LinearGraph.usercontrol.json",
+      "id": "tchmi:project#/definitions/ProductionStatus_LinearGraph",
+      "type": "object"
+    },
+    "PMLModuleBase_Monitor": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\ModuleMonitoring\\PMLModuleBase_Monitor.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/PMLModuleBase_Monitor"
     }
   }
 }

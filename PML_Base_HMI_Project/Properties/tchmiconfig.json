@@ -5,7 +5,7 @@
   "startupView": "Desktop.view",
   "loginPage": "",
   "tcHmiServer": {
-    "websocketIntervalTime": 250,
+    "websocketIntervalTime": 200,
     "websocketTimeout": 20000,
     "websocketSystemTimeout": 60000,
     "websocketSubscriptionMode": "Change"
@@ -228,7 +228,13 @@
       "url": "Controls/HardwareMonitoring/Utilities/NumericInputWithLabel.usercontrol"
     },
     {
+      "url": "Controls/HardwareMonitoring/Utilities/PMLModeCommand.usercontrol"
+    },
+    {
       "url": "Controls/HardwareMonitoring/Utilities/PMLModeDisplay.usercontrol"
+    },
+    {
+      "url": "Controls/HardwareMonitoring/Utilities/PMLStateCommand.usercontrol"
     },
     {
       "url": "Controls/HardwareMonitoring/Utilities/PMLStateDisplay.usercontrol"
@@ -284,6 +290,13 @@
   ],
   "content": [
     {
+      "url": "Contents/Machine_Overview_Pages/MachineModule.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
       "url": "Contents/Main_Interfaces/CycleControl_PopoutContent.content",
       "preload": false,
       "keepAlive": false,
@@ -319,7 +332,7 @@
       "preloadBindings": false
     },
     {
-      "url": "Contents/Main_Nav_Pages/Application.content",
+      "url": "Contents/Main_Nav_Pages/CleaningControls.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,
@@ -340,7 +353,7 @@
       "preloadBindings": false
     },
     {
-      "url": "Contents/Main_Nav_Pages/MachineVision.content",
+      "url": "Contents/Main_Nav_Pages/FieldBusView.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,
@@ -466,7 +479,7 @@
         "readonly": false
       },
       "Main_Nav_Button_Pressed": {
-        "value": "Home Page",
+        "value": "Machine Overview",
         "type": "tchmi:general#/definitions/String",
         "persist": false,
         "readonly": false
@@ -553,6 +566,27 @@
         "type": "tchmi:general#/definitions/Number",
         "persist": false,
         "readonly": false
+      },
+      "TopLevelMachineModule": {
+        "value": {
+          "bActivateModeLogHMIRequest": false,
+          "bActivateStateLogHMIRequest": false,
+          "bDeactivateModeLogHMIRequest": false,
+          "bDeactivateStateLogHMIRequest": false,
+          "bDisableHMIRequest": false,
+          "bEnableHMIRequest": false,
+          "bEnabled": false,
+          "bHMICommandConfirmation": false,
+          "bHMIControlAvailable": false,
+          "bIncomingHMIRequest": false,
+          "bLogModeChanges": false,
+          "bLogStateChanges": false,
+          "bModeCommandHMIRequest": false,
+          "bStateCommandHMIRequest": false
+        },
+        "type": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI",
+        "persist": false,
+        "readonly": false
       }
     }
   },
@@ -580,12 +614,24 @@
       "basePath": "/Beckhoff.TwinCAT.HMI.Controls"
     },
     {
+      "name": "Beckhoff.TwinCAT.HMI.EcDiagnosticsControl",
+      "basePath": "/Beckhoff.TwinCAT.HMI.EcDiagnosticsControl"
+    },
+    {
       "name": "Beckhoff.TwinCAT.HMI.Framework",
       "basePath": "/framework"
     },
     {
       "name": "Beckhoff.TwinCAT.HMI.Functions",
       "basePath": "/Beckhoff.TwinCAT.HMI.Functions"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.PDFViewer",
+      "basePath": "/Beckhoff.TwinCAT.HMI.PDFViewer"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.ResponsiveNavigation",
+      "basePath": "/Beckhoff.TwinCAT.HMI.ResponsiveNavigation"
     }
   ],
   "keyboardLayouts": [
