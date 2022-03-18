@@ -120,49 +120,7 @@
   <Target Name="ReBuild" DependsOnTargets="Clean; Build" />
   <Target Name="Clean" DependsOnTargets="BaseClean" />
   <ItemGroup>
-    <Content Include="Contents\Machine_Overview_Pages\LeftTipSeparatorControlModule.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\LeftTipSeparatorClampCylinder.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\WingSeparatorEquipmentModule.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\WingLiftEquipmentModule.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\MainCarcassConveyorControlModule.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\MainCarcassConveyorMainAxis.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\MainCarcassEquipmentModule.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\PoultrySeparatorMachineModule.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\TendonCutterControlModule.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\WidthAdjustmentControlModule.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\WingLiftConveyorControlModule.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\WingLiftConveyorMainAxis.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\WingLiftInfeedSensor.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\WingSeparatorConveyor.content">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Contents\Machine_Overview_Pages\WingSeparatorConveyorMainAxis.content">
+    <Content Include="Contents\Machine_Overview_Pages\MachineModule.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Controls\HardwareMonitoring\ComponentMonitoring\AxisMonitoring\AxisBase_Monitor.usercontrol">
@@ -314,59 +272,6 @@
     <Content Include="Controls\NavTree_nav_button.usercontrol.json">
       <SubType>Content</SubType>
       <DependentUpon>Controls\NavTree_nav_button.usercontrol</DependentUpon>
-    </Content>
-    <Content Include="Controls\PoultrySeparatorSimulation\Cone.usercontrol">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Controls\PoultrySeparatorSimulation\Cone.usercontrol.json">
-      <SubType>Content</SubType>
-      <DependentUpon>Controls\PoultrySeparatorSimulation\Cone.usercontrol</DependentUpon>
-    </Content>
-    <Content Include="Controls\PoultrySeparatorSimulation\ShoulderWingSeparator.usercontrol">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Controls\PoultrySeparatorSimulation\ShoulderWingSeparator.usercontrol.json">
-      <SubType>Content</SubType>
-      <DependentUpon>Controls\PoultrySeparatorSimulation\ShoulderWingSeparator.usercontrol</DependentUpon>
-    </Content>
-    <Content Include="Controls\PoultrySeparatorSimulation\WingLiftLug.usercontrol">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Controls\PoultrySeparatorSimulation\WingLiftLug.usercontrol.json">
-      <SubType>Content</SubType>
-      <DependentUpon>Controls\PoultrySeparatorSimulation\WingLiftLug.usercontrol</DependentUpon>
-    </Content>
-    <Content Include="Controls\PoultrySeparatorSimulation\WingSeparator.usercontrol">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Controls\PoultrySeparatorSimulation\WingSeparator.usercontrol.json">
-      <SubType>Content</SubType>
-      <DependentUpon>Controls\PoultrySeparatorSimulation\WingSeparator.usercontrol</DependentUpon>
-    </Content>
-    <Content Include="Controls\PoultrySeparatorSimulation\WingSeparatorSocket.usercontrol">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Controls\PoultrySeparatorSimulation\WingSeparatorSocket.usercontrol.json">
-      <SubType>Content</SubType>
-      <DependentUpon>Controls\PoultrySeparatorSimulation\WingSeparatorSocket.usercontrol</DependentUpon>
-    </Content>
-    <Content Include="Images\MachineOverviewImages\MachineOverview_FinalQuality.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Images\MachineOverviewImages\MachineOverview_FinalQuality_Cropped.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Images\MachineOverviewImages\MachineOverview_RightView_Cropped.PNG">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Images\MachineOverviewImages\WingLift_SideView.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Images\MachineOverviewImages\WingLift_SideView_Cropped.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Images\MachineOverviewImages\WingSeparator_SideAndTopView.png">
-      <SubType>Content</SubType>
     </Content>
     <Content Include="Imports\Images\arrow-bar-down.svg">
       <SubType>Content</SubType>
@@ -574,7 +479,6 @@
     <Folder Include="Controls\HardwareMonitoring\ModuleMonitoring" />
     <Folder Include="Controls\HardwareMonitoring\ModuleMonitoring\ConveyorMonitoring" />
     <Folder Include="Controls\HardwareMonitoring\Utilities" />
-    <Folder Include="Controls\PoultrySeparatorSimulation" />
     <Folder Include="Fonts\" />
     <Folder Include="Images" />
     <Folder Include="Images\Manifest" />

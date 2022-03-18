@@ -544,46 +544,6 @@
       "id": "tchmi:project#/definitions/PMLStateCommand",
       "type": "object"
     },
-    "WingSeparatorSocket": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\PoultrySeparatorSimulation\\WingSeparatorSocket.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/WingSeparatorSocket"
-    },
-    "WingSeparator": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\PoultrySeparatorSimulation\\WingSeparator.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/WingSeparator"
-    },
-    "WingLiftLug": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\PoultrySeparatorSimulation\\WingLiftLug.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/WingLiftLug"
-    },
-    "ShoulderWingSeparator": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\PoultrySeparatorSimulation\\ShoulderWingSeparator.usercontrol.json",
-      "id": "tchmi:project#/definitions/ShoulderWingSeparator",
-      "type": "object"
-    },
-    "Cone_0": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\PoultrySeparatorSimulation\\Cone.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Cone_0"
-    },
     "PMLModeCommand": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
