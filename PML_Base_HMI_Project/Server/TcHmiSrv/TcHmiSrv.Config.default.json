@@ -3789,62 +3789,6 @@
             },
             "type": "object"
         },
-        "PLC_PML.ST_PMLModuleBase_VISU": {
-            "properties": {
-                "bAbortPressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bClearPressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bEnabled": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bHoldPressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bMaintenancePressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bManualPressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bProductionPressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bResetPressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bStartPressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bStopPressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bSuspendPressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bUnholdPressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "bUnsuspendPressed": {
-                    "$ref": "tchmi:general#/definitions/BOOL"
-                },
-                "eMode": {
-                    "$ref": "#/definitions/PLC_PML.E_PMLUnitMode"
-                },
-                "eState": {
-                    "$ref": "#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
-                },
-                "nModuleID": {
-                    "$ref": "tchmi:general#/definitions/DINT"
-                },
-                "sModuleName": {
-                    "$ref": "tchmi:general#/definitions/STRING(80)"
-                }
-            },
-            "type": "object"
-        },
         "PLC_PML.ST_ProductCarrier": {
             "properties": {
                 "bEnabled": {
