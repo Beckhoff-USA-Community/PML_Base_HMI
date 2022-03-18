@@ -151,12 +151,12 @@
           {
             "objectType": "Symbol",
             "valueType": "tchmi:general#/definitions/String",
-            "symbolExpression": "%s%PLC_PML.MAIN.fbMainHMIConnection.a_stMachineTreeNodes%/s%"
+            "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.a_stMachineTreeNodes%/s%"
           },
           {
             "objectType": "Symbol",
             "valueType": "tchmi:general#/definitions/String",
-            "symbolExpression": "%s%PLC_PML.MAIN.fbMainHMIConnection.fbModuleTree.sHead%/s%"
+            "symbolExpression": "%s%PLC_PML.MAIN.fbMainModuleHMIConnection.a_stMachineTreeNodes[0]::sName%/s%"
           }
         ],
         "asyncWait": true
@@ -577,7 +577,7 @@
   "animate-all-properties"
 ]
 </script>
-<div id="Main_AlarmBanner_NoEventText" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="No Alarms Or Warnings Active" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-height="%ctrl%Main_AlarmBanner::RowHeight%/ctrl%">
+<div id="Main_AlarmBanner_NoEventText" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="No Errors or Faults Active" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-height="%ctrl%Main_AlarmBanner::RowHeight%/ctrl%">
 
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
 {
