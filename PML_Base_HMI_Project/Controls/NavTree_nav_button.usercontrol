@@ -2,7 +2,7 @@
 
 
 
-<div id="NavButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%pp%ChildName%/pp%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-opacity="1" data-tchmi-text-font-size="15" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-icon="Imports/Images/diagram-3.svg" data-tchmi-icon-horizontal-alignment="Left" data-tchmi-icon-height-unit="%" data-tchmi-icon-height="40" data-tchmi-background-image="Imports/Images/arrow-bar-right.svg" data-tchmi-background-image-horizontal-alignment="Left" data-tchmi-background-image-height-unit="%" data-tchmi-background-image-height="40" data-tchmi-is-enabled="true">
+<div id="NavButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="%pp%ChildName%/pp%" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-opacity="1" data-tchmi-text-font-size="%f%TcHmi.Functions.TcHmiProject1.FitTextToSpace(%ctrl%NavButton::Text%/ctrl%, %ctrl%NavButton::RenderedWidth%/ctrl%, %ctrl%NavButton::RenderedHeight%/ctrl%, 15)%/f%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-icon="Imports/Images/diagram-3.svg" data-tchmi-icon-horizontal-alignment="Left" data-tchmi-icon-height-unit="%" data-tchmi-icon-height="40" data-tchmi-background-image="Imports/Images/arrow-bar-right.svg" data-tchmi-background-image-horizontal-alignment="Left" data-tchmi-background-image-height-unit="%" data-tchmi-background-image-height="40" data-tchmi-is-enabled="true">
 
 <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
 [
@@ -205,7 +205,7 @@
         "fnParams": [
           {
             "objectType": "Symbol",
-            "valueType": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_TreeNode",
+            "valueType": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_Tree_IndexBased_Node",
             "symbolExpression": "%pp%TreeDef%/pp%"
           },
           {
@@ -223,7 +223,7 @@
         "fnParams": [
           {
             "objectType": "Symbol",
-            "valueType": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_TreeNode",
+            "valueType": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_Tree_IndexBased_Node",
             "symbolExpression": "%pp%TreeDef%/pp%"
           },
           {

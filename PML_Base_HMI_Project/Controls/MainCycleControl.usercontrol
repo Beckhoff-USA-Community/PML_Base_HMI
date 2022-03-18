@@ -1,6 +1,6 @@
 ﻿<div id="Main_CycleControl" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="640" data-tchmi-creator-viewport-height="160" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height-unit="%" data-tchmi-right="0" data-tchmi-left-unit="px" data-tchmi-top-unit="px">
 
-<div id="CycleStart_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Start" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="%" data-tchmi-left="0" data-tchmi-zindex="1" data-tchmi-background-image="Imports/Images/start_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleStart_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ControlBlock::bStartEnabled%/pp%">
+<div id="CycleStart_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Start" data-tchmi-top="0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="%" data-tchmi-left="0" data-tchmi-zindex="1" data-tchmi-background-image="Imports/Images/start_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleStart_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ModulePMLControl::bStartEnabled%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
 {
   "left": 0,
@@ -28,7 +28,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%ControlBlock::bStartPressed%/pp%",
+        "symbolExpression": "%pp%ModulePMLControl::bStartPressed%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -66,7 +66,7 @@
     ]
   },
   {
-    "event": "%pp%ControlBlock::bStartEnabled%/pp%",
+    "event": "%pp%ModulePMLControl::bStartEnabled%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -77,8 +77,8 @@
               {
                 "compare1": {
                   "objectType": "Symbol",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%ControlBlock::bStartEnabled%/pp%"
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%ModulePMLControl::bStartEnabled%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -122,6 +122,168 @@
         "asyncWait": true
       }
     ]
+  },
+  {
+    "event": "%pp%ModulePMLControl::bConfirmation%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%ModulePMLControl::bConfirmation%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "Condition",
+                "active": true,
+                "parts": [
+                  {
+                    "if": [
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/String",
+                          "symbolExpression": "%pp%ModulePMLControl::bStartPressed%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "compareOperator": "==",
+                        "logic": null
+                      },
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/String",
+                          "symbolExpression": "%pp%ModulePMLControl::bStopPressed%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "compareOperator": "==",
+                        "logic": "OR"
+                      },
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/String",
+                          "symbolExpression": "%pp%ModulePMLControl::bResetPressed%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "compareOperator": "==",
+                        "logic": "OR"
+                      },
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/String",
+                          "symbolExpression": "%pp%ModulePMLControl::bClearPressed%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "compareOperator": "==",
+                        "logic": "OR"
+                      }
+                    ],
+                    "then": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%ModulePMLControl::bStartPressed%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%ModulePMLControl::bStopPressed%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%ModulePMLControl::bResetPressed%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%ModulePMLControl::bClearPressed%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "asyncWait": true
+                      },
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%ModulePMLControl::bConfirmation%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": []
+                  }
+                ],
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
   }
 ]
 </script>
@@ -148,7 +310,7 @@
 }
 </script>
 </div>
-<div id="CycleStop_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Stop" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleStop_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="px" data-tchmi-left="%ctrl%CycleStart_Pushbutton::RenderedWidth%/ctrl%" data-tchmi-zindex="2" data-tchmi-background-image="Imports/Images/stop_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ControlBlock::bStopEnabled%/pp%">
+<div id="CycleStop_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Stop" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleStop_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="px" data-tchmi-left="%ctrl%CycleStart_Pushbutton::RenderedWidth%/ctrl%" data-tchmi-zindex="2" data-tchmi-background-image="Imports/Images/stop_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ModulePMLControl::bStopEnabled%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
 {
   "left": 0,
@@ -171,7 +333,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%ControlBlock::bStopEnabled%/pp%",
+    "event": "%pp%ModulePMLControl::bStopEnabled%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -183,7 +345,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%ControlBlock::bStopEnabled%/pp%"
+                  "symbolExpression": "%pp%ModulePMLControl::bStopEnabled%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -234,7 +396,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%ControlBlock::bStopPressed%/pp%",
+        "symbolExpression": "%pp%ModulePMLControl::bStopPressed%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -296,7 +458,7 @@
 }
 </script>
 </div>
-<div id="CycleReset_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Reset" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleReset_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="px" data-tchmi-left="%f%%ctrl%CycleStart_Pushbutton::RenderedWidth%/ctrl% + %ctrl%CycleStop_Pushbutton::RenderedWidth%/ctrl%%/f%" data-tchmi-zindex="3" data-tchmi-background-image="Imports/Images/reset_achse_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ControlBlock::bResetEnabled%/pp%">
+<div id="CycleReset_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Reset" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleReset_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="px" data-tchmi-left="%f%%ctrl%CycleStart_Pushbutton::RenderedWidth%/ctrl% + %ctrl%CycleStop_Pushbutton::RenderedWidth%/ctrl%%/f%" data-tchmi-zindex="3" data-tchmi-background-image="Imports/Images/reset_achse_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ModulePMLControl::bResetEnabled%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
 {
   "left": 0,
@@ -319,7 +481,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%ControlBlock::bResetEnabled%/pp%",
+    "event": "%pp%ModulePMLControl::bResetEnabled%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -331,7 +493,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%ControlBlock::bResetEnabled%/pp%"
+                  "symbolExpression": "%pp%ModulePMLControl::bResetEnabled%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -382,7 +544,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%ControlBlock::bResetPressed%/pp%",
+        "symbolExpression": "%pp%ModulePMLControl::bResetPressed%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",
@@ -444,7 +606,7 @@
 }
 </script>
 </div>
-<div id="CycleClear_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Clear" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleClear_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="px" data-tchmi-left="%f%%ctrl%CycleStart_Pushbutton::RenderedWidth%/ctrl% + %ctrl%CycleStop_Pushbutton::RenderedWidth%/ctrl% + %ctrl%CycleReset_Pushbutton::RenderedWidth%/ctrl%%/f%" data-tchmi-zindex="4" data-tchmi-background-image="Imports/Images/reset_achse_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-icon="Imports/Images/safety-active.svg" data-tchmi-icon-width="50" data-tchmi-icon-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ControlBlock::bClearEnabled%/pp%">
+<div id="CycleClear_Pushbutton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-text="Clear" data-tchmi-top="0.0" data-tchmi-top-unit="%" data-tchmi-word-wrap="True" data-tchmi-width-unit="px" data-tchmi-width="%ctrl%CycleClear_Pushbutton::RenderedHeight%/ctrl%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-left-unit="px" data-tchmi-left="%f%%ctrl%CycleStart_Pushbutton::RenderedWidth%/ctrl% + %ctrl%CycleStop_Pushbutton::RenderedWidth%/ctrl% + %ctrl%CycleReset_Pushbutton::RenderedWidth%/ctrl%%/f%" data-tchmi-zindex="4" data-tchmi-background-image="Imports/Images/reset_achse_normal.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%" data-tchmi-icon="Imports/Images/safety-active.svg" data-tchmi-icon-width="50" data-tchmi-icon-width-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="%pp%ModulePMLControl::bClearEnabled%/pp%">
 <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
 {
   "left": 0,
@@ -480,7 +642,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%pp%ControlBlock::bClearEnabled%/pp%",
+    "event": "%pp%ModulePMLControl::bClearEnabled%/pp%",
     "actions": [
       {
         "objectType": "Condition",
@@ -491,8 +653,8 @@
               {
                 "compare1": {
                   "objectType": "Symbol",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%ControlBlock::bClearEnabled%/pp%"
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%ModulePMLControl::bClearEnabled%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
@@ -522,17 +684,6 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%ctrl%CycleClear_Pushbutton::IsEnabled%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/Boolean",
-                  "value": true
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
                 "symbolExpression": "%ctrl%CycleClear_Pushbutton::BackgroundImage%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
@@ -554,7 +705,7 @@
       {
         "objectType": "WriteToSymbol",
         "active": true,
-        "symbolExpression": "%pp%ControlBlock::bClearPressed%/pp%",
+        "symbolExpression": "%pp%ModulePMLControl::bClearPressed%/pp%",
         "value": {
           "objectType": "StaticValue",
           "valueType": "tchmi:general#/definitions/BOOL",

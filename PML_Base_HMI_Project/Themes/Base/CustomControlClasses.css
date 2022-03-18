@@ -27,6 +27,155 @@
     /*gets rid of gray-out overlay on disabled control*/
 }
 
+.tchmi-class-remove-disabled-greyout.tchmi-control-disabled.TcHmi_Controls_System_TcHmiControl-disabled::after {
+    background-color: rgba(0, 0, 0, 0);
+    /*gets rid of gray-out overlay on disabled control*/
+}
+
+.tchmi-class-disable-scrolling * {
+    overflow: hidden;
+}
+
+.tchmi-class-background-transparent * {
+    background-color: transparent !important;
+}
+
+.tchmi-class-remove-before-background-color::before {
+    background-color: transparent !important;
+}
+
+.tchmi-class-remove-scroll-bar * ::-webkit-scrollbar{
+    display: none;
+}
+
+.tchmi-class-remove-scroll-bar * {
+    -ms-overflow-style: none; /* IE and Edge */
+    /*scrollbar-width: none; /* Firefox */
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiEventGrid-template-menu-bar {
+    background-color: #C0C0C0;
+    width: 552px;
+    flex-direction: row;
+    display: inline-flex;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    border-radius: 0 8px 0 0;
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiToggleButton {
+    border-radius: 5px;
+    border-color: #2F4458;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiButton {
+    border-radius: 5px;
+    border-color: #2F4458;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiToggleButton .TcHmi_Controls_Beckhoff_TcHmiButton-template-content-text {
+    font-size: 12px;
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiEventGrid-template-info-toggle-button .TcHmi_Controls_Beckhoff_TcHmiButton-template-content-text::before {
+    content: "Info:  ";
+    font-size: 12px;
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiEventGrid-template-warning-toggle-button .TcHmi_Controls_Beckhoff_TcHmiButton-template-content-text::before {
+    content: "Warning:  ";
+    font-size: 12px;
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiEventGrid-template-error-toggle-button .TcHmi_Controls_Beckhoff_TcHmiButton-template-content-text::before {
+    content: "Error:  ";
+    font-size: 12px;
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiEventGrid-template-critical-toggle-button .TcHmi_Controls_Beckhoff_TcHmiButton-template-content-text::before {
+    content: "Critical:  ";
+    font-size: 12px;
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiButton-template.tchmi-button-template.tchmi-box {
+    background-size: auto 75% !important;
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiEventGrid-template-type-toggles.tchmi-event-grid-template-type-toggles {
+    visibility: collapse;
+    padding: unset;
+    width: 0 !important;
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiEventGrid-template-event-actions.tchmi-event-grid-template-event-actions {
+    visibility: collapse;
+    width: 0 !important;
+}
+
+.tchmi-class-event-grid-custom-menubar .tchmi-event-grid-template-menu-bar > div {
+    flex-wrap: nowrap;
+    margin: unset;
+}
+
+.tchmi-class-event-grid-custom-menubar .TcHmi_Controls_Beckhoff_TcHmiEventGrid-template-verbose-toggle-button.tchmi-event-grid-template-verbose-toggle-button {
+    visibility: collapse;
+    width: 0 !important;
+}
+
+.tchmi-class-event-grid-wrap-text .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-row.tchmi-datagrid-template-row {
+    background-image: linear-gradient(to right, #E0E0E0, 30px, #263A4E, 31px, #263A4E);
+}
+
+.tchmi-class-event-grid-wrap-text .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-cell.tchmi-datagrid-template-cell.tchmi-box {
+    white-space: normal;
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    line-height: 16px;
+    font-size: 12px;
+    border: solid;
+    border-width: 1px 1px 1px 1px !important;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.tchmi-class-event-grid-wrap-text .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-cell.tchmi-datagrid-template-cell.tchmi-box {
+    white-space: normal;
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    line-height: 16px;
+    font-size: 12px;
+    border: solid;
+    border-width: 1px 1px 1px 1px !important;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.tchmi-class-event-grid-wrap-text .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-cell.tchmi-datagrid-template-cell.tchmi-box > img {
+    height: 80% !important;
+    width: auto !important;
+}
+
+.tchmi-class-event-grid-recolor-header .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-header-border, .tchmi-datagrid-template-header-border {
+    border-width: 1px 1px 0 1px !important;
+}
+
+.tchmi-class-event-grid-recolor-header .TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-header, .tchmi-datagrid-template-header {
+    background-color: #2F4458;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.tchmi-class-event-grid-recolor-header td.TcHmi_Controls_Beckhoff_TcHmiDatagrid-template-row-numbers, td.tchmi-datagrid-template-row-numbers {
+    background-color: #2F4458;
+    border-color: #E0E0E0;
+    border-width: 1px 0 1px 1px !important;
+    border-radius: 5px 0 0 5px;
+}
+
+.tchmi-class-overview-dot-container {
+    pointer-events: none;
+}
 .tchmi-class-navtree-sidebar {
     line-height: 17px;
 }
@@ -70,6 +219,11 @@ div.tchmi-class-hardware-monitor-name-display * {
     align-items: center;
 }
 
+.tchmi-class-pml-command * {
+    text-align: center;
+    align-items: center;
+}
+
 .tchmi-class-time-input-label * {
     text-align: center;
     align-items: center;
@@ -95,6 +249,42 @@ div.tchmi-class-hardware-monitor-name-display * {
 }
 
 .tchmi-class-time-input .TcHmi_Controls_Beckhoff_TcHmiTimespanInput-template-input.tchmi-box {
+    visibility: hidden;
+    width: 0px;
+    padding: 0 0 0 0;
+}
+
+.tchmi-class-combo-input * {
+    text-align: center;
+    align-items: center;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiCombobox-template-dropdown-element, .tchmi-combobox-template-dropdown-element {
+    justify-content: center;
+    color: #E0E0E0;
+    border-radius: 8px 8px 8px 8px;
+    border-color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiCombobox-template-dropdown-element.hover, .tchmi-combobox-template-dropdown-element.hover {
+    background-color: #3F5468;
+}
+
+.TcHmi_Controls_Beckhoff_TcHmiCombobox-template-dropdown.tchmi-combobox-template-dropdown {
+    --tchmi-dropdown-background: #2F4458;
+    border-radius: 8px 8px 8px 8px;
+    text-align: center;
+    align-items: center;
+}
+
+.tchmi-class-combo-input .TcHmi_Controls_Beckhoff_TcHmiCombobox-template-button.tchmi-combobox-template-button.tchmi-box {
+    display: flex;
+}
+
+.tchmi-class-combo-input .TcHmi_Controls_Beckhoff_TcHmiCombobox-template-button.tchmi-combobox-template-button.tchmi-box {
     visibility: hidden;
     width: 0px;
     padding: 0 0 0 0;

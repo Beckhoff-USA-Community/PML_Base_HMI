@@ -11,10 +11,10 @@
                 var children = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                 for (i = 0; i < TreeDef.length; i++) {
                     if (TreeDef[i].sName == NodeName) {
-                        for (j = 0; j < TreeDef[i].nChildren.length; j++) {
-                            if (TreeDef[i].nChildren[j] > 0) {
+                        for (j = 0; j < TreeDef[i].a_nChildren.length; j++) {
+                            if (TreeDef[i].a_nChildren[j] > 0) {
                                 
-                                children[j] = TreeDef[TreeDef[i].nChildren[j]].sName;
+                                children[j] = TreeDef[TreeDef[i].a_nChildren[j]].sName;
                             } else {
                                 return children;
                             }

@@ -1,7 +1,20 @@
 {
     "commitInterval": "PT10S",
     "enableBackup": false,
-    "historizedSymbolList": {},
+    "historizedSymbolList": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.stMainProductionData": {
+            "interval": "PT1S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 10000
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI": {
+            "interval": "PT1S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
+            "rowLimit": 10000
+        }
+    },
     "inMemory": false,
     "maxBackups": 1,
     "mode": 3,

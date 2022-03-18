@@ -19,10 +19,10 @@
                         levelID,
                     {
                         'data-tchmi-target-user-control' : 'Controls/NavTree_Level.usercontrol',
-                        'data-tchmi-top': 5,
+                        'data-tchmi-top': 55,
                         'data-tchmi-left': -345,
                         'data-tchmi-width': 350,
-                        'data-tchmi-top-unit': '%',
+                        'data-tchmi-top-unit': 'px',
                         'data-tchmi-left-unit': 'px',
                         'data-tchmi-width-unit': 'px',
                         'data-tchmi-height-mode': 'Content',

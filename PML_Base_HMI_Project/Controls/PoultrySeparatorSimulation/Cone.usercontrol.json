@@ -1,0 +1,43 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-labeltext",
+      "displayName": "LabelText",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "Text for the center Label of the Cone",
+      "defaultValue": "ID",
+      "defaultValueInternal": "ID",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "LabelText",
+      "propertySetterName": "setLabelText",
+      "propertyGetterName": "getLabelText",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-occupied",
+      "displayName": "Occupied",
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "defaultValue": false,
+      "defaultValueInternal": false,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Occupied",
+      "propertySetterName": "setOccupied",
+      "propertyGetterName": "getOccupied",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.746.3/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

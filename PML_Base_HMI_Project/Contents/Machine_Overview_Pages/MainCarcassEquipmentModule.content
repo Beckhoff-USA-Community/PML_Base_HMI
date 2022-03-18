@@ -1,0 +1,1051 @@
+﻿<div id="MainCarcassEquipmentModule" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-height-mode="Value" data-tchmi-left-unit="%" data-tchmi-top-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-creator-viewport-width="640" data-tchmi-creator-viewport-height="480">
+<div id="MainCarcass_Conveyor_Monitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-target-user-control="Controls/HardwareMonitoring/ModuleMonitoring/PMLModuleBase_Monitor.usercontrol" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-zindex="1" data-tchmi-is-enabled="true" data-tchmi-left="3" data-tchmi-left-unit="%" data-tchmi-module="%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stPMLModuleBaseHMI%/s%" data-tchmi-height-mode="Content" data-tchmi-top="%f%%ctrl%MainCarcass_OverviewImage::RenderedTop%/ctrl%+%ctrl%MainCarcass_OverviewImage::RenderedHeight%/ctrl%+10%/f%">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+<div id="MainCarcass_WidthAdjust_Monitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-target-user-control="Controls/HardwareMonitoring/ModuleMonitoring/PMLModuleBase_Monitor.usercontrol" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-zindex="1" data-tchmi-is-enabled="true" data-tchmi-left="37.5" data-tchmi-left-unit="%" data-tchmi-module="%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.stPMLModuleBaseHMI%/s%" data-tchmi-height-mode="Content" data-tchmi-top="%f%%ctrl%MainCarcass_OverviewImage::RenderedTop%/ctrl%+%ctrl%MainCarcass_OverviewImage::RenderedHeight%/ctrl%+10%/f%">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+<div id="MainCarcass_TendonCutter_Monitor" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-target-user-control="Controls/HardwareMonitoring/ModuleMonitoring/PMLModuleBase_Monitor.usercontrol" data-tchmi-width="25" data-tchmi-width-unit="%" data-tchmi-zindex="1" data-tchmi-is-enabled="true" data-tchmi-module="%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter::stPMLModuleBaseHMI%/s%" data-tchmi-height-mode="Content" data-tchmi-top="%f%%ctrl%MainCarcass_OverviewImage::RenderedTop%/ctrl%+%ctrl%MainCarcass_OverviewImage::RenderedHeight%/ctrl%+10%/f%" data-tchmi-right="5">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+<div id="MainCarcass_OverviewImage" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-src="Images/MachineOverviewImages/MachineOverview_RightView_Cropped.PNG" data-tchmi-is-enabled="true" data-tchmi-height-mode="Content" data-tchmi-width-mode="Value" data-tchmi-max-width="80" data-tchmi-max-width-unit="%" data-tchmi-max-height="80" data-tchmi-max-height-unit="%" data-tchmi-width="95" data-tchmi-width-unit="%" data-tchmi-left="10" data-tchmi-left-unit="%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-top="%f%%ctrl%MainCarcass_MonitorBanner::RenderedHeight%/ctrl%+5%/f%">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "PoultrySeparator_OverviewImage_2.onResized",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "symbolExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "FunctionExpression",
+                  "functionExpression": "2 * %ctrl%MainCarcassEquipmentModule::RenderedHeight%/ctrl%"
+                },
+                "compareOperator": ">",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Height%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 70.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::HeightUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Width%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 80.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::WidthUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::LeftUnit%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": "px"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::TopUnit%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": "px"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Left%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%/2 -%ctrl%PoultrySeparator_OverviewImage_2::RenderedWidth%/ctrl%/2"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Top%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%MainCarcassEquipmentModule::RenderedHeight%/ctrl%/2 - %ctrl%PoultrySeparator_OverviewImage_2::RenderedHeight%/ctrl%/2"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "PoultrySeparator_OverviewImage_2.onMoved",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "symbolExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "FunctionExpression",
+                  "functionExpression": "2 * %ctrl%MainCarcassEquipmentModule::RenderedHeight%/ctrl%"
+                },
+                "compareOperator": ">",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Height%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 70.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::HeightUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Width%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 80.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::WidthUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::LeftUnit%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": "px"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::TopUnit%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": "px"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Left%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%/2 -%ctrl%PoultrySeparator_OverviewImage_2::RenderedWidth%/ctrl%/2"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Top%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%MainCarcassEquipmentModule::RenderedHeight%/ctrl%/2 - %ctrl%PoultrySeparator_OverviewImage_2::RenderedHeight%/ctrl%/2"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "PoultrySeparator_OverviewImage_2.onAttached",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "symbolExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "FunctionExpression",
+                  "functionExpression": "2 * %ctrl%MainCarcassEquipmentModule::RenderedHeight%/ctrl%"
+                },
+                "compareOperator": ">",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Height%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 70.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::HeightUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Width%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 80.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::WidthUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::LeftUnit%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": "px"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::TopUnit%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": "px"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Left%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%/2 -%ctrl%PoultrySeparator_OverviewImage_2::RenderedWidth%/ctrl%/2"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%PoultrySeparator_OverviewImage_2::Top%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%MainCarcassEquipmentModule::RenderedHeight%/ctrl%/2 - %ctrl%PoultrySeparator_OverviewImage_2::RenderedHeight%/ctrl%/2"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainCarcass_OverviewImage.onAttached",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "symbolExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "FunctionExpression",
+                  "functionExpression": "2 * %ctrl%MainCarcassEquipmentModule::RenderedHeight%/ctrl%"
+                },
+                "compareOperator": ">",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::Height%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 70.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::HeightUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::Width%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 99.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::WidthUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainCarcass_OverviewImage::LeftUnit%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": "px"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainCarcass_OverviewImage::Left%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%/2 -%ctrl%MainCarcass_OverviewImage::RenderedWidth%/ctrl%/2"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainCarcass_OverviewImage.onResized",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "symbolExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "FunctionExpression",
+                  "functionExpression": "2 * %ctrl%MainCarcassEquipmentModule::RenderedHeight%/ctrl%"
+                },
+                "compareOperator": ">",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::Height%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 70.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::HeightUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::Width%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 99.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::WidthUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainCarcass_OverviewImage::LeftUnit%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": "px"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainCarcass_OverviewImage::Left%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%/2 -%ctrl%MainCarcass_OverviewImage::RenderedWidth%/ctrl%/2"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "MainCarcass_OverviewImage.onMoved",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "symbolExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "FunctionExpression",
+                  "functionExpression": "2 * %ctrl%MainCarcassEquipmentModule::RenderedHeight%/ctrl%"
+                },
+                "compareOperator": ">",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::Height%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 70.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::HeightUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::Width%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementValue",
+                  "value": 99.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::WidthUnit%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+                  "value": "%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::WidthMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Value"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%MainCarcass_OverviewImage::HeightMode%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/SizeModeWithContent",
+                  "value": "Content"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainCarcass_OverviewImage::LeftUnit%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/MeasurementUnit",
+          "value": "px"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%MainCarcass_OverviewImage::Left%/ctrl%",
+        "value": {
+          "objectType": "FunctionExpression",
+          "functionExpression": "%ctrl%MainCarcassEquipmentModule::RenderedWidth%/ctrl%/2 -%ctrl%MainCarcass_OverviewImage::RenderedWidth%/ctrl%/2"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="MainCarcass_OverviewDotContainer" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-left="%ctrl%MainCarcass_OverviewImage::RenderedLeft%/ctrl%" data-tchmi-left-unit="px" data-tchmi-top="%ctrl%MainCarcass_OverviewImage::RenderedTop%/ctrl%" data-tchmi-top-unit="px" data-tchmi-right="%ctrl%MainCarcass_OverviewImage::RenderedRight%/ctrl%" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-bottom="%ctrl%MainCarcass_OverviewImage::RenderedBottom%/ctrl%" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-zindex="10" data-tchmi-width-unit="px" data-tchmi-height-unit="px">
+<div id="MainCarcass_OverviewDot_Conveyor" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="18.9" data-tchmi-left-unit="%" data-tchmi-top="59.8" data-tchmi-top-unit="%" data-tchmi-width="14" data-tchmi-width-unit="px" data-tchmi-zindex="10" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "overview-dot"
+]
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 8.0,
+  "topRight": 8.0,
+  "bottomLeft": 8.0,
+  "bottomRight": 8.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "overview-dot-container"
+]
+</script>
+<div id="MainCarcass_OverviewDot_WidthAdjustment" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="36.5" data-tchmi-left-unit="%" data-tchmi-top="20.4" data-tchmi-top-unit="%" data-tchmi-width="14" data-tchmi-width-unit="px" data-tchmi-zindex="10" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "overview-dot"
+]
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 8.0,
+  "topRight": 8.0,
+  "bottomLeft": 8.0,
+  "bottomRight": 8.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+</div>
+<div id="MainCarcass_OverviewDot_TendonCutter" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="14" data-tchmi-height-unit="px" data-tchmi-left="71.1" data-tchmi-left-unit="%" data-tchmi-top="51.4" data-tchmi-top-unit="%" data-tchmi-width="14" data-tchmi-width-unit="px" data-tchmi-zindex="10" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "overview-dot"
+]
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 8.0,
+  "topRight": 8.0,
+  "bottomLeft": 8.0,
+  "bottomRight": 8.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+</div>
+</div>
+<div id="MainCarcass_OverviewLine_Conveyor" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLine" data-tchmi-left="%f%%ctrl%MainCarcass_Conveyor_Monitor::RenderedLeft%/ctrl%+%ctrl%MainCarcass_Conveyor_Monitor::RenderedWidth%/ctrl%/2%/f%" data-tchmi-left-unit="px" data-tchmi-y2="0" data-tchmi-scale-mode="ScaleToFill" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="%f%%ctrl%MainCarcass_OverviewDot_Conveyor::RenderedRight%/ctrl%+%ctrl%MainCarcass_OverviewDot_Conveyor::RenderedWidth%/ctrl%/2+%ctrl%MainCarcass_OverviewDotContainer::RenderedRight%/ctrl%%/f%" data-tchmi-bottom="%f%%ctrl%MainCarcass_OverviewImage::RenderedBottom%/ctrl%-10%/f%" data-tchmi-top="%f%%ctrl%MainCarcass_OverviewDot_Conveyor::RenderedTop%/ctrl%+%ctrl%MainCarcass_OverviewDot_Conveyor::RenderedHeight%/ctrl%/2+%ctrl%MainCarcass_OverviewDotContainer::RenderedTop%/ctrl%%/f%" data-tchmi-is-enabled="true" data-tchmi-y1="1" data-tchmi-x2="1">
+
+
+
+
+
+
+</div>
+<div id="MainCarcass_OverviewLine_WidthAdjustment" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLine" data-tchmi-left="%f%%ctrl%MainCarcass_OverviewDot_WidthAdjustment::RenderedLeft%/ctrl%+%ctrl%MainCarcass_OverviewDot_WidthAdjustment::RenderedWidth%/ctrl%/2+%ctrl%MainCarcass_OverviewDotContainer::RenderedLeft%/ctrl%%/f%" data-tchmi-left-unit="px" data-tchmi-x2="1" data-tchmi-y2="1" data-tchmi-scale-mode="ScaleToFill" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="%f%%ctrl%MainCarcass_WidthAdjust_Monitor::RenderedRight%/ctrl%+%ctrl%MainCarcass_WidthAdjust_Monitor::RenderedWidth%/ctrl%/2%/f%" data-tchmi-bottom="%f%%ctrl%MainCarcass_OverviewImage::RenderedBottom%/ctrl%-10%/f%" data-tchmi-is-enabled="true" data-tchmi-top="%f%%ctrl%MainCarcass_OverviewDot_WidthAdjustment::RenderedTop%/ctrl%+%ctrl%MainCarcass_OverviewDot_WidthAdjustment::RenderedHeight%/ctrl%/2+%ctrl%MainCarcass_OverviewDotContainer::RenderedTop%/ctrl%%/f%">
+</div>
+<div id="MainCarcass_OverviewLine_TendonCutter" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLine" data-tchmi-left="%f%%ctrl%MainCarcass_OverviewDot_TendonCutter::RenderedLeft%/ctrl%+%ctrl%MainCarcass_OverviewDot_TendonCutter::RenderedWidth%/ctrl%/2+%ctrl%MainCarcass_OverviewDotContainer::RenderedLeft%/ctrl%%/f%" data-tchmi-left-unit="px" data-tchmi-x2="1" data-tchmi-y2="1" data-tchmi-scale-mode="ScaleToFill" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="%f%%ctrl%MainCarcass_TendonCutter_Monitor::RenderedRight%/ctrl%+%ctrl%MainCarcass_TendonCutter_Monitor::RenderedWidth%/ctrl%/2%/f%" data-tchmi-is-enabled="true" data-tchmi-top="%f%%ctrl%MainCarcass_OverviewDot_TendonCutter::RenderedTop%/ctrl%+%ctrl%MainCarcass_OverviewDot_TendonCutter::RenderedHeight%/ctrl%/2+%ctrl%MainCarcass_OverviewDotContainer::RenderedTop%/ctrl%%/f%" data-tchmi-bottom="%f%%ctrl%MainCarcass_OverviewImage::RenderedBottom%/ctrl%-10%/f%">
+</div>
+<div id="MainCarcass_MonitorBanner" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-target-user-control="Controls/HardwareMonitoring/ModuleMonitoring/PMLModuleBase_Monitor.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Value" data-tchmi-module="%s%PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.stPMLModuleBaseHMI%/s%" data-tchmi-zindex="1" data-tchmi-height="110" data-tchmi-is-enabled="true">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "animate-all-properties"
+]
+</script>
+</div>
+</div>

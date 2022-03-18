@@ -211,7 +211,7 @@
                       {
                         "objectType": "WriteToSymbol",
                         "active": true,
-                        "symbolExpression": "%ctrl%TcHmiEventGrid::Filter%/ctrl%",
+                        "symbolExpression": "%ctrl%Main_AlarmBanner::Filter%/ctrl%",
                         "value": {
                           "objectType": "StaticValue",
                           "valueType": "tchmi:server#/definitions/eventFilter",
@@ -240,7 +240,7 @@
                       {
                         "objectType": "WriteToSymbol",
                         "active": true,
-                        "symbolExpression": "%ctrl%TcHmiEventGrid::Filter%/ctrl%",
+                        "symbolExpression": "%ctrl%Main_AlarmBanner::Filter%/ctrl%",
                         "value": {
                           "objectType": "StaticValue",
                           "valueType": "tchmi:server#/definitions/eventFilter",

@@ -12,7 +12,7 @@
     <HmiTitle>Poultry Separator HMI</HmiTitle>
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
-    <HmiCommunicationServerPort>3011</HmiCommunicationServerPort>
+    <HmiCommunicationServerPort>3012</HmiCommunicationServerPort>
     <HmiLogTcHmiServerMessages>false</HmiLogTcHmiServerMessages>
     <HmiLogDesignerModeComMessages>false</HmiLogDesignerModeComMessages>
     <HmiServerVersion>Latest</HmiServerVersion>
@@ -23,7 +23,7 @@
     <EnableTypeScript>true</EnableTypeScript>
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
     <Name>HMI_JBT_PoultrySeparator</Name>
-    <HmiCommunicationRouterPort>10209</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10221</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13002</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.742.5</HmiInitial>
     <HmiRecent>1.12.752.0</HmiRecent>
@@ -120,6 +120,51 @@
   <Target Name="ReBuild" DependsOnTargets="Clean; Build" />
   <Target Name="Clean" DependsOnTargets="BaseClean" />
   <ItemGroup>
+    <Content Include="Contents\Machine_Overview_Pages\LeftTipSeparatorControlModule.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\LeftTipSeparatorClampCylinder.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\WingSeparatorEquipmentModule.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\WingLiftEquipmentModule.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\MainCarcassConveyorControlModule.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\MainCarcassConveyorMainAxis.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\MainCarcassEquipmentModule.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\PoultrySeparatorMachineModule.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\TendonCutterControlModule.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\WidthAdjustmentControlModule.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\WingLiftConveyorControlModule.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\WingLiftConveyorMainAxis.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\WingLiftInfeedSensor.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\WingSeparatorConveyor.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Contents\Machine_Overview_Pages\WingSeparatorConveyorMainAxis.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Controls\HardwareMonitoring\ComponentMonitoring\AxisMonitoring\AxisBase_Monitor.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -190,6 +235,20 @@
       <SubType>Content</SubType>
       <DependentUpon>Controls\HardwareMonitoring\Utilities\MonitorNameDisplayWithNavigation.usercontrol</DependentUpon>
     </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\PMLModeCommand.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\PMLModeCommand.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\PMLModeCommand.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\PMLStateCommand.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\HardwareMonitoring\Utilities\PMLStateCommand.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\HardwareMonitoring\Utilities\PMLStateCommand.usercontrol</DependentUpon>
+    </Content>
     <Content Include="Controls\HardwareMonitoring\Utilities\SensorDebounceInputWithLabel.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -256,6 +315,59 @@
       <SubType>Content</SubType>
       <DependentUpon>Controls\NavTree_nav_button.usercontrol</DependentUpon>
     </Content>
+    <Content Include="Controls\PoultrySeparatorSimulation\Cone.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\PoultrySeparatorSimulation\Cone.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\PoultrySeparatorSimulation\Cone.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\PoultrySeparatorSimulation\ShoulderWingSeparator.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\PoultrySeparatorSimulation\ShoulderWingSeparator.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\PoultrySeparatorSimulation\ShoulderWingSeparator.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\PoultrySeparatorSimulation\WingLiftLug.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\PoultrySeparatorSimulation\WingLiftLug.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\PoultrySeparatorSimulation\WingLiftLug.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\PoultrySeparatorSimulation\WingSeparator.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\PoultrySeparatorSimulation\WingSeparator.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\PoultrySeparatorSimulation\WingSeparator.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Controls\PoultrySeparatorSimulation\WingSeparatorSocket.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Controls\PoultrySeparatorSimulation\WingSeparatorSocket.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Controls\PoultrySeparatorSimulation\WingSeparatorSocket.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Images\MachineOverviewImages\MachineOverview_FinalQuality.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\MachineOverviewImages\MachineOverview_FinalQuality_Cropped.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\MachineOverviewImages\MachineOverview_RightView_Cropped.PNG">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\MachineOverviewImages\WingLift_SideView.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\MachineOverviewImages\WingLift_SideView_Cropped.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\MachineOverviewImages\WingSeparator_SideAndTopView.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Imports\Images\arrow-bar-down.svg">
       <SubType>Content</SubType>
     </Content>
@@ -274,13 +386,25 @@
     <Content Include="Imports\Images\arrow-bar-up.svg">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Imports\Images\caret-down.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\caret-left - Copy.svg">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Imports\Images\caret-left-square.svg">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Imports\Images\caret-left.svg">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Imports\Images\caret-right - Copy.svg">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Imports\Images\caret-right.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Imports\Images\caret-up.svg">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Imports\Images\chevron-bar-left.svg">
@@ -417,6 +541,12 @@
     <Content Include="Properties\tchmiconfig.json">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Server\TcHmiEcDiagnostics\TcHmiEcDiagnostics.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEcDiagnostics\TcHmiEcDiagnostics.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Themes\Base\CustomControlClasses.css">
       <SubType>Content</SubType>
     </Content>
@@ -444,9 +574,11 @@
     <Folder Include="Controls\HardwareMonitoring\ModuleMonitoring" />
     <Folder Include="Controls\HardwareMonitoring\ModuleMonitoring\ConveyorMonitoring" />
     <Folder Include="Controls\HardwareMonitoring\Utilities" />
+    <Folder Include="Controls\PoultrySeparatorSimulation" />
     <Folder Include="Fonts\" />
     <Folder Include="Images" />
     <Folder Include="Images\Manifest" />
+    <Folder Include="Images\MachineOverviewImages" />
     <Folder Include="Imports" />
     <Folder Include="Imports\Images" />
     <Folder Include="Imports\Videos" />
@@ -458,6 +590,7 @@
     <Folder Include="Contents" />
     <Folder Include="JS_CodeBehind" />
     <Folder Include="JS_Functions" />
+    <Folder Include="Server\TcHmiEcDiagnostics" />
     <Folder Include="Server\TcHmiEventLogger" />
     <Folder Include="Server\TcHmiRecipeManagement" />
     <Folder Include="Server\TcHmiSqliteHistorize" />
@@ -485,7 +618,7 @@
     <Content Include="Contents\Main_Nav_Pages\Alarming.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Contents\Main_Nav_Pages\Application.content">
+    <Content Include="Contents\Main_Nav_Pages\CleaningControls.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Contents\Main_Nav_Pages\Diagnostics.content">
@@ -494,7 +627,7 @@
     <Content Include="Contents\Main_Nav_Pages\EnergyManagement.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Contents\Main_Nav_Pages\MachineVision.content">
+    <Content Include="Contents\Main_Nav_Pages\FieldBusView.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Contents\Main_Nav_Pages\ProcessData.content">

@@ -5,6 +5,10 @@
       "attributes": {},
       "themedResources": {}
     },
+    "background-transparent": {
+      "attributes": {},
+      "themedResources": {}
+    },
     "boolean-command-button": {
       "attributes": {
         "BorderWidth": {
@@ -54,6 +58,30 @@
           "color": "rgba(224, 224, 224, 1)"
         }
       },
+      "themedResources": {}
+    },
+    "combo-input": {
+      "attributes": {
+        "TextColor": {
+          "color": "rgba(224, 224, 224, 1)"
+        }
+      },
+      "themedResources": {}
+    },
+    "disable-scrolling": {
+      "attributes": {},
+      "themedResources": {}
+    },
+    "event-grid-custom-menubar": {
+      "attributes": {},
+      "themedResources": {}
+    },
+    "event-grid-recolor-header": {
+      "attributes": {},
+      "themedResources": {}
+    },
+    "event-grid-wrap-text": {
+      "attributes": {},
       "themedResources": {}
     },
     "hardware-monitor-expand-button": {
@@ -488,6 +516,76 @@
       },
       "themedResources": {}
     },
+    "overview-dot": {
+      "attributes": {
+        "FillColor": {
+          "angle": 36.0,
+          "stopPoints": [
+            {
+              "color": "rgba(54, 8, 8, 1)",
+              "stop": "0%"
+            },
+            {
+              "color": "rgba(255, 0, 0, 1)",
+              "stop": "100%"
+            }
+          ]
+        },
+        "BoxShadow": [
+          {
+            "color": {
+              "color": "rgba(0, 0, 0, 0.6862745)"
+            },
+            "offsetX": 0.0,
+            "offsetXUnit": "px",
+            "offsetY": 0.0,
+            "offsetYUnit": "px",
+            "inset": false,
+            "blur": 3.0,
+            "blurUnit": "px",
+            "spread": 1.0,
+            "spreadUnit": "px"
+          }
+        ]
+      },
+      "themedResources": {}
+    },
+    "overview-dot-container": {
+      "attributes": {},
+      "themedResources": {}
+    },
+    "pml-command": {
+      "attributes": {
+        "BorderWidth": {
+          "left": 1,
+          "right": 1,
+          "top": 1,
+          "bottom": 1,
+          "leftUnit": "px",
+          "rightUnit": "px",
+          "topUnit": "px",
+          "bottomUnit": "px"
+        },
+        "BorderStyle": null,
+        "BorderRadius": {
+          "topLeft": 5.0,
+          "topRight": 5.0,
+          "bottomLeft": 5.0,
+          "bottomRight": 5.0,
+          "topLeftUnit": "px",
+          "topRightUnit": "px",
+          "bottomLeftUnit": "px",
+          "bottomRightUnit": "px"
+        },
+        "BackgroundColor": {
+          "color": "rgba(47, 68, 88, 1)"
+        },
+        "TextColor": {
+          "color": "rgba(224, 224, 224, 1)"
+        }
+      },
+      "themedResources": {}
+    },
     "pml-display": {
       "attributes": {
         "BorderWidth": {
@@ -518,6 +616,18 @@
           "color": "rgba(224, 224, 224, 1)"
         }
       },
+      "themedResources": {}
+    },
+    "remove-before-background-color": {
+      "attributes": {},
+      "themedResources": {}
+    },
+    "remove-disabled-greyout": {
+      "attributes": {},
+      "themedResources": {}
+    },
+    "remove-scroll-bar": {
+      "attributes": {},
       "themedResources": {}
     },
     "sensor-debounce-input": {
@@ -682,6 +792,14 @@
         },
         "TextColor": {
           "color": "rgba(224, 224, 224, 1)"
+        }
+      },
+      "themedResources": {}
+    },
+    "background-grayscale-medium": {
+      "attributes": {
+        "BackgroundColor": {
+          "color": "rgba(128, 128, 128, 1)"
         }
       },
       "themedResources": {}

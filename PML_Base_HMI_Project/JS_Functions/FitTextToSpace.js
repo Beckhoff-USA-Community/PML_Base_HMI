@@ -14,7 +14,7 @@
                     let temp2 = Height / temp1;     //see how many 'rows' of text could be made at the current font size value
 
                     if (temp2 > 5) {              //if there is a lot of vertical space available
-                        temp1 = temp1 * 1.75;          //make the font size bigger (this is intended for small labels and buttons, so intentional 3-row text is not expected)
+                        temp1 = temp1 * 1.4;          //make the font size bigger (this is intended for small labels and buttons, so intentional 3-row text is not expected)
                     }
                     return temp1;                   //return calculated text height in pixels
                 } else {
