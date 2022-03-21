@@ -9,7 +9,7 @@
     <AvailablePlatforms>TwinCAT HMI</AvailablePlatforms>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <TcHmiCreatorVersion>[1.12,]</TcHmiCreatorVersion>
-    <HmiTitle>Poultry Separator HMI</HmiTitle>
+    <HmiTitle>PML Base HMI</HmiTitle>
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
     <HmiCommunicationServerPort>3012</HmiCommunicationServerPort>
@@ -23,7 +23,7 @@
     <EnableTypeScript>true</EnableTypeScript>
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
     <Name>HMI_JBT_PoultrySeparator</Name>
-    <HmiCommunicationRouterPort>10221</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10222</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13002</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.742.5</HmiInitial>
     <HmiRecent>1.12.752.0</HmiRecent>
@@ -272,6 +272,9 @@
     <Content Include="Controls\NavTree_nav_button.usercontrol.json">
       <SubType>Content</SubType>
       <DependentUpon>Controls\NavTree_nav_button.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="Desktop.view">
+      <SubType>Content</SubType>
     </Content>
     <Content Include="Imports\Images\arrow-bar-down.svg">
       <SubType>Content</SubType>
@@ -605,9 +608,6 @@
     <Content Include="Controls\TrendLegend_ActivationButton.usercontrol.json">
       <SubType>Content</SubType>
       <DependentUpon>Controls\TrendLegend_ActivationButton.usercontrol</DependentUpon>
-    </Content>
-    <Content Include="Desktop.view">
-      <SubType>Content</SubType>
     </Content>
     <Content Include="Imports\Images\automatic_active.svg">
       <SubType>Content</SubType>

@@ -603,6 +603,14 @@
             "minItems": 64,
             "type": "array"
         },
+        "PLC_PML.ARRAY (0..63) OF PML_Base_Library.ST_Tree_IndexBased_Node": {
+            "items": {
+                "$ref": "#/definitions/PLC_PML.PML_Base_Library.ST_Tree_IndexBased_Node"
+            },
+            "maxItems": 64,
+            "minItems": 64,
+            "type": "array"
+        },
         "PLC_PML.ARRAY (0..63) OF ST_TreeNode": {
             "items": {
                 "$ref": "#/definitions/PLC_PML.ST_TreeNode"
@@ -933,9 +941,7 @@
                         0,
                         1,
                         2,
-                        3,
-                        4,
-                        5
+                        3
                     ],
                     "options": [
                         {
@@ -953,14 +959,6 @@
                         {
                             "label": "ePMLUnitMode_Manual",
                             "value": 3
-                        },
-                        {
-                            "label": "ePMLUnitMode_Cleaning",
-                            "value": 4
-                        },
-                        {
-                            "label": "ePMLUnitMode_Prime",
-                            "value": 5
                         }
                     ]
                 },
@@ -3212,6 +3210,26 @@
                     "$ref": "tchmi:general#/definitions/INT16"
                 }
             ]
+        },
+        "PLC_PML.PML_Base_Library.ST_Tree_IndexBased_Node": {
+            "properties": {
+                "a_nChildren": {
+                    "$ref": "#/definitions/PLC_PML.ARRAY (0..15) OF DINT"
+                },
+                "nChildCount": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nDepth": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "nParent": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "sName": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                }
+            },
+            "type": "object"
         },
         "PLC_PML.POINTER TO ST_ComponentBase_HMI": {
             "allOf": [
@@ -10691,7 +10709,7 @@
         }
     },
     "PERMESSAGEDEFLATEENABLED": true,
-    "PROJECTNAME": "PML_Base_HMI",
+    "PROJECTNAME": "PML_Base_HMI_Project",
     "PROJECTVERSION": "1.0.0.0",
     "REMOTESERVERS": {},
     "REMOTESERVERS_CERTIFICATES": [],
@@ -11136,26 +11154,6 @@
             "OPTIONS": {},
             "SCHEMA": {
                 "function": true
-            },
-            "USEMAPPING": true
-        },
-        "ADS.PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.stCarriers.0.fPosition": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::stCarriers[0]::fPosition",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
-            },
-            "USEMAPPING": true
-        },
-        "ADS.PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.stCarriers.1.fPosition": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::stCarriers[1]::fPosition",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
             },
             "USEMAPPING": true
         },
@@ -12481,13 +12479,153 @@
             },
             "USEMAPPING": true
         },
-        "PLC_PML.MAIN.fbMainModuleHMIConnection.a_stMachineTreeNodes": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.bResetMaxProductionCount": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::a_stMachineTreeNodes",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::bResetMaxProductionCount",
             "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_Tree_IndexBased_Node"
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.bResetTotalProductionCount": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::bResetTotalProductionCount",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.bShiftComplete": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::bShiftComplete",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.fProductionRate_Actual": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::fProductionRate_Actual",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.fProductionRate_Required": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::fProductionRate_Required",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.fProductionRate_Setpoint": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::fProductionRate_Setpoint",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.nCurrentAcceptableProductionCount": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::nCurrentAcceptableProductionCount",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.nCurrentShiftProductionCount": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::nCurrentShiftProductionCount",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.nCurrentShiftTarget": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::nCurrentShiftTarget",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.nCurrentWarningProductionCount": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::nCurrentWarningProductionCount",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.nMaxProductionCount": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::nMaxProductionCount",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.nRateAveragingCount": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::nRateAveragingCount",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.nShiftProductionTarget": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::nShiftProductionTarget",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.nTotalProductionCount": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::nTotalProductionCount",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/DINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.sTopLevelMachine": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::sTopLevelMachine",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING(80)"
             },
             "USEMAPPING": true
         },
@@ -12511,983 +12649,53 @@
             },
             "USEMAPPING": true
         },
-        "PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.tCurrentShiftTime": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::stProductionDataHMI",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::tCurrentShiftTime",
             "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ProductionData_HMI"
+                "$ref": "tchmi:general#/definitions/TIME"
             },
             "USEMAPPING": true
         },
-        "PLC_PML.MAIN.fbPoultrySeparator.bLogModeChanges": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.tRemainingShiftTime": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::bLogModeChanges",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::tRemainingShiftTime",
             "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
+                "$ref": "tchmi:general#/definitions/TIME"
             },
             "USEMAPPING": true
         },
-        "PLC_PML.MAIN.fbPoultrySeparator.bLogStateChanges": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.tShiftLength": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::bLogStateChanges",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::tShiftLength",
             "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
+                "$ref": "tchmi:general#/definitions/TIME"
             },
             "USEMAPPING": true
         },
-        "PLC_PML.MAIN.fbPoultrySeparator.eMode": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.tShiftStartTimeStamp": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::eMode",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::tShiftStartTimeStamp",
             "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.E_PMLUnitMode"
+                "$ref": "tchmi:server#/definitions/PLC_PML.Tc2_Utilities.TIMESTRUCT"
             },
             "USEMAPPING": true
         },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbExternalControl.fbHMIControl": {
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.tShiftStartTimeStamp_UTC": {
             "ACCESS": 3,
             "CUSTOMERDATA": "",
             "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbExternalControl::fbHMIControl",
+            "MAPPING": "PLC_PML::MAIN::fbMainModuleHMIConnection::tShiftStartTimeStamp_UTC",
             "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.FB_PackML_ExternalControl"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbExternalControl.fbHMIControl.eState": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbExternalControl::fbHMIControl::eState",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.Tc3_PackML_V2.E_PMLState"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fConveyorLength": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::fConveyorLength",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fConveyorVelocity": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::fConveyorVelocity",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fbMainAxis.fTargetVelocity": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::fbMainAxis::fTargetVelocity",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fbMainAxis.stAxisBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::fbMainAxis::stAxisBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_AxisBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.fbMainAxis.stComponentBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::fbMainAxis::stComponentBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ComponentBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.nCarrierCount": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::nCarrierCount",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/UDINT"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stCarriers": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::stCarriers",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ARRAY (1..128) OF ST_ProductCarrier"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stPMLModuleBaseHMI.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::stPMLModuleBaseHMI::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbConveyor.stPMLModuleBaseHMI.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbConveyor::stPMLModuleBaseHMI::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbTendonCutter::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbTendonCutter::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.stPMLModuleBaseHMI.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbTendonCutter::stPMLModuleBaseHMI::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbTendonCutter.stPMLModuleBaseHMI.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbTendonCutter::stPMLModuleBaseHMI::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbWidthAdjustment::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbWidthAdjustment::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.fbWidthAdjustMaster.stAxisBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbWidthAdjustment::fbWidthAdjustMaster::stAxisBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_AxisBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.fbWidthAdjustMaster.stComponentBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbWidthAdjustment::fbWidthAdjustMaster::stComponentBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ComponentBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.fbWidthAdjustSlave.stAxisBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbWidthAdjustment::fbWidthAdjustSlave::stAxisBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_AxisBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.fbWidthAdjustSlave.stComponentBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbWidthAdjustment::fbWidthAdjustSlave::stComponentBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ComponentBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.fbWidthAdjustment.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::fbWidthAdjustment::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbMainCarcass.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbMainCarcass::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.fConveyorLength": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::fConveyorLength",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.fConveyorVelocity": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::fConveyorVelocity",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.fbMainAxis.stAxisBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::fbMainAxis::stAxisBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_AxisBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.fbMainAxis.stComponentBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::fbMainAxis::stComponentBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ComponentBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.nCarrierCount": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::nCarrierCount",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/UDINT"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.stCarriers": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::stCarriers",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ARRAY (1..128) OF ST_ProductCarrier"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbConveyor.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbConveyor::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbInfeedSensor.stComponentBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbInfeedSensor::stComponentBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ComponentBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.fbInfeedSensor.stSensorBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::fbInfeedSensor::stSensorBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_SensorBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingLift.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingLift::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.fConveyorLength": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::fConveyorLength",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.fConveyorVelocity": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::fConveyorVelocity",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.fbMainAxis.stAxisBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::fbMainAxis::stAxisBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_AxisBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.fbMainAxis.stComponentBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::fbMainAxis::stComponentBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ComponentBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.nCarrierCount": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::nCarrierCount",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/UDINT"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.stCarriers": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::stCarriers",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ARRAY (1..128) OF ST_ProductCarrier"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbConveyor.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbConveyor::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.fbClampCylinder.bExtendOutput": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::fbClampCylinder::bExtendOutput",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.fbClampCylinder.stCylinderBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::fbClampCylinder::stCylinderBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_CylinderBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.fbCutterCylinder.bExtendOutput": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::fbCutterCylinder::bExtendOutput",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.fbCutterCylinder.stComponentBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::fbCutterCylinder::stComponentBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ComponentBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Left.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Left::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Right::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Right::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.fbClampCylinder.bExtendOutput": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Right::fbClampCylinder::bExtendOutput",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.fbCutterCylinder.bExtendOutput": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Right::fbCutterCylinder::bExtendOutput",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbMidSeparator_Right.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbMidSeparator_Right::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.fbAxis_Extension.bActive": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::fbAxis_Extension::bActive",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.fbAxis_Extension.fPosition": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::fbAxis_Extension::fPosition",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.fbAxis_Extension.fTargetVelocity": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::fbAxis_Extension::fTargetVelocity",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.fbAxis_Rotation.bActive": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::fbAxis_Rotation::bActive",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Left.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Left::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.fbAxis_Extension.bActive": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::fbAxis_Extension::bActive",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.fbAxis_Extension.fPosition": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::fbAxis_Extension::fPosition",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/LREAL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.fbAxis_Rotation.bActive": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::fbAxis_Rotation::bActive",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbShoulderSeparator_Right.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbShoulderSeparator_Right::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbClampCylinder.bExtendOutput": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::fbClampCylinder::bExtendOutput",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbClampCylinder.stComponentBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::fbClampCylinder::stComponentBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ComponentBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbClampCylinder.stCylinderBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::fbClampCylinder::stCylinderBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_CylinderBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbCutterCylinder.bExtendOutput": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::fbCutterCylinder::bExtendOutput",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbCutterCylinder.stComponentBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::fbCutterCylinder::stComponentBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_ComponentBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.fbCutterCylinder.stCylinderBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::fbCutterCylinder::stCylinderBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_CylinderBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Left.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Left::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.bLogModeChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Right::bLogModeChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.bLogStateChanges": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Right::bLogStateChanges",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.fbClampCylinder.bExtendOutput": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Right::fbClampCylinder::bExtendOutput",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.fbCutterCylinder.bExtendOutput": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Right::fbCutterCylinder::bExtendOutput",
-            "SCHEMA": {
-                "$ref": "tchmi:general#/definitions/BOOL"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.fbTipSeparator_Right.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::fbTipSeparator_Right::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.fbWingSeparator.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::fbWingSeparator::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
-            },
-            "USEMAPPING": true
-        },
-        "PLC_PML.MAIN.fbPoultrySeparator.stPMLModuleBaseHMI": {
-            "ACCESS": 3,
-            "CUSTOMERDATA": "",
-            "DOMAIN": "ADS",
-            "MAPPING": "PLC_PML::MAIN::fbPoultrySeparator::stPMLModuleBaseHMI",
-            "SCHEMA": {
-                "$ref": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI"
+                "$ref": "tchmi:general#/definitions/STRING(80)"
             },
             "USEMAPPING": true
         },
