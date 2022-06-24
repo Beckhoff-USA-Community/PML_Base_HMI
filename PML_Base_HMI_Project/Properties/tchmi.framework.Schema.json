@@ -17,21 +17,21 @@
               "displayName": "Access right",
               "category": "General",
               "displayPriority": 10,
-              "description": "Name of the access right."
+              "description": "Right which this rule defines."
             },
             {
               "name": "group",
               "displayName": "Group",
               "category": "General",
               "displayPriority": 10,
-              "description": "Name of the user group."
+              "description": "Group to which this access right is given."
             },
             {
               "name": "permission",
               "displayName": "Permission",
               "category": "General",
               "displayPriority": 10,
-              "description": "Name of the permission described by this rule."
+              "description": "Permission for this access rule. \nAllow of one group overrides Deny/Inherit of another group. \nDeny will result in deny if we have no Allow of another group. \nInherit will ask parent control when we got no Allow/Deny. If the parent does not define something there will be a specified default."
             }
           ],
           "properties": {
@@ -643,7 +643,7 @@
         "symbolExpression": {
           "title": "SymbolExpression",
           "type": "string",
-          "pattern": "^%(s|i|l|pp|tp|f|ctrl|ca)%.+%\\1%$"
+          "pattern": "^%(s|i|l|pp|tp|f|ctrl|ctx)%.+%\\1%$"
         }
       },
       "properties": {
@@ -746,6 +746,16 @@
         "%"
       ],
       "default": "px"
+    },
+    "MeasurementUnitOrFactor": {
+      "type": "string",
+      "enum": [
+        "px",
+        "%",
+        "factor"
+      ],
+      "default": "px",
+      "$ref": "tchmi:framework#/definitions/TcHmi.Controls.System.TcHmiGrid.MeasurementUnitOrFactor"
     },
     "MeasurementValue": {
       "type": "number"
@@ -2452,7 +2462,7 @@
         "symbolExpression": {
           "title": "SymbolExpression",
           "type": "string",
-          "pattern": "^%(s|i|l|pp|tp|f|ctrl)%.+%\\1%$"
+          "pattern": "^%(s|i|l|pp|tp|f|ctrl|ctx)%.+%\\1%$"
         },
         "controlSymbolExpression": {
           "title": "controlSymbolExpression",
@@ -2530,21 +2540,23 @@
         ],
         "properties": {
           "virtualControlRight": {
-            "description": "Name of the virtual control right.",
+            "description": "Name of the right which is configured on a parent control (aka outer right).",
             "type": "string",
             "minLength": 1
           },
           "controlRight": {
-            "description": "Real control right.",
+            "description": "Name of the right which is working on this control (aka inner right).",
             "type": "string",
             "minLength": 1
           }
         },
+        "description": "Allows a mapping of rights to parent control virtual rights. For example the 'operate' right of this control can be configured to react on a custom 'canStartPump' right of a parent control.",
         "required": [
           "controlRight",
           "virtualControlRight"
         ]
-      }
+      },
+      "description": "Allows a mapping of rights to parent control virtual rights. For example the 'operate' right of this control can be configured to react on a custom 'canStartPump' right of a parent control."
     },
     "Visibility": {
       "type": "string",
@@ -2943,18 +2955,18 @@
       "description": "List Item List",
       "type": "object",
       "engineeringColumns": [
-        "index",
+        "id",
         "text",
         "value",
         "category"
       ],
       "propertiesMeta": [
         {
-          "name": "index",
-          "displayName": "Index",
+          "name": "id",
+          "displayName": "ID",
           "category": "General",
           "displayPriority": 10,
-          "description": "Index for this entry",
+          "description": "Numerical ID for this entry. Can be chosen freely, but must be unique.",
           "defaultValue": null,
           "defaultValueInternal": null
         },
@@ -2987,7 +2999,7 @@
         }
       ],
       "properties": {
-        "index": {
+        "id": {
           "type": "number"
         },
         "text": {
@@ -3090,7 +3102,7 @@
                 "displayName": "Cell background",
                 "category": "Colors",
                 "displayPriority": 10,
-                "description": "Color of this cells",
+                "description": "Background color of the cells in this column",
                 "defaultValue": null,
                 "defaultValueInternal": null
               },
@@ -3099,16 +3111,16 @@
                 "displayName": "Text color",
                 "category": "Colors",
                 "displayPriority": 10,
-                "description": "Color of the Text in this cells",
+                "description": "Text color of the cells in this column",
                 "defaultValue": null,
                 "defaultValueInternal": null
               },
               {
                 "name": "name",
-                "displayName": "name",
+                "displayName": "Name",
                 "category": "General",
                 "displayPriority": 10,
-                "description": "Name of the property of the srcData object",
+                "description": "Name of the property in the srcData object",
                 "defaultValue": "",
                 "defaultValueInternal": null
               },
@@ -3117,7 +3129,7 @@
                 "displayName": "Label",
                 "category": "General",
                 "displayPriority": 10,
-                "description": "Name of the Label for this column",
+                "description": "Name of the label for this column",
                 "defaultValue": "",
                 "defaultValueInternal": null
               },
@@ -3145,7 +3157,7 @@
                 "displayName": "Width unit",
                 "category": "General",
                 "displayPriority": 10,
-                "description": "Width unit for this column",
+                "description": "Width unit for this column. px defines an absolute width, % is relative to the control witdth and factor can be used to divide the available space into fractions.",
                 "defaultValue": "px",
                 "defaultValueInternal": "px"
               },
@@ -3154,7 +3166,7 @@
                 "displayName": "Resize",
                 "category": "General",
                 "displayPriority": 10,
-                "description": "Can this column be resized?",
+                "description": "Can this column be resized? Columns that have factor as their widthUnit can never be resizeable.",
                 "defaultValue": false,
                 "defaultValueInternal": false
               },
@@ -3182,7 +3194,7 @@
                 "displayName": "Editable",
                 "category": "General",
                 "displayPriority": 10,
-                "description": "Can this column be edited?",
+                "description": "Can this column be edited (text, number) or operated (button, checkbox)?",
                 "defaultValue": false,
                 "defaultValueInternal": false
               },
@@ -3255,9 +3267,18 @@
                 "displayName": "Data definitions",
                 "category": "General",
                 "displayPriority": 10,
-                "description": "Mapping from the srcData to a combobox or image selection",
+                "description": "Mapping from the srcData to a combobox or image selection. \nText to show on Buttons. \nRestrictions for number inputs.",
                 "defaultValue": null,
                 "defaultValueInternal": null
+              },
+              {
+                "name": "ignoreEscapeSequences",
+                "displayName": "Ignore Escape Sequences",
+                "category": "General",
+                "displayPriority": 10,
+                "description": "When set to true a backslash in a text will be shown verbatim in the HMI",
+                "defaultValue": false,
+                "defaultValueInternal": false
               }
             ],
             "properties": {
@@ -3305,7 +3326,7 @@
                 "minimum": 0
               },
               "widthUnit": {
-                "$ref": "tchmi:framework#/definitions/MeasurementUnit"
+                "$ref": "tchmi:framework#/definitions/MeasurementUnitOrFactor"
               },
               "resize": {
                 "type": "boolean"
@@ -3340,6 +3361,9 @@
               },
               "dataDefinitions": {
                 "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiDatagrid.DataDefinitionList"
+              },
+              "ignoreEscapeSequences": {
+                "type": "boolean"
               }
             },
             "required": [
@@ -3365,7 +3389,7 @@
               "displayName": "Cell background",
               "category": "Colors",
               "displayPriority": 10,
-              "description": "Color of this cells",
+              "description": "Background color of the cells in this column",
               "defaultValue": null,
               "defaultValueInternal": null
             },
@@ -3374,7 +3398,7 @@
               "displayName": "Text color",
               "category": "Colors",
               "displayPriority": 10,
-              "description": "Color of the Text in this cells",
+              "description": "Text color of the cells in this column",
               "defaultValue": null,
               "defaultValueInternal": null
             },
@@ -3383,7 +3407,7 @@
               "displayName": "Label",
               "category": "General",
               "displayPriority": 10,
-              "description": "Name of the Label for this column",
+              "description": "Name of the label for this column",
               "defaultValue": "",
               "defaultValueInternal": null
             },
@@ -3448,7 +3472,7 @@
               "displayName": "Editable",
               "category": "General",
               "displayPriority": 10,
-              "description": "Can this column be edited?",
+              "description": "Can this column be edited (text, number) or operated (button, checkbox)?",
               "defaultValue": false,
               "defaultValueInternal": false
             },
@@ -3521,9 +3545,18 @@
               "displayName": "Data definitions",
               "category": "General",
               "displayPriority": 10,
-              "description": "Mapping from the srcData to a Combobox or Image selection",
+              "description": "Mapping from the srcData to a combobox or image selection. \nText to show on Buttons. \nRestrictions for number inputs.",
               "defaultValue": null,
               "defaultValueInternal": null
+            },
+            {
+              "name": "ignoreEscapeSequences",
+              "displayName": "Ignore Escape Sequences",
+              "category": "General",
+              "displayPriority": 10,
+              "description": "When set to true a backslash in a text will be shown verbatim in the HMI",
+              "defaultValue": false,
+              "defaultValueInternal": false
             }
           ],
           "properties": {
@@ -3567,7 +3600,7 @@
               "minimum": 0
             },
             "widthUnit": {
-              "$ref": "tchmi:framework#/definitions/MeasurementUnit"
+              "$ref": "tchmi:framework#/definitions/MeasurementUnitOrFactor"
             },
             "resize": {
               "type": "boolean"
@@ -3602,6 +3635,9 @@
             },
             "dataDefinitions": {
               "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiDatagrid.DataDefinitionList"
+            },
+            "ignoreEscapeSequences": {
+              "type": "boolean"
             }
           },
           "required": [
@@ -4010,7 +4046,7 @@
                 "displayName": "Width Unit",
                 "category": "General",
                 "displayPriority": 10,
-                "description": "Width unit of this column",
+                "description": "Width unit of this column. px defines an absolute width, % is relative to the control witdth and factor can be used to divide the available space into fractions.",
                 "defaultValue": null,
                 "defaultValueInternal": "px"
               },
@@ -4051,7 +4087,7 @@
                 "$ref": "tchmi:framework#/definitions/MeasurementValue"
               },
               "widthUnit": {
-                "$ref": "tchmi:framework#/definitions/MeasurementUnit"
+                "$ref": "tchmi:framework#/definitions/MeasurementUnitOrFactor"
               },
               "sortable": {
                 "type": "boolean",
@@ -4102,7 +4138,7 @@
                 "displayName": "Width Unit",
                 "category": "General",
                 "displayPriority": 10,
-                "description": "Width unit of this column",
+                "description": "Width unit of this column. px defines an absolute width, % is relative to the control witdth and factor can be used to divide the available space into fractions.",
                 "defaultValue": null,
                 "defaultValueInternal": "px"
               },
@@ -4128,7 +4164,7 @@
                 "$ref": "tchmi:framework#/definitions/MeasurementValue"
               },
               "widthUnit": {
-                "$ref": "tchmi:framework#/definitions/MeasurementUnit"
+                "$ref": "tchmi:framework#/definitions/MeasurementUnitOrFactor"
               },
               "sortable": {
                 "type": "boolean",
@@ -4215,6 +4251,30 @@
     },
     "TcHmiEventLine": {
       "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiEventLine"
+    },
+    "TcHmi.Controls.Beckhoff.TcHmiFileExplorer": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "TcHmiFileExplorer",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff"
+    },
+    "TcHmi.Controls.Beckhoff.TcHmiFileExplorer.MenuBarPosition": {
+      "type": "string",
+      "enum": [
+        "Top",
+        "Bottom"
+      ],
+      "default": "Top"
+    },
+    "TcHmi.Controls.Beckhoff.TcHmiFileExplorer.NameArray": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "TcHmiFileExplorer": {
+      "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiFileExplorer"
     },
     "TcHmi.Controls.Beckhoff.TcHmiHorizontalBarChart": {
       "$schema": "http://json-schema.org/draft-04/schema",
@@ -5514,6 +5574,15 @@
           "defaultValueInternal": 2
         },
         {
+          "name": "showAxis",
+          "category": "General",
+          "displayName": "showAxis",
+          "displayPriority": 10,
+          "description": "",
+          "defaultValue": null,
+          "defaultValueInternal": true
+        },
+        {
           "name": "showLabels",
           "category": "General",
           "displayName": "showLabels",
@@ -5619,6 +5688,9 @@
         "decimalPlaces": {
           "type": "number",
           "minimum": 0
+        },
+        "showAxis": {
+          "type": "boolean"
         },
         "showLabels": {
           "type": "boolean"
@@ -6361,9 +6433,6 @@
     },
     "ColumnOptions": {
       "$ref": "tchmi:framework#/definitions/TcHmi.Controls.System.TcHmiGrid.ColumnOptions"
-    },
-    "MeasurementUnitOrFactor": {
-      "$ref": "tchmi:framework#/definitions/TcHmi.Controls.System.TcHmiGrid.MeasurementUnitOrFactor"
     },
     "RowOptions": {
       "$ref": "tchmi:framework#/definitions/TcHmi.Controls.System.TcHmiGrid.RowOptions"

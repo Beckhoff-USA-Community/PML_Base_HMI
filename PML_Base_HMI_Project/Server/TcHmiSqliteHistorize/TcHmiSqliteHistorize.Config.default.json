@@ -6,6 +6,12 @@
             "interval": "PT1S",
             "maxEntries": 10000,
             "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "PLC_PML.MAIN.fbMainModuleHMIConnection.stProductionDataHMI": {
+            "interval": "PT1S",
+            "maxEntries": 10000,
+            "recordingEnabled": true,
             "rowLimit": 10000
         }
     },

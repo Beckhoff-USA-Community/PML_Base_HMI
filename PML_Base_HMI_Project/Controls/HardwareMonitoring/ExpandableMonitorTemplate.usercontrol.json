@@ -4,7 +4,7 @@
       "name": "data-tchmi-module",
       "displayName": "Module",
       "visible": true,
-      "type": "tchmi:server#/definitions/PLC_PML.ST_PMLModuleBase_HMI",
+      "type": "tchmi:server#/definitions/PLC_PML.PML_Base_Library.ST_PMLModuleBase_HMI",
       "category": "",
       "description": "",
       "requiredOnCompile": false,

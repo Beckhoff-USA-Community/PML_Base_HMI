@@ -1,4 +1,4 @@
-﻿<div id="PMLModeCommand" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-zindex="0">
+﻿<div id="PMLModeCommand" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500" data-tchmi-zindex="0" data-tchmi-is-enabled="true">
 
 
 
@@ -33,14 +33,7 @@
 </script>
 
 
-<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
-[
-  "background-transparent",
-  "combo-input",
-  "pml-command",
-  "remove-disabled-greyout"
-]
-</script>
+
 
 
 
@@ -403,35 +396,7 @@
 ]
 </script>
 
-<script data-tchmi-target-attribute="data-tchmi-src-data" type="application/json">
-[
-  {
-    "index": 1.0,
-    "text": "%pp%ModeNames[1]%/pp%",
-    "value": 1.0
-  },
-  {
-    "index": 2.0,
-    "text": "%pp%ModeNames[2]%/pp%",
-    "value": 2.0
-  },
-  {
-    "index": 3.0,
-    "text": "%pp%ModeNames[3]%/pp%",
-    "value": 3.0
-  },
-  {
-    "index": 4.0,
-    "text": "%pp%ModeNames[4]%/pp%",
-    "value": 4.0
-  },
-  {
-    "index": 5.0,
-    "text": "%pp%ModeNames[5]%/pp%",
-    "value": 5.0
-  }
-]
-</script>
+
 
 <script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
 {
@@ -466,6 +431,36 @@
 {
   "color": "None"
 }
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-src-data" type="application/json">
+[
+  {
+    "id": 1.0,
+    "text": "%pp%ModeNames[1]%/pp%",
+    "value": 1
+  },
+  {
+    "id": 2.0,
+    "text": "%pp%ModeNames[2]%/pp%",
+    "value": 2
+  },
+  {
+    "id": 3.0,
+    "text": "%pp%ModeNames[3]%/pp%",
+    "value": 3
+  },
+  {
+    "id": 4.0,
+    "text": "%pp%ModeNames[4]%/pp%",
+    "value": 4
+  },
+  {
+    "id": 5.0,
+    "text": "%pp%ModeNames[5]%/pp%",
+    "value": 5
+  }
+]
 </script>
 </div>
 </div>

@@ -105,7 +105,7 @@
 ]
 </script>
 </div>
-<div id="ExpandableMonitorTemplate_PopoutGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-cell-wrap="true" data-tchmi-bottom="%ctrl%ExpandingMonitorTemplate_ExpandButton::RenderedHeight%/ctrl%">
+<div id="ExpandableMonitorTemplate_PopoutGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-cell-wrap="true" data-tchmi-bottom="%ctrl%ExpandingMonitorTemplate_ExpandButton::RenderedHeight%/ctrl%" data-tchmi-is-enabled="true">
 <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
 [
   {
@@ -169,7 +169,7 @@
 ]
 </script>
 </div>
-<div id="ExpandableMonitorTemplate_StaticContainer" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="200" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content">
+<div id="ExpandableMonitorTemplate_StaticContainer" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="200" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-is-enabled="true">
 
 <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
 [

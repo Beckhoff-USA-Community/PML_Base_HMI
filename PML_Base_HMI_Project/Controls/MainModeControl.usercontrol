@@ -1,4 +1,4 @@
-﻿<div id="MainModeControl" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="200" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height-unit="%">
+﻿<div id="MainModeControl" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="200" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height-unit="%" data-tchmi-is-enabled="true">
 
 <div id="Auto_Button" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="35" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="%" data-tchmi-text="Auto Inactive" data-tchmi-top="25" data-tchmi-top-unit="%" data-tchmi-width="49" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-icon="Imports/Images/automatic_normal.svg" data-tchmi-background-image-horizontal-alignment="Center" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height-unit="%" data-tchmi-icon-horizontal-alignment="Left" data-tchmi-icon-width-unit="px" data-tchmi-icon-height="100" data-tchmi-icon-height-unit="%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%f%.3 * %ctrl%Auto_Button::RenderedHeight%/ctrl%%/f%" data-tchmi-text-font-weight="Bold">
 
@@ -177,7 +177,7 @@
         "symbolExpression": "%pp%eCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:server#/definitions/PLC1.E_ModeCommand",
+          "valueType": "tchmi:server#/definitions/PLC_PML.E_ModeCommand",
           "value": 0
         },
         "asyncWait": true
@@ -444,7 +444,7 @@
         "symbolExpression": "%pp%eCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:server#/definitions/PLC1.E_ModeCommand",
+          "valueType": "tchmi:server#/definitions/PLC_PML.E_ModeCommand",
           "value": 1
         },
         "asyncWait": true
@@ -687,7 +687,7 @@
         "symbolExpression": "%pp%eCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:server#/definitions/PLC1.E_ModeCommand",
+          "valueType": "tchmi:server#/definitions/PLC_PML.E_ModeCommand",
           "value": 2
         },
         "asyncWait": true
@@ -915,7 +915,7 @@
         "symbolExpression": "%pp%eCommand%/pp%",
         "value": {
           "objectType": "StaticValue",
-          "valueType": "tchmi:server#/definitions/PLC1.E_ModeCommand",
+          "valueType": "tchmi:server#/definitions/PLC_PML.E_ModeCommand",
           "value": 3
         },
         "asyncWait": true

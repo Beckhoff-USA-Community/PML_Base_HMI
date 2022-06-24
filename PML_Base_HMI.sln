@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# TcXaeShell Solution File, Format Version 11.00
-VisualStudioVersion = 15.0.28307.1705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FE7A1B72-C5B7-4D7C-BB7D-76384D4DE8E1}") = "PML_Base_HMI_Project", "PML_Base_HMI_Project\PML_Base_HMI_Project.hmiproj", "{94369AE2-5851-4509-B1AE-451219CCDEDE}"
 EndProject

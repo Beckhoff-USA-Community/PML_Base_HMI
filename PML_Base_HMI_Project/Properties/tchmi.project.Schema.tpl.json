@@ -1,25 +1,282 @@
 ﻿{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "definitions": {
+    "BooleanCommandButton": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\BooleanCommandButton.usercontrol.json",
+      "id": "tchmi:project#/definitions/BooleanCommandButton"
+    },
+    "BooleanIndicatorWithLabel": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\BooleanIndicatorWithLabel.usercontrol.json",
+      "id": "tchmi:project#/definitions/BooleanIndicatorWithLabel"
+    },
+    "BooleanToggleIndicatorWithLabel": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\BooleanToggleIndicatorWithLabel.usercontrol.json",
+      "id": "tchmi:project#/definitions/BooleanToggleIndicatorWithLabel"
+    },
+    "ComponentBase_Monitor": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\ComponentMonitoring\\ComponentBase_Monitor.usercontrol.json",
+      "id": "tchmi:project#/definitions/ComponentBase_Monitor"
+    },
+    "Cone": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\Cone.usercontrol.json",
+      "id": "tchmi:project#/definitions/Cone"
+    },
+    "Controls_CameraView": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\CameraView.usercontrol.json",
+      "id": "tchmi:project#/definitions/Controls_CameraView"
+    },
+    "Controls_MainCycleControl": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\MainCycleControl.usercontrol.json",
+      "id": "tchmi:project#/definitions/Controls_MainCycleControl"
+    },
+    "Controls_MainModeControl": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\MainModeControl.usercontrol.json",
+      "id": "tchmi:project#/definitions/Controls_MainModeControl"
+    },
     "Controls_NavBar": {
       "properties": {},
       "type": "object"
     },
-    "Array(0..7) OF String": {
-      "items": {
-        "$ref": "tchmi:general#/definitions/String"
-      },
-      "type": "array",
-      "minItems": 8,
-      "maxItems": 8
+    "Controls_Navigation_Frame": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\Navigation_Frame.usercontrol.json",
+      "id": "tchmi:project#/definitions/Controls_Navigation_Frame"
     },
-    "Array(0..7) OF SINT": {
-      "items": {
-        "$ref": "tchmi:general#/definitions/SINT"
-      },
-      "type": "array",
-      "minItems": 8,
-      "maxItems": 8
+    "Controls_PermissiveStatus": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\PermissiveStatus.usercontrol.json",
+      "id": "tchmi:project#/definitions/Controls_PermissiveStatus"
+    },
+    "Controls_PML_Commands": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\PML_Commands.usercontrol.json",
+      "id": "tchmi:project#/definitions/Controls_PML_Commands"
+    },
+    "Controls_ProcessData": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\ProcessData.usercontrol.json",
+      "id": "tchmi:project#/definitions/Controls_ProcessData"
+    },
+    "Controls_ProductionStatus_LinearGraph": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\ProductionStatus_LinearGraph.usercontrol.json",
+      "id": "tchmi:project#/definitions/Controls_ProductionStatus_LinearGraph"
+    },
+    "Controls_ProductionStatus_RadialGauge": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\ProductionStatus_RadialGauge.usercontrol.json",
+      "id": "tchmi:project#/definitions/Controls_ProductionStatus_RadialGauge"
+    },
+    "Controls_TrendLegend_ActivationButton": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\TrendLegend_ActivationButton.usercontrol.json",
+      "id": "tchmi:project#/definitions/Controls_TrendLegend_ActivationButton"
+    },
+    "CylinderBase_Monitor": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\ComponentMonitoring\\CylinderMonitoring\\CylinderBase_Monitor.usercontrol.json",
+      "id": "tchmi:project#/definitions/CylinderBase_Monitor"
+    },
+    "MainCycleControl": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\MainCycleControl.usercontrol.json",
+      "id": "tchmi:project#/definitions/MainCycleControl"
+    },
+    "MonitorNameDisplayWithNavigation": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\MonitorNameDisplayWithNavigation.usercontrol.json",
+      "id": "tchmi:project#/definitions/MonitorNameDisplayWithNavigation"
+    },
+    "NavTree_goto_button": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\NavTree_goto_button.usercontrol.json",
+      "id": "tchmi:project#/definitions/NavTree_goto_button"
+    },
+    "NavTree_Level": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\NavTree_Level.usercontrol.json",
+      "id": "tchmi:project#/definitions/NavTree_Level",
+      "type": "object"
+    },
+    "NavTree_nav_button": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\NavTree_nav_button.usercontrol.json",
+      "id": "tchmi:project#/definitions/NavTree_nav_button",
+      "type": "object"
+    },
+    "NumericInputWithLabel": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\NumericInputWithLabel.usercontrol.json",
+      "id": "tchmi:project#/definitions/NumericInputWithLabel"
+    },
+    "PML_Flowchart": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\PML_Flowchart.usercontrol.json",
+      "id": "tchmi:project#/definitions/PML_Flowchart",
+      "type": "object"
+    },
+    "PMLModeCommand": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\PMLModeCommand.usercontrol.json",
+      "id": "tchmi:project#/definitions/PMLModeCommand",
+      "type": "object"
+    },
+    "PMLModeDisplay": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\PMLModeDisplay.usercontrol.json",
+      "id": "tchmi:project#/definitions/PMLModeDisplay",
+      "type": "object"
+    },
+    "PMLModuleBase": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\ModuleMonitoring\\PMLModuleBase_Monitor.usercontrol.json",
+      "id": "tchmi:project#/definitions/PMLModuleBase"
+    },
+    "PMLModuleBase_Monitor": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\ModuleMonitoring\\PMLModuleBase_Monitor.usercontrol.json",
+      "id": "tchmi:project#/definitions/PMLModuleBase_Monitor",
+      "type": "object"
+    },
+    "PMLStateCommand": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\PMLStateCommand.usercontrol.json",
+      "id": "tchmi:project#/definitions/PMLStateCommand"
+    },
+    "PMLStateDisplay": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\PMLStateDisplay.usercontrol.json",
+      "id": "tchmi:project#/definitions/PMLStateDisplay"
+    },
+    "ProductionStatus_LinearGraph": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\ProductionStatus_LinearGraph.usercontrol.json",
+      "id": "tchmi:project#/definitions/ProductionStatus_LinearGraph"
+    },
+    "StringDisplay": {
+      "properties": {},
+      "type": "object",
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\StringDisplay.usercontrol.json",
+      "id": "tchmi:project#/definitions/StringDisplay"
     },
     "ViewPos": {
       "properties": {
@@ -43,379 +300,6 @@
       "title": "Camera View Position",
       "description": "Defines the Position, size, and Z Index of a Camera View Control"
     },
-    "Symbol_Of_TcHmi.Controls.Beckhoff.TcHmiTrendLineChart.ChartStart": {
-      "allOf": [
-        {
-          "$ref": "tchmi:framework#/definitions/Symbol"
-        },
-        {
-          "frameworkSymbolSubType": {
-            "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiTrendLineChart.ChartStart"
-          }
-        }
-      ]
-    },
-    "Symbol_Of_STRING(80)": {
-      "allOf": [
-        {
-          "$ref": "tchmi:framework#/definitions/Symbol"
-        },
-        {
-          "frameworkSymbolSubType": {
-            "$ref": "tchmi:general#/definitions/STRING(80)"
-          }
-        }
-      ]
-    },
-    "Symbol_Of_TcHmi.Controls.Beckhoff.TcHmiTextblock": {
-      "allOf": [
-        {
-          "$ref": "tchmi:framework#/definitions/Symbol"
-        },
-        {
-          "frameworkSymbolSubType": {
-            "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiTextblock"
-          }
-        }
-      ]
-    },
-    "Symbol_Of_String": {
-      "allOf": [
-        {
-          "$ref": "tchmi:framework#/definitions/Symbol"
-        },
-        {
-          "frameworkSymbolSubType": {
-            "$ref": "tchmi:general#/definitions/String"
-          }
-        }
-      ]
-    },
-    "Controls_CameraView": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\CameraView.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Controls_CameraView"
-    },
-    "Controls_MainCycleControl": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\MainCycleControl.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Controls_MainCycleControl"
-    },
-    "Controls_MainModeControl": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\MainModeControl.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Controls_MainModeControl"
-    },
-    "Controls_Navigation_Frame": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\Navigation_Frame.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Controls_Navigation_Frame"
-    },
-    "Controls_PermissiveStatus": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\PermissiveStatus.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Controls_PermissiveStatus"
-    },
-    "Controls_PML_Commands": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\PML_Commands.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Controls_PML_Commands"
-    },
-    "Controls_ProcessData": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\ProcessData.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Controls_ProcessData"
-    },
-    "Controls_ProductionStatus_LinearGraph": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\ProductionStatus_LinearGraph.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Controls_ProductionStatus_LinearGraph"
-    },
-    "Controls_ProductionStatus_RadialGauge": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\ProductionStatus_RadialGauge.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Controls_ProductionStatus_RadialGauge"
-    },
-    "Controls_TrendLegend_ActivationButton": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\TrendLegend_ActivationButton.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/Controls_TrendLegend_ActivationButton"
-    },
-    "Cone": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\Cone.usercontrol.json",
-      "id": "tchmi:project#/definitions/Cone",
-      "type": "object"
-    },
-    "UserControl1_0": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\UserControl1.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/UserControl1_0"
-    },
-    "PML_Flowchart": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\PML_Flowchart.usercontrol.json",
-      "id": "tchmi:project#/definitions/PML_Flowchart",
-      "type": "object"
-    },
-    "PLC_PML.Tc3_PackML_V2.E_PMLCommand": {
-      "allOf": [
-        {
-          "enum": [
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"
-          ],
-          "options": [
-            {
-              "value": 0,
-              "label": "ePMLCommand_Undefined"
-            },
-            {
-              "value": 1,
-              "label": "ePMLCommand_Reset"
-            },
-            {
-              "value": 2,
-              "label": "ePMLCommand_Start"
-            },
-            {
-              "value": 3,
-              "label": "ePMLCommand_Stop"
-            },
-            {
-              "value": 4,
-              "label": "ePMLCommand_Hold"
-            },
-            {
-              "value": 5,
-              "label": "ePMLCommand_Unhold"
-            },
-            {
-              "value": 6,
-              "label": "ePMLCommand_Suspend"
-            },
-            {
-              "value": 7,
-              "label": "ePMLCommand_Unsuspend"
-            },
-            {
-              "value": 8,
-              "label": "ePMLCommand_Abort"
-            },
-            {
-              "value": 9,
-              "label": "ePMLCommand_Clear"
-            },
-            {
-              "value": 10,
-              "label": "ePMLCommand_Complete"
-            }
-          ]
-        },
-        {
-          "$ref": "tchmi:general#/definitions/INT32"
-        }
-      ]
-    },
-    "PLC_PML.Tc3_PackML_V2.E_PMLState": {
-      "allOf": [
-        {
-          "enum": [
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17"
-          ],
-          "options": [
-            {
-              "value": 0,
-              "label": "ePMLState_Undefined"
-            },
-            {
-              "value": 1,
-              "label": "ePMLState_Clearing"
-            },
-            {
-              "value": 2,
-              "label": "ePMLState_Stopped"
-            },
-            {
-              "value": 3,
-              "label": "ePMLState_Starting"
-            },
-            {
-              "value": 4,
-              "label": "ePMLState_Idle"
-            },
-            {
-              "value": 5,
-              "label": "ePMLState_Suspended"
-            },
-            {
-              "value": 6,
-              "label": "ePMLState_Execute"
-            },
-            {
-              "value": 7,
-              "label": "ePMLState_Stopping"
-            },
-            {
-              "value": 8,
-              "label": "ePMLState_Aborting"
-            },
-            {
-              "value": 9,
-              "label": "ePMLState_Aborted"
-            },
-            {
-              "value": 10,
-              "label": "ePMLState_Holding"
-            },
-            {
-              "value": 11,
-              "label": "ePMLState_Held"
-            },
-            {
-              "value": 12,
-              "label": "ePMLState_Unholding"
-            },
-            {
-              "value": 13,
-              "label": "ePMLState_Suspending"
-            },
-            {
-              "value": 14,
-              "label": "ePMLState_Unsuspending"
-            },
-            {
-              "value": 15,
-              "label": "ePMLState_Resetting"
-            },
-            {
-              "value": 16,
-              "label": "ePMLState_Completing"
-            },
-            {
-              "value": 17,
-              "label": "ePMLState_Complete"
-            }
-          ]
-        },
-        {
-          "$ref": "tchmi:general#/definitions/INT32"
-        }
-      ]
-    },
-    "MainCycleControl": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\MainCycleControl.usercontrol.json",
-      "id": "tchmi:project#/definitions/MainCycleControl",
-      "type": "object"
-    },
-    "Symbol_Of_PLC_PML.FB_MainHMI_Connection": {
-      "allOf": [
-        {
-          "$ref": "tchmi:framework#/definitions/Symbol"
-        },
-        {
-          "frameworkSymbolSubType": {
-            "$ref": "tchmi:server#/definitions/PLC_PML.FB_MainHMI_Connection"
-          }
-        }
-      ]
-    },
-    "Array(0..0) OF String": {
-      "items": {
-        "$ref": "tchmi:general#/definitions/String"
-      },
-      "type": "array"
-    },
-    "NavTree_Level": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\NavTree_Level.usercontrol.json",
-      "id": "tchmi:project#/definitions/NavTree_Level",
-      "type": "object"
-    },
-    "NavTree_goto_button": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\NavTree_goto_button.usercontrol.json",
-      "id": "tchmi:project#/definitions/NavTree_goto_button",
-      "type": "object"
-    },
-    "NavTree_nav_button": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\NavTree_nav_button.usercontrol.json",
-      "id": "tchmi:project#/definitions/NavTree_nav_button",
-      "type": "object"
-    },
     "Array(0..15) OF String": {
       "items": {
         "$ref": "tchmi:general#/definitions/String"
@@ -424,149 +308,53 @@
       "minItems": 16,
       "maxItems": 16
     },
-    "BooleanIndicatorWithLabel": {
+    "ExpandableMonitorTemplate": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
       "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\BooleanIndicatorWithLabel.usercontrol.json",
-      "id": "tchmi:project#/definitions/BooleanIndicatorWithLabel",
-      "type": "object"
-    },
-    "BooleanCommandButton": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\BooleanCommandButton.usercontrol.json",
-      "id": "tchmi:project#/definitions/BooleanCommandButton",
-      "type": "object"
-    },
-    "TimeInputWithLabel": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\TimeInputWithLabel.usercontrol.json",
-      "id": "tchmi:project#/definitions/TimeInputWithLabel",
-      "type": "object"
-    },
-    "NumericInputWithLabel": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\NumericInputWithLabel.usercontrol.json",
-      "id": "tchmi:project#/definitions/NumericInputWithLabel",
-      "type": "object"
-    },
-    "PMLModuleBase": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\ModuleMonitoring\\PMLModuleBase_Monitor.usercontrol.json",
-      "id": "tchmi:project#/definitions/PMLModuleBase",
-      "type": "object"
-    },
-    "PMLStateDisplay": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\PMLStateDisplay.usercontrol.json",
-      "id": "tchmi:project#/definitions/PMLStateDisplay",
-      "type": "object"
-    },
-    "PMLModeDisplay": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\PMLModeDisplay.usercontrol.json",
-      "id": "tchmi:project#/definitions/PMLModeDisplay",
-      "type": "object"
-    },
-    "BooleanToggleIndicatorWithLabel": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\BooleanToggleIndicatorWithLabel.usercontrol.json",
-      "id": "tchmi:project#/definitions/BooleanToggleIndicatorWithLabel",
-      "type": "object"
-    },
-    "ComponentBase_Monitor": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\ComponentMonitoring\\ComponentBase_Monitor.usercontrol.json",
+      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\ExpandableMonitorTemplate.usercontrol.json",
       "type": "object",
-      "id": "tchmi:project#/definitions/ComponentBase_Monitor"
+      "id": "tchmi:project#/definitions/ExpandableMonitorTemplate"
     },
-    "StringDisplay": {
+    "MainModeControl": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
       "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\StringDisplay.usercontrol.json",
+      "frameworkUserControlConfig": "Controls\\MainModeControl.usercontrol.json",
       "type": "object",
-      "id": "tchmi:project#/definitions/StringDisplay"
+      "id": "tchmi:project#/definitions/MainModeControl"
     },
-    "CylinderBase_Monitor": {
+    "Array(0..7) OF String": {
+      "items": {
+        "$ref": "tchmi:general#/definitions/String"
+      },
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8
+    },
+    "Navigation_Frame": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
       "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\ComponentMonitoring\\CylinderMonitoring\\CylinderBase_Monitor.usercontrol.json",
-      "id": "tchmi:project#/definitions/CylinderBase_Monitor",
-      "type": "object"
-    },
-    "MonitorNameDisplayWithNavigation": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\MonitorNameDisplayWithNavigation.usercontrol.json",
+      "frameworkUserControlConfig": "Controls\\Navigation_Frame.usercontrol.json",
       "type": "object",
-      "id": "tchmi:project#/definitions/MonitorNameDisplayWithNavigation"
+      "id": "tchmi:project#/definitions/Navigation_Frame"
     },
-    "AxisBase_Monitor": {
+    "Array(0..7) OF SINT": {
+      "items": {
+        "$ref": "tchmi:general#/definitions/SINT"
+      },
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8
+    },
+    "PermissiveStatus": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
       "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
       "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\ComponentMonitoring\\AxisMonitoring\\AxisBase_Monitor.usercontrol.json",
-      "id": "tchmi:project#/definitions/AxisBase_Monitor",
-      "type": "object"
-    },
-    "SensorDebounceInputWithLabel": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\SensorDebounceInputWithLabel.usercontrol.json",
-      "id": "tchmi:project#/definitions/SensorDebounceInputWithLabel",
-      "type": "object"
-    },
-    "PMLStateCommand": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\PMLStateCommand.usercontrol.json",
-      "id": "tchmi:project#/definitions/PMLStateCommand",
-      "type": "object"
-    },
-    "PMLModeCommand": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\Utilities\\PMLModeCommand.usercontrol.json",
-      "id": "tchmi:project#/definitions/PMLModeCommand",
-      "type": "object"
-    },
-    "ProductionStatus_LinearGraph": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\ProductionStatus_LinearGraph.usercontrol.json",
-      "id": "tchmi:project#/definitions/ProductionStatus_LinearGraph",
-      "type": "object"
-    },
-    "PMLModuleBase_Monitor": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "Controls\\HardwareMonitoring\\ModuleMonitoring\\PMLModuleBase_Monitor.usercontrol.json",
+      "frameworkUserControlConfig": "Controls\\PermissiveStatus.usercontrol.json",
       "type": "object",
-      "id": "tchmi:project#/definitions/PMLModuleBase_Monitor"
+      "id": "tchmi:project#/definitions/PermissiveStatus"
     }
   }
 }

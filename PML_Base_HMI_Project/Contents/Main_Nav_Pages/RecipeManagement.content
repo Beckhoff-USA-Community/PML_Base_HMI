@@ -349,11 +349,11 @@
 
 </div>
 
-<div id="TcHmiTextblock_Value1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="4" data-tchmi-height-unit="%" data-tchmi-left="79.5" data-tchmi-left-unit="%" data-tchmi-text="%f%'Target: '+ %s%PLC1.MAIN.fbHMI_TestCode.nShiftSimTarget%/s%%/f%" data-tchmi-top="10" data-tchmi-top-unit="%" data-tchmi-width="17" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center">
+<div id="TcHmiTextblock_Value1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="4" data-tchmi-height-unit="%" data-tchmi-left="79.5" data-tchmi-left-unit="%" data-tchmi-text="%f%'Target: '+ %s%PLC_PML.MAIN.fbHMI_TestCode.nShiftSimTarget%/s%%/f%" data-tchmi-top="10" data-tchmi-top-unit="%" data-tchmi-width="17" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center">
 
 </div>
 
-<div id="TcHmiTextblock_Value2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="4" data-tchmi-height-unit="%" data-tchmi-left="79.5" data-tchmi-left-unit="%" data-tchmi-text="%f%'Shift Length: '+ %s%PLC1.MAIN.fbHMI_TestCode.nShiftSimEnd%/s%%/f%" data-tchmi-top="15" data-tchmi-top-unit="%" data-tchmi-width="17" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center">
+<div id="TcHmiTextblock_Value2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="4" data-tchmi-height-unit="%" data-tchmi-left="79.5" data-tchmi-left-unit="%" data-tchmi-text="%f%'Shift Length: '+ %s%PLC_PML.MAIN.fbHMI_TestCode.nShiftSimEnd%/s%%/f%" data-tchmi-top="15" data-tchmi-top-unit="%" data-tchmi-width="17" data-tchmi-width-unit="%" data-tchmi-word-wrap="True" data-tchmi-text-font-size="14" data-tchmi-text-font-weight="Normal" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center">
 
 </div>
 

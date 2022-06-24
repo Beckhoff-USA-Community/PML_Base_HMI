@@ -4,7 +4,7 @@
       "name": "data-tchmi-treedef",
       "displayName": "TreeDef",
       "visible": true,
-      "type": "tchmi:server#/definitions/PLC_PML.ARRAY (0..63) OF ST_Tree_IndexBased_Node",
+      "type": "tchmi:server#/definitions/PLC_PML.ARRAY_0..63_OF-PML_Base_Library.ST_Tree_IndexBased_Node",
       "category": "",
       "description": "",
       "requiredOnCompile": false,
